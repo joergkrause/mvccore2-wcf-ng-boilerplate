@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="AuthenticationService.svc" />
     <Content Include="MachineService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -85,6 +86,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="AuthenticationService.svc.cs">
+      <DependentUpon>AuthenticationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IAuthenticationService.cs" />
     <Compile Include="MachineService.svc.cs">
       <DependentUpon>MachineService.svc</DependentUpon>
     </Compile>

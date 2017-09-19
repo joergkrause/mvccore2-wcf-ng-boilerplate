@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MachineServiceReference;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers {
+
+  [Authorize(Policy = "ApiUser")]
   [Route("api/[controller]")]
   public class MachinesController : Controller {
 

@@ -1,0 +1,63 @@
+﻿using JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer.Authentication;
+using JoergIsAGeek.Workshop.Enterprise.DataTransferObjects.Authentication;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
+{
+  [ServiceContract(Name = "AuthSrv", Namespace = "http://www.joergkrause.de/srv")]
+  public interface IAuthenticationService
+  {
+    [OperationContract]
+    IdentityResult CreateUser(UserDto user);
+    [OperationContract]
+    UserDto FindUserById(string userId);
+    [OperationContract]
+    UserDto FindUserByName(string normalizedUserName);
+    [OperationContract]
+    string GetNormalizedUserName(UserDto user);
+    [OperationContract]
+    string GeUserDtoId(UserDto user);
+    [OperationContract]
+    string GeUserDtoName(UserDto user);
+    [OperationContract]
+    void SetNormalizedUserName(UserDto user, string normalizedName);
+    [OperationContract]
+    void SeUserDtoName(UserDto user, string userName);
+    [OperationContract]
+    IdentityResult UpdateUser(UserDto user);
+    [OperationContract]
+    IdentityResult CreateRole(IdentityRoleDto role);
+
+    [OperationContract]
+    IdentityResult DeleteRole(IdentityRoleDto role);
+
+    [OperationContract]
+    IdentityRoleDto FindRoleById(string roleId);
+
+    [OperationContract]
+    IdentityRoleDto FindRoleByName(string normalizedRoleName);
+
+    [OperationContract]
+    string GetNormalizedRoleName(IdentityRoleDto role);
+
+    [OperationContract]
+    string GeIdentityRoleDtoId(IdentityRoleDto role);
+
+    [OperationContract]
+    string GeIdentityRoleDtoName(IdentityRoleDto role);
+
+    [OperationContract]
+    void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
+
+    [OperationContract]
+    void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
+
+    [OperationContract]
+    IdentityResult UpdateRole(IdentityRoleDto role);
+  }
+}

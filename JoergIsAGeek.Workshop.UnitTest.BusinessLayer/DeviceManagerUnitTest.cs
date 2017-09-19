@@ -38,7 +38,7 @@ namespace JoergIsAGeek.Workshop.UnitTest.BusinessLayer {
       };
       machineManager = new MachineManager();
       // Mock zentral erstellen
-      var mock = new Mock<IGenericRepository<Machine>>();
+      var mock = new Mock<IGenericRepository<Machine, int>>();
       mock.Setup(r => r.Read(m => true))
           .Returns(machines.Where(m => !m.Devices.Any()));
       mock.Setup(r => r.Query(m => true, m => m.Devices, m => m.Devices.Select(d => d.DataValues)))

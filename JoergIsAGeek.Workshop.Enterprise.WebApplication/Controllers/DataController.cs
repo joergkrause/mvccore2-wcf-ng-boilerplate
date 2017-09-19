@@ -9,12 +9,12 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Globalization;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers {
 
 
-
-
+  [Authorize(Policy = "ApiUser")]
   [Route("api/[controller]")]
   public class DataController : Controller {
 

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 
 namespace JoergIsAGeek.Workshop.Enterprise.Repository {
-  public interface IGenericRepository<T> where T : EntityBase {
+  public interface IGenericRepository<T, U> where T : EntityBase<U> {
     int Count();
     bool Delete(T model);
-    T Find(int id);
+    T Find(U id);
     bool InsertOrUpdate(T model); 
     IQueryable<T> Query(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] paths);
     IEnumerable<T> Read(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] paths);

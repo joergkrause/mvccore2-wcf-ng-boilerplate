@@ -5,14 +5,14 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
 {
   public abstract class Manager {
 
-    private IGenericRepository<Machine>   repMachine;
-    private IGenericRepository<Device>    repDevice;
-    private IGenericRepository<DataValue> repDataValue;
+    private IGenericRepository<Machine, int>   repMachine;
+    private IGenericRepository<Device, int>    repDevice;
+    private IGenericRepository<DataValue, int> repDataValue;
 
     public Manager() {
     }
 
-    public IGenericRepository<DataValue> RepDataValue {
+    public IGenericRepository<DataValue, int> RepDataValue {
       protected get {
         return repDataValue;
       }
@@ -20,7 +20,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
         repDataValue = value;
       }
     }
-    public IGenericRepository<Device> RepDevice{
+    public IGenericRepository<Device, int> RepDevice{
       protected get {
         return repDevice;
       }
@@ -28,7 +28,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
         repDevice = value;
       }
     }
-    public IGenericRepository<Machine> RepMachine {
+    public IGenericRepository<Machine, int> RepMachine {
       protected get {
         return repMachine;
       }

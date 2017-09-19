@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationManager.cs" />
+    <Compile Include="Authentication\IdentityError.cs" />
+    <Compile Include="Authentication\IdentityResult.cs" />
+    <Compile Include="IAuthenticationManager.cs" />
     <Compile Include="IMachineManager.cs" />
     <Compile Include="MachineManager.cs" />
     <Compile Include="Manager.cs" />

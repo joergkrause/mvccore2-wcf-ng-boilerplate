@@ -23,7 +23,7 @@ namespace JoergIsAGeek.Workshop.UnitTest.BusinessLayer {
     [TestMethod]
     public void GetAllMachines() {
       var machineManager = new MachineManager();
-      var mock = new Mock<IGenericRepository<Machine>>();
+      var mock = new Mock<IGenericRepository<Machine, int>>();
       mock.Setup(r => r.Read(m => true)).Returns(machines);
 
       machineManager.RepMachine = mock.Object;
@@ -37,7 +37,7 @@ namespace JoergIsAGeek.Workshop.UnitTest.BusinessLayer {
     [TestMethod]
     public void GetSingleMachine() {
       var machineManager = new MachineManager();
-      var mock = new Mock<IGenericRepository<Machine>>();
+      var mock = new Mock<IGenericRepository<Machine, int>>();
       var testValue = 1;
       mock.Setup(r => r.Find(testValue)).Returns(machines.Single(m => m.Id == testValue));
       // mock.Setup(r => r.Find(1)).Returns(machines[0]);

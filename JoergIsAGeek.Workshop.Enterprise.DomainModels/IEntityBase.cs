@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
-  public interface IEntityBase {
+  public interface IEntityBase<T> {
 
-    int Id { get; set; }
+    T Id { get; set; }
 
 
   }

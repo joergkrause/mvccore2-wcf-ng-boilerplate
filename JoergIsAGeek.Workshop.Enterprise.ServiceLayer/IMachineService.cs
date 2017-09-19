@@ -6,7 +6,7 @@ using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
 {
   // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-  [ServiceContract(Name ="MachineSrv", Namespace ="http://JoergIsAGeek.com/srv")]
+  [ServiceContract(Name ="MachineSrv", Namespace ="http://www.joergkrause.de/srv")]
   public interface IMachineService {
 
     [OperationContract(Action ="GetMachines")]

@@ -3,7 +3,7 @@
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
 
 
-  public class Device : EntityBase {
+  public class Device : EntityBase<int> {
 
     public Device() {
       //DataValues = new HashSet<DataValue>();

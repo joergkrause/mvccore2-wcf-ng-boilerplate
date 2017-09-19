@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
-  public class Machine : EntityBase {
+  public class Machine : EntityBase<int> {
 
     //[ForCsv(CsvType.AsValue)]
     [Required]

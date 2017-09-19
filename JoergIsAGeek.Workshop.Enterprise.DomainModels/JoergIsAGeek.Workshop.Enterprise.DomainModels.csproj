@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\IdentityRole.cs" />
+    <Compile Include="Authentication\User.cs" />
     <Compile Include="DataValue.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="EntityBase.cs" />

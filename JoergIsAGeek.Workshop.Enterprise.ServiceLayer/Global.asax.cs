@@ -2,6 +2,7 @@
 using Autofac.Integration.Wcf;
 using JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer;
 using JoergIsAGeek.Workshop.Enterprise.DomainModels;
+using JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication;
 using JoergIsAGeek.Workshop.Enterprise.Repository;
 using System;
 using System.Collections.Generic;
@@ -17,39 +18,20 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer {
       var builder = new ContainerBuilder();
 
       builder.RegisterType<MachineService>();
+      builder.RegisterType<AuthenticationService>();
 
-      builder.RegisterType<GenericDbRepository<Machine>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<Device>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<DataValue>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<Machine, int>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<Device, int>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<DataValue, int>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<User, string>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<IdentityRole, string>>().AsImplementedInterfaces();
 
       builder.RegisterType<MachineManager>().As<IMachineManager>().SingleInstance().PropertiesAutowired();
+      builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().SingleInstance().PropertiesAutowired();
 
       var container = builder.Build();
       AutofacHostFactory.Container = container;
     }
 
-    protected void Session_Start(object sender, EventArgs e) {
-
-    }
-
-    protected void Application_BeginRequest(object sender, EventArgs e) {
-
-    }
-
-    protected void Application_AuthenticateRequest(object sender, EventArgs e) {
-
-    }
-
-    protected void Application_Error(object sender, EventArgs e) {
-
-    }
-
-    protected void Session_End(object sender, EventArgs e) {
-
-    }
-
-    protected void Application_End(object sender, EventArgs e) {
-
-    }
   }
 }

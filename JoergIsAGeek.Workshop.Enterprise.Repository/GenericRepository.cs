@@ -10,7 +10,7 @@ using System.Web;
 using JoergIsAGeek.Workshop.Enterprise.DataAccessLayer;
 
 namespace JoergIsAGeek.Workshop.Enterprise.Repository {
-  public class GenericDbRepository<T> : IGenericRepository<T> where T : EntityBase {
+  public class GenericDbRepository<T, U> : IGenericRepository<T, U> where T : EntityBase<U> {
 
 
     public GenericDbRepository() {
@@ -35,7 +35,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
       }
     }
 
-    public T Find(int id) {
+    public T Find(U id) {
       return Context.Set<T>().Find(id); //.Single(u => u.Id == id);
     }
 
@@ -67,7 +67,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
     }
 
     public bool InsertOrUpdate(T model) {
-      Context.Entry(model).State = model.Id == default(int) ? EntityState.Added : EntityState.Modified;
+      Context.Entry(model).State = EqualityComparer<U>.Default.Equals(model.Id, default(U)) ? EntityState.Added : EntityState.Modified;
       return Context.SaveChanges() == 1;
     }
 
