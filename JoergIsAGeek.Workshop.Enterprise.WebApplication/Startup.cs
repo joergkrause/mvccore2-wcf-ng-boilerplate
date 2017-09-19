@@ -26,14 +26,18 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication {
     public void ConfigureServices(IServiceCollection services) {
       // Add framework services.
       services.AddMvc();
+      // Security using custom backend
+      //services.AddIdentity<()
 
+      // Access to the service layer
       var client = new MachineSrvClient();
-      // configure container...
+      // configure container with service access
       services.AddSingleton(typeof(MachineSrvClient), client);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
+      
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
       app.UseDefaultFiles();

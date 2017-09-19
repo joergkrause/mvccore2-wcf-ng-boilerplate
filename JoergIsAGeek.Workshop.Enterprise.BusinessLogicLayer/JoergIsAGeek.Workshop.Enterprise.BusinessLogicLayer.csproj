@@ -63,15 +63,15 @@
   <ItemGroup>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DataTransferObjects\JoergIsAGeek.Workshop.Enterprise.DataTransferObjects.csproj">
       <Project>{46de08af-cecf-45c3-a975-f62018188eda}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DataTransferObjects</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DataTransferObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DomainModels\JoergIsAGeek.Workshop.Enterprise.DomainModels.csproj">
       <Project>{f7012709-60fd-4a4e-9acf-1c636776e43f}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DomainModels</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DomainModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.Repository\JoergIsAGeek.Workshop.Enterprise.Repository.csproj">
       <Project>{9f5161ca-3b8a-4d5c-9630-ee99bd1fbb0a}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.Repository</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

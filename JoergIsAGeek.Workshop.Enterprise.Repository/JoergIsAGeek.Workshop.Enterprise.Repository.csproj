@@ -54,18 +54,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DataAcccessLayer\JoergIsAGeek.Workshop.Enterprise.DataAccessLayer.csproj">
-      <Project>{9251CB79-CDB0-468C-80F1-E1392601824C}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DataAccessLayer</Name>
+      <Project>{9251cb79-cdb0-468c-80f1-e1392601824c}</Project>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DomainModels\JoergIsAGeek.Workshop.Enterprise.DomainModels.csproj">
       <Project>{f7012709-60fd-4a4e-9acf-1c636776e43f}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DomainModels</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DomainModels</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

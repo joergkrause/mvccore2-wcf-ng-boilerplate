@@ -60,7 +60,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DomainModels\JoergIsAGeek.Workshop.Enterprise.DomainModels.csproj">
       <Project>{f7012709-60fd-4a4e-9acf-1c636776e43f}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DomainModels</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DomainModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
