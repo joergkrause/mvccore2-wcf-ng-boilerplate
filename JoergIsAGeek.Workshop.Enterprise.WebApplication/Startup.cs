@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Identity;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference;
 using System.Text;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Helpers;
@@ -22,6 +21,7 @@ using Microsoft.AspNetCore.Http;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
+using JoergIsAGeek.Workshop.Enterprise.Services;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {

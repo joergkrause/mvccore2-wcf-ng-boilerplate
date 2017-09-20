@@ -180,5 +180,23 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
         return IdentityResult.GetError();
       }
     }
+
+    public string GetPasswordHashAsync(UserDto userDto)
+    {
+      return RepUsers.Find(userDto.Id)?.Password;
+    }
+
+    public bool HasPasswordAsync(UserDto userDto)
+    {
+      return !String.IsNullOrEmpty(RepUsers.Find(userDto.Id)?.Password);
+    }
+
+    public void SetPasswordHashAsync(UserDto userDto, string passwordHash)
+    {
+      var user = FindUserById(userDto.Id);
+      user.Password = passwordHash;
+      RepUsers.InsertOrUpdate(mapper.Map<User>(user));
+    }
+
   }
 }

@@ -38,5 +38,10 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
     void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
 
     IdentityResult UpdateRole(IdentityRoleDto role);
+    string GetPasswordHashAsync(UserDto userDto);
+
+    bool HasPasswordAsync(UserDto userDto);
+
+    void SetPasswordHashAsync(UserDto userDto, string passwordHash);
   }
 }

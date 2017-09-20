@@ -9,7 +9,6 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Helpers;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;

@@ -12,8 +12,6 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
   public class MachineManager : Manager, IMachineManager
   {
 
-    IMapper mapper;
-
     public MachineManager()
     {
       var config = new MapperConfiguration(cfg =>

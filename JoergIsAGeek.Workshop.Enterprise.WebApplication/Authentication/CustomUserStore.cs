@@ -3,8 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.AspNetCore.Identity;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference;
 using AutoMapper;
+using JoergIsAGeek.Workshop.Enterprise.Services;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -88,9 +88,10 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       await _authclient.SetNormalizedUserNameAsync(userDto, normalizedName);
     }
 
-    public Task SetPasswordHashAsync(ApplicationUser user, string passwordHash, CancellationToken cancellationToken)
+    public async Task SetPasswordHashAsync(ApplicationUser user, string passwordHash, CancellationToken cancellationToken)
     {
-      throw new NotImplementedException();
+      // TODO: Call Service
+
     }
 
     public async Task SetUserNameAsync(ApplicationUser user, string userName, CancellationToken cancellationToken)

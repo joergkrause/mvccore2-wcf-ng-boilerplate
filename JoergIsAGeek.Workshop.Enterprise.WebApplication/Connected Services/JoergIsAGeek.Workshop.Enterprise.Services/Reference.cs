@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference
+namespace JoergIsAGeek.Workshop.Enterprise.Services
 {
     using System.Runtime.Serialization;
     
@@ -19,9 +19,45 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference
     public partial class UserDto : object
     {
         
+        private string EmailField;
+        
+        private string FirstNameField;
+        
         private string IdField;
         
-        private string NameField;
+        private string LastNameField;
+        
+        private string LocationField;
+        
+        private string PasswordField;
+        
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email
+        {
+            get
+            {
+                return this.EmailField;
+            }
+            set
+            {
+                this.EmailField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName
+        {
+            get
+            {
+                return this.FirstNameField;
+            }
+            set
+            {
+                this.FirstNameField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Id
@@ -37,15 +73,54 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name
+        public string LastName
         {
             get
             {
-                return this.NameField;
+                return this.LastNameField;
             }
             set
             {
-                this.NameField = value;
+                this.LastNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Location
+        {
+            get
+            {
+                return this.LocationField;
+            }
+            set
+            {
+                this.LocationField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password
+        {
+            get
+            {
+                return this.PasswordField;
+            }
+            set
+            {
+                this.PasswordField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName
+        {
+            get
+            {
+                return this.UserNameField;
+            }
+            set
+            {
+                this.UserNameField = value;
             }
         }
     }
@@ -56,59 +131,6 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference
         "LogicLayer.Authentication")]
     public partial class IdentityResult : object
     {
-        
-        private System.Collections.Generic.List<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityError> ErrorsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityError> Errors
-        {
-            get
-            {
-                return this.ErrorsField;
-            }
-            set
-            {
-                this.ErrorsField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IdentityError", Namespace="http://schemas.datacontract.org/2004/07/JoergIsAGeek.Workshop.Enterprise.Business" +
-        "LogicLayer.Authentication")]
-    public partial class IdentityError : object
-    {
-        
-        private string CodeField;
-        
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code
-        {
-            get
-            {
-                return this.CodeField;
-            }
-            set
-            {
-                this.CodeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description
-        {
-            get
-            {
-                return this.DescriptionField;
-            }
-            set
-            {
-                this.DescriptionField = value;
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -150,76 +172,85 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.joergkrause.de/srv", ConfigurationName="JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.AuthSrv")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.joergkrause.de/srv", ConfigurationName="JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv")]
     public interface AuthSrv
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/CreateUser", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/CreateUserResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> CreateUserAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindUserById", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindUserByIdResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto> FindUserByIdAsync(string userId);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByIdAsync(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindUserByName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindUserByNameResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto> FindUserByNameAsync(string normalizedUserName);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByNameAsync(string normalizedUserName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedUserName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedUserNameResponse")]
-        System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user);
+        System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoId", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoIdResponse")]
-        System.Threading.Tasks.Task<string> GeUserDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user);
+        System.Threading.Tasks.Task<string> GeUserDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoNameResponse")]
-        System.Threading.Tasks.Task<string> GeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user);
+        System.Threading.Tasks.Task<string> GeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedUserName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedUserNameResponse")]
-        System.Threading.Tasks.Task SetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user, string normalizedName);
+        System.Threading.Tasks.Task SetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string normalizedName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SeUserDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SeUserDtoNameResponse")]
-        System.Threading.Tasks.Task SeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user, string userName);
+        System.Threading.Tasks.Task SeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/UpdateUser", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/UpdateUserResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> UpdateUserAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/CreateRole", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/CreateRoleResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> CreateRoleAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/DeleteRole", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/DeleteRoleResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> DeleteRoleAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> DeleteRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindRoleById", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindRoleByIdResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto> FindRoleByIdAsync(string roleId);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByIdAsync(string roleId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindRoleByName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindRoleByNameResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedRoleName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedRoleNameResponse")]
-        System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role);
+        System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoId", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoIdResponse")]
-        System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role);
+        System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoNameResponse")]
-        System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role);
+        System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedRoleName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedRoleNameResponse")]
-        System.Threading.Tasks.Task SetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role, string normalizedName);
+        System.Threading.Tasks.Task SetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string normalizedName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SeIdentityRoleDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SeIdentityRoleDtoNameResponse")]
-        System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role, string roleName);
+        System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string roleName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/UpdateRole", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/UpdateRoleResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> UpdateRoleAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role);
+        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetPasswordHashAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetPasswordHashAsyncResponse")]
+        System.Threading.Tasks.Task<string> GetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/HasPasswordAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/HasPasswordAsyncResponse")]
+        System.Threading.Tasks.Task<bool> HasPasswordAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetPasswordHashAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetPasswordHashAsyncResponse")]
+        System.Threading.Tasks.Task SetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto, string passwordHash);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    public interface AuthSrvChannel : JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.AuthSrv, System.ServiceModel.IClientChannel
+    public interface AuthSrvChannel : JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    public partial class AuthSrvClient : System.ServiceModel.ClientBase<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.AuthSrv>, JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.AuthSrv
+    public partial class AuthSrvClient : System.ServiceModel.ClientBase<JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv>, JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv
     {
         
     /// <summary>
@@ -262,99 +293,114 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference
         {
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> CreateUserAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
         {
             return base.Channel.CreateUserAsync(user);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto> FindUserByIdAsync(string userId)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByIdAsync(string userId)
         {
             return base.Channel.FindUserByIdAsync(userId);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto> FindUserByNameAsync(string normalizedUserName)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByNameAsync(string normalizedUserName)
         {
             return base.Channel.FindUserByNameAsync(normalizedUserName);
         }
         
-        public System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user)
+        public System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
         {
             return base.Channel.GetNormalizedUserNameAsync(user);
         }
         
-        public System.Threading.Tasks.Task<string> GeUserDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user)
+        public System.Threading.Tasks.Task<string> GeUserDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
         {
             return base.Channel.GeUserDtoIdAsync(user);
         }
         
-        public System.Threading.Tasks.Task<string> GeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user)
+        public System.Threading.Tasks.Task<string> GeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
         {
             return base.Channel.GeUserDtoNameAsync(user);
         }
         
-        public System.Threading.Tasks.Task SetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user, string normalizedName)
+        public System.Threading.Tasks.Task SetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string normalizedName)
         {
             return base.Channel.SetNormalizedUserNameAsync(user, normalizedName);
         }
         
-        public System.Threading.Tasks.Task SeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user, string userName)
+        public System.Threading.Tasks.Task SeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string userName)
         {
             return base.Channel.SeUserDtoNameAsync(user, userName);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> UpdateUserAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.UserDto user)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
         {
             return base.Channel.UpdateUserAsync(user);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> CreateRoleAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
         {
             return base.Channel.CreateRoleAsync(role);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> DeleteRoleAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> DeleteRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
         {
             return base.Channel.DeleteRoleAsync(role);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto> FindRoleByIdAsync(string roleId)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByIdAsync(string roleId)
         {
             return base.Channel.FindRoleByIdAsync(roleId);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName)
         {
             return base.Channel.FindRoleByNameAsync(normalizedRoleName);
         }
         
-        public System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
         {
             return base.Channel.GetNormalizedRoleNameAsync(role);
         }
         
-        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
         {
             return base.Channel.GeIdentityRoleDtoIdAsync(role);
         }
         
-        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
         {
             return base.Channel.GeIdentityRoleDtoNameAsync(role);
         }
         
-        public System.Threading.Tasks.Task SetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role, string normalizedName)
+        public System.Threading.Tasks.Task SetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string normalizedName)
         {
             return base.Channel.SetNormalizedRoleNameAsync(role, normalizedName);
         }
         
-        public System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role, string roleName)
+        public System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string roleName)
         {
             return base.Channel.SeIdentityRoleDtoNameAsync(role, roleName);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityResult> UpdateRoleAsync(JoergIsAGeek.Workshop.Enterprise.WebApplication.Reference.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
         {
             return base.Channel.UpdateRoleAsync(role);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto)
+        {
+            return base.Channel.GetPasswordHashAsyncAsync(userDto);
+        }
+        
+        public System.Threading.Tasks.Task<bool> HasPasswordAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto)
+        {
+            return base.Channel.HasPasswordAsyncAsync(userDto);
+        }
+        
+        public System.Threading.Tasks.Task SetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto, string passwordHash)
+        {
+            return base.Channel.SetPasswordHashAsyncAsync(userDto, passwordHash);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

@@ -121,5 +121,20 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     {
       return _authenticationManager.UpdateUser(user);
     }
+
+    public string GetPasswordHashAsync(UserDto userDto)
+    {
+      return _authenticationManager.GetPasswordHashAsync(userDto);
+    }
+
+    public bool HasPasswordAsync(UserDto userDto)
+    {
+      return _authenticationManager.HasPasswordAsync(userDto);
+    }
+
+    public void SetPasswordHashAsync(UserDto userDto, string passwordHash)
+    {
+      _authenticationManager.SetPasswordHashAsync(userDto, passwordHash);
+    }
   }
 }

@@ -59,5 +59,14 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
 
     [OperationContract]
     IdentityResult UpdateRole(IdentityRoleDto role);
+
+    [OperationContract]
+    string GetPasswordHashAsync(UserDto userDto);
+
+    [OperationContract]
+    bool HasPasswordAsync(UserDto userDto);
+
+    [OperationContract]
+    void SetPasswordHashAsync(UserDto userDto, string passwordHash);
   }
 }
