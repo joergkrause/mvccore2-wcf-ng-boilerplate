@@ -4,6 +4,5 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./tables/tables.component"));
-__export(require("./grid/grid.component"));
 __export(require("./bs/index"));
 //# sourceMappingURL=index.js.map

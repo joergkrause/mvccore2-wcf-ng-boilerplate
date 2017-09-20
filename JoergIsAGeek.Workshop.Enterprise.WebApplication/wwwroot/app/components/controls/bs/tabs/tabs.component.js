@@ -15,16 +15,16 @@ var TabsComponent = (function () {
     }
     TabsComponent.prototype.ngOnInit = function () {
     };
+    TabsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-tabs',
+            templateUrl: './tabs.component.html',
+            styleUrls: ['./tabs.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], TabsComponent);
     return TabsComponent;
 }());
-TabsComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-tabs',
-        templateUrl: './tabs.component.html',
-        styleUrls: ['./tabs.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], TabsComponent);
 exports.TabsComponent = TabsComponent;
 //# sourceMappingURL=tabs.component.js.map

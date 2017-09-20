@@ -46,16 +46,16 @@ var SiteSidebar = (function () {
             return _this.routerNavigation.push(new NavItem(value.path, value.data["title"], value.data["icon"]));
         });
     };
+    SiteSidebar = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'site-sidebar',
+            templateUrl: './sidebar.html',
+            styleUrls: ['./sidebar.css']
+        }),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], SiteSidebar);
     return SiteSidebar;
 }());
-SiteSidebar = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'site-sidebar',
-        templateUrl: './sidebar.html',
-        styleUrls: ['./sidebar.css']
-    }),
-    __metadata("design:paramtypes", [router_1.Router])
-], SiteSidebar);
 exports.SiteSidebar = SiteSidebar;
 //# sourceMappingURL=sidebar.js.map

@@ -46,15 +46,15 @@ var PageDashboard = (function () {
         var index = this.alerts.indexOf(alert);
         this.alerts.splice(index, 1);
     };
+    PageDashboard = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'site-pagedashboard',
+            templateUrl: './pagedashboard.html'
+        }),
+        __metadata("design:paramtypes", [])
+    ], PageDashboard);
     return PageDashboard;
 }());
-PageDashboard = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'site-pagedashboard',
-        templateUrl: './pagedashboard.html'
-    }),
-    __metadata("design:paramtypes", [])
-], PageDashboard);
 exports.PageDashboard = PageDashboard;
 //# sourceMappingURL=pagedashboard.js.map

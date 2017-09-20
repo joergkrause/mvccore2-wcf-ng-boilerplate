@@ -31,20 +31,20 @@ var TablesComponent = (function () {
     TablesComponent.prototype.showModal = function (data) {
         this.currentData = data;
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", svogv_1.AcDataGridModel)
+    ], TablesComponent.prototype, "data", void 0);
+    TablesComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-tables',
+            templateUrl: './tables.component.html',
+            styleUrls: ['./tables.component.css']
+        }),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], TablesComponent);
     return TablesComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", svogv_1.AcDataGridModel)
-], TablesComponent.prototype, "data", void 0);
-TablesComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-tables',
-        templateUrl: './tables.component.html',
-        styleUrls: ['./tables.component.css']
-    }),
-    __metadata("design:paramtypes", [router_1.Router])
-], TablesComponent);
 exports.TablesComponent = TablesComponent;
 //# sourceMappingURL=tables.component.js.map

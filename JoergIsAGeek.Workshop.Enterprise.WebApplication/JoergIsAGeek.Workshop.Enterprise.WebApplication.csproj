@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,10 @@
     <None Remove="Data\data.txt" />
     <None Remove="src\app\components\index.ts" />
     <None Remove="src\app\components\shared\stat\sitestat.ts" />
+    <None Remove="src\app\guards\index.ts" />
+    <None Remove="src\app\services\accountservice.ts" />
+    <None Remove="src\app\services\index.ts" />
+    <None Remove="src\app\viewmodels\accountinfo.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.0.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.0.0" />
@@ -58,6 +64,10 @@
     <TypeScriptCompile Include="src\app\components\controls\index.ts" />
     <TypeScriptCompile Include="src\app\components\index.ts" />
     <TypeScriptCompile Include="src\app\components\shared\stat\sitestat.ts" />
+    <TypeScriptCompile Include="src\app\guards\index.ts" />
+    <TypeScriptCompile Include="src\app\services\accountservice.ts" />
+    <TypeScriptCompile Include="src\app\services\index.ts" />
+    <TypeScriptCompile Include="src\app\viewmodels\accountinfo.ts" />
   </ItemGroup>
 
   <ItemGroup>

@@ -42,6 +42,20 @@ const routes: Routes = [
     data: {
       title: 'Data Manager'
     }
+  },
+  {
+    path: 'register',
+    component: Pages.PageRegistration,
+    data: {
+      title: 'User Registration'
+    }
+  },
+  {
+    path: 'login',
+    component: Pages.PageLogin,
+    data: {
+      title: 'User Login'
+    }
   }
 ];
 

@@ -34,16 +34,16 @@ var ModalComponent = (function () {
             return "with: " + reason;
         }
     };
+    ModalComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-modal',
+            templateUrl: './modal.component.html',
+            styleUrls: ['./modal.component.css']
+        }),
+        __metadata("design:paramtypes", [ng_bootstrap_1.NgbModal])
+    ], ModalComponent);
     return ModalComponent;
 }());
-ModalComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-modal',
-        templateUrl: './modal.component.html',
-        styleUrls: ['./modal.component.css']
-    }),
-    __metadata("design:paramtypes", [ng_bootstrap_1.NgbModal])
-], ModalComponent);
 exports.ModalComponent = ModalComponent;
 //# sourceMappingURL=modal.component.js.map

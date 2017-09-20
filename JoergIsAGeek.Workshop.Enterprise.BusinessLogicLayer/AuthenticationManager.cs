@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer.Authentication;
 using JoergIsAGeek.Workshop.Enterprise.DataTransferObjects.Authentication;
+using AutoMapper;
 
 namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
 {
@@ -15,6 +16,18 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
 
     private IGenericRepository<User, string> repUsers;
     private IGenericRepository<IdentityRole, string> repRoles;
+
+    public AuthenticationManager()
+    {
+      var mapperConfiguration = new MapperConfiguration(configure =>
+      {
+        configure.CreateMap<User, UserDto>();
+        configure.CreateMap<UserDto, User>();
+        configure.CreateMap<IdentityRole, IdentityRoleDto>();
+        configure.CreateMap<IdentityRoleDto, IdentityRole>();
+      });
+      mapper = mapperConfiguration.CreateMapper();
+    }
 
     public IGenericRepository<User, string> RepUsers {
       protected get {
@@ -33,99 +46,139 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       }
     }
 
-    public IdentityResult CreateRole(IdentityRoleDto role)
+    public IdentityResult CreateRole(IdentityRoleDto roleDto)
     {
-      throw new NotImplementedException();
+      if (repRoles.InsertOrUpdate(mapper.Map<IdentityRole>(roleDto)))
+      {
+        return IdentityResult.GetSucceded();
+      } else
+      {
+        return IdentityResult.GetError();
+      }
     }
 
-    public IdentityResult CreateUser(UserDto user)
+    public IdentityResult CreateUser(UserDto userDto)
     {
-      throw new NotImplementedException();
+      if (repUsers.InsertOrUpdate(mapper.Map<User>(userDto)))
+      {
+        return IdentityResult.GetSucceded();
+      }
+      else
+      {
+        return IdentityResult.GetError();
+      }
     }
 
-    public IdentityResult DeleteRole(IdentityRoleDto role)
+    public IdentityResult DeleteRole(IdentityRoleDto roleDto)
     {
-      throw new NotImplementedException();
+      if (repRoles.Delete(mapper.Map<IdentityRole>(roleDto)))
+      {
+        return IdentityResult.GetSucceded();
+      }
+      else
+      {
+        return IdentityResult.GetError();
+      }
     }
 
     public IdentityRoleDto FindRoleById(string roleId)
     {
-      throw new NotImplementedException();
+      return mapper.Map<IdentityRoleDto>(RepRoles.Find(roleId));
     }
 
     public IdentityRoleDto FindRoleByName(string normalizedRoleName)
     {
-      throw new NotImplementedException();
+      var role = RepRoles.Read(r => r.Name == normalizedRoleName).FirstOrDefault();
+      return role == null ? null : mapper.Map<IdentityRoleDto>(role);
     }
 
     public UserDto FindUserById(string userId)
     {
-      throw new NotImplementedException();
+      return mapper.Map<UserDto>(RepUsers.Find(userId));
     }
 
     public UserDto FindUserByName(string normalizedUserName)
     {
-      throw new NotImplementedException();
+      var user = RepUsers.Read(u => u.UserName == normalizedUserName).FirstOrDefault();
+      return user == null ? null : mapper.Map<UserDto>(user);
     }
 
-    public string GeIdentityRoleDtoId(IdentityRoleDto role)
+    public string GeIdentityRoleDtoId(IdentityRoleDto roleDto)
     {
-      throw new NotImplementedException();
+      var role = repRoles.Read(r => r.Id == roleDto.Id || r.Name == roleDto.Name).FirstOrDefault();
+      return role == null ? null : role.Id;
     }
 
-    public string GeIdentityRoleDtoName(IdentityRoleDto role)
+    public string GeIdentityRoleDtoName(IdentityRoleDto roleDto)
     {
-      throw new NotImplementedException();
+      var role = repRoles.Read(r => r.Id == roleDto.Id || r.Name == roleDto.Name).FirstOrDefault();
+      return role == null ? null : role.Name;
     }
 
-    public string GetNormalizedRoleName(IdentityRoleDto role)
+    public string GetNormalizedRoleName(IdentityRoleDto roleDto)
     {
-      throw new NotImplementedException();
+      var role = repRoles.Read(r => r.Id == roleDto.Id || r.Name == roleDto.Name).FirstOrDefault();
+      return role == null ? null : role.Name.Trim();
     }
 
-    public string GetNormalizedUserName(UserDto user)
+    public string GetNormalizedUserName(UserDto userDto)
     {
-      throw new NotImplementedException();
+      var user = repUsers.Read(r => r.Id == userDto.Id || r.UserName == userDto.UserName).FirstOrDefault();
+      return user == null ? null : user.UserName.Trim();
     }
 
     public string GeUserDtoId(UserDto user)
     {
-      throw new NotImplementedException();
+      return user.Id;
     }
 
     public string GeUserDtoName(UserDto user)
     {
-      throw new NotImplementedException();
+      return user.UserName;
     }
 
-    public Task SeIdentityRoleDtoName(IdentityRoleDto role, string roleName)
+    public void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName)
     {
       throw new NotImplementedException();
     }
 
-    public Task SetNormalizedRoleName(IdentityRoleDto role, string normalizedName)
+    public void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName)
     {
       throw new NotImplementedException();
     }
 
-    public Task SetNormalizedUserName(UserDto user, string normalizedName)
+    public void SetNormalizedUserName(UserDto user, string normalizedName)
     {
       throw new NotImplementedException();
     }
 
-    public Task SeUserDtoName(UserDto user, string userName)
+    public void SeUserDtoName(UserDto user, string userName)
     {
-      throw new NotImplementedException();
+      user.UserName = userName;
     }
 
-    public IdentityResult UpdateRole(IdentityRoleDto role)
+    public IdentityResult UpdateRole(IdentityRoleDto roleDto)
     {
-      throw new NotImplementedException();
+      if (repRoles.InsertOrUpdate(mapper.Map<IdentityRole>(roleDto)))
+      {
+        return IdentityResult.GetSucceded();
+      }
+      else
+      {
+        return IdentityResult.GetError();
+      }
     }
 
-    public IdentityResult UpdateUser(UserDto user)
+    public IdentityResult UpdateUser(UserDto userDto)
     {
-      throw new NotImplementedException();
+      if (repUsers.InsertOrUpdate(mapper.Map<User>(userDto)))
+      {
+        return IdentityResult.GetSucceded();
+      }
+      else
+      {
+        return IdentityResult.GetError();
+      }
     }
   }
 }

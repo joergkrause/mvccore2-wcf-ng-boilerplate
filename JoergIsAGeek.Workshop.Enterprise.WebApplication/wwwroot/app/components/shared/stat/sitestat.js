@@ -15,39 +15,39 @@ var SiteStat = (function () {
         this.event = new core_1.EventEmitter();
     }
     SiteStat.prototype.ngOnInit = function () { };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SiteStat.prototype, "bgClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SiteStat.prototype, "icon", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], SiteStat.prototype, "count", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SiteStat.prototype, "label", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], SiteStat.prototype, "data", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], SiteStat.prototype, "event", void 0);
+    SiteStat = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'site-stat',
+            templateUrl: './sitestat.html'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SiteStat);
     return SiteStat;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SiteStat.prototype, "bgClass", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SiteStat.prototype, "icon", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], SiteStat.prototype, "count", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SiteStat.prototype, "label", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], SiteStat.prototype, "data", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], SiteStat.prototype, "event", void 0);
-SiteStat = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'site-stat',
-        templateUrl: './sitestat.html'
-    }),
-    __metadata("design:paramtypes", [])
-], SiteStat);
 exports.SiteStat = SiteStat;
 //# sourceMappingURL=sitestat.js.map

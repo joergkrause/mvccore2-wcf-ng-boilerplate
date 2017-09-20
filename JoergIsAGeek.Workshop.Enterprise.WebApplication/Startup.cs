@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication.Extensions;
 using Microsoft.AspNetCore.Authorization;
+using AutoMapper;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -96,6 +97,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       // configure container with service access
       services.AddSingleton(typeof(MachineSrvClient), new MachineSrvClient());
       services.AddSingleton(typeof(AuthSrvClient), new AuthSrvClient());
+      // support for object mappings
+      services.AddAutoMapper();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

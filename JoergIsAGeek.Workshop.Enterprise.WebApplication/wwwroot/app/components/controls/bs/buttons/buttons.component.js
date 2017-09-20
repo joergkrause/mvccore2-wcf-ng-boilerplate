@@ -21,16 +21,16 @@ var ButtonsComponent = (function () {
             model: 1
         });
     };
+    ButtonsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-buttons',
+            templateUrl: './buttons.component.html',
+            styleUrls: ['./buttons.component.css']
+        }),
+        __metadata("design:paramtypes", [forms_1.FormBuilder])
+    ], ButtonsComponent);
     return ButtonsComponent;
 }());
-ButtonsComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-buttons',
-        templateUrl: './buttons.component.html',
-        styleUrls: ['./buttons.component.css']
-    }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder])
-], ButtonsComponent);
 exports.ButtonsComponent = ButtonsComponent;
 //# sourceMappingURL=buttons.component.js.map

@@ -29,17 +29,17 @@ var Machine = (function (_super) {
         _this.location = '';
         return _this;
     }
+    __decorate([
+        svogv_1.Display('Machine Name', 10),
+        svogv_1.Required(),
+        __metadata("design:type", String)
+    ], Machine.prototype, "name", void 0);
+    __decorate([
+        svogv_1.Display('Location', 20),
+        svogv_1.Required(),
+        __metadata("design:type", String)
+    ], Machine.prototype, "location", void 0);
     return Machine;
 }(base_1.Base));
-__decorate([
-    svogv_1.Display('Machine Name', 10),
-    svogv_1.Required(),
-    __metadata("design:type", String)
-], Machine.prototype, "name", void 0);
-__decorate([
-    svogv_1.Display('Location', 20),
-    svogv_1.Required(),
-    __metadata("design:type", String)
-], Machine.prototype, "location", void 0);
 exports.Machine = Machine;
 //# sourceMappingURL=machine.js.map

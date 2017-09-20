@@ -13,11 +13,18 @@ var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
-var Pages = require("./pages/index");
-var Directives = require("./directives/removehost");
-var Component = require("./components/index");
-//import { ApiService } from './services/apiservice';
-//import { EmitterService } from './services/emitterservice';
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+// forms handling and validation
+var Svogv = require("svogv");
+// components
+var pages = require("./pages/index");
+var directives = require("./directives/removehost");
+var components = require("./components/index");
+// bootstrap 
+var Ng = require("@ng-bootstrap/ng-bootstrap");
+// services
+var services = require("./services/index");
+// router
 var routes_1 = require("./configurations/routes");
 var AppRoot = (function () {
     function AppRoot() {
@@ -25,43 +32,71 @@ var AppRoot = (function () {
     AppRoot = __decorate([
         core_1.NgModule({
             declarations: [
-                Pages.SiteRoot,
-                Pages.PageDashboard,
-                Pages.PageDesigner,
-                Pages.PageViewer,
-                Pages.PageDatamanager,
-                Pages.PageOptions,
-                Component.SiteHeader,
-                Component.SiteSidebar,
-                Component.GridComponent,
-                Component.ModalComponent,
-                Component.PaginationComponent,
-                Component.PopOverComponent,
-                Component.ProgressbarComponent,
-                Component.AlertComponent,
-                Component.ButtonsComponent,
-                Component.CollapseComponent,
-                Component.DatePickerComponent,
-                Component.DropdownComponent,
-                Component.TablesComponent,
-                Component.TabsComponent,
-                Component.TimepickerComponent,
-                Component.TooltipComponent,
-                Directives.RemoveHost
+                pages.SiteRoot,
+                pages.PageDashboard,
+                pages.PageDesigner,
+                pages.PageViewer,
+                pages.PageDatamanager,
+                pages.PageOptions,
+                pages.PageRegistration,
+                pages.PageLogin,
+                components.SiteHeader,
+                components.SiteSidebar,
+                components.SitePageHeader,
+                components.SiteStat,
+                components.ModalComponent,
+                components.PaginationComponent,
+                components.PopOverComponent,
+                components.ProgressbarComponent,
+                components.AlertComponent,
+                components.ButtonsComponent,
+                components.CollapseComponent,
+                components.DropdownComponent,
+                components.TablesComponent,
+                components.TabsComponent,
+                components.TimepickerComponent,
+                components.TooltipComponent,
+                components.AppChart,
+                Svogv.AcDataGridPagination,
+                Svogv.AcAutoForm,
+                Svogv.AcAnalogClock,
+                Svogv.AcEditor,
+                Svogv.AcInfoBox,
+                directives.RemoveHost,
+                Ng.NgbAccordion,
+                Ng.NgbAlert,
+                Ng.NgbCarousel,
+                Ng.NgbCheckBox,
+                Ng.NgbCollapse,
+                Ng.NgbPanelContent,
+                Ng.NgbTooltip,
+                Ng.NgbTab,
+                Ng.NgbRating,
+                Ng.NgbPagination,
+                Ng.NgbProgressbar,
+                Ng.NgbTabset,
+                Ng.NgbTimepicker
             ],
             providers: [
-                //ApiService, 
-                //EmitterService,
-                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
+                services.ApiService,
+                services.EmitterService,
+                services.AccountService,
+                services.UserService,
+                services.ConfigService,
+                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy },
+                { provide: http_1.XHRBackend, useClass: services.AuthenticateXHRBackend },
+                Svogv.FormValidatorService,
+                Ng.NgbCarouselConfig, Ng.NgbAlertConfig
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
                 http_1.HttpModule,
-                router_1.RouterModule.forRoot(routes_1.default)
+                router_1.RouterModule.forRoot(routes_1.default),
+                ng_bootstrap_1.NgbDropdownModule.forRoot()
             ],
-            bootstrap: [Pages.SiteRoot]
+            bootstrap: [pages.SiteRoot]
         }) // {} == new object()
     ], AppRoot);
     return AppRoot;

@@ -25,10 +25,10 @@ var EmitterService = (function () {
         }
         return this._emitters[ID];
     };
+    EmitterService = __decorate([
+        core_1.Injectable()
+    ], EmitterService);
     return EmitterService;
 }());
-EmitterService = __decorate([
-    core_1.Injectable()
-], EmitterService);
 exports.EmitterService = EmitterService;
 //# sourceMappingURL=emitterservice.js.map

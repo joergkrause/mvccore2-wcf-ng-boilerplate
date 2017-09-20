@@ -25,15 +25,15 @@ var TimepickerComponent = (function () {
     TimepickerComponent.prototype.toggleMeridian = function () {
         this.meridian = !this.meridian;
     };
+    TimepickerComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-timepicker',
+            templateUrl: './timepicker.component.html',
+            styleUrls: ['./timepicker.component.css']
+        })
+    ], TimepickerComponent);
     return TimepickerComponent;
 }());
-TimepickerComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-timepicker',
-        templateUrl: './timepicker.component.html',
-        styleUrls: ['./timepicker.component.css']
-    })
-], TimepickerComponent);
 exports.TimepickerComponent = TimepickerComponent;
 //# sourceMappingURL=timepicker.component.js.map

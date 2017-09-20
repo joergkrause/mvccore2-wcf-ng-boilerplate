@@ -15,16 +15,16 @@ var DatePickerComponent = (function () {
     }
     DatePickerComponent.prototype.ngOnInit = function () {
     };
+    DatePickerComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-date-picker',
+            templateUrl: './date-picker.component.html',
+            styleUrls: ['./date-picker.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], DatePickerComponent);
     return DatePickerComponent;
 }());
-DatePickerComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-date-picker',
-        templateUrl: './date-picker.component.html',
-        styleUrls: ['./date-picker.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], DatePickerComponent);
 exports.DatePickerComponent = DatePickerComponent;
 //# sourceMappingURL=date-picker.component.js.map

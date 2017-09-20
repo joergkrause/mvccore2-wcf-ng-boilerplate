@@ -13,14 +13,14 @@ var core_1 = require("@angular/core");
 var PageViewer = (function () {
     function PageViewer() {
     }
+    PageViewer = __decorate([
+        core_1.Component({
+            selector: 'page-viewer',
+            template: "<h1>Page Viewer</h1>\n"
+        }),
+        __metadata("design:paramtypes", [])
+    ], PageViewer);
     return PageViewer;
 }());
-PageViewer = __decorate([
-    core_1.Component({
-        selector: 'page-viewer',
-        template: "<h1>Page Viewer</h1>\n"
-    }),
-    __metadata("design:paramtypes", [])
-], PageViewer);
 exports.PageViewer = PageViewer;
 //# sourceMappingURL=pageviewer.js.map

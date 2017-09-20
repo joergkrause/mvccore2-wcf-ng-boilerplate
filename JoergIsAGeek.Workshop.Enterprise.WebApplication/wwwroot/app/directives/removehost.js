@@ -24,13 +24,13 @@ var RemoveHost = (function () {
         // remove the empty element(the host)
         parentElement.removeChild(nativeElement);
     };
+    RemoveHost = __decorate([
+        core_1.Directive({
+            selector: '[remove-host]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], RemoveHost);
     return RemoveHost;
 }());
-RemoveHost = __decorate([
-    core_1.Directive({
-        selector: '[remove-host]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], RemoveHost);
 exports.RemoveHost = RemoveHost;
 //# sourceMappingURL=removehost.js.map

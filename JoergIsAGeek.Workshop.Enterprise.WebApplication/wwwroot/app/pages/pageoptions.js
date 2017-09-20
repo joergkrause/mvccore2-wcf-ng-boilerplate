@@ -13,14 +13,14 @@ var core_1 = require("@angular/core");
 var PageOptions = (function () {
     function PageOptions() {
     }
+    PageOptions = __decorate([
+        core_1.Component({
+            selector: 'page-options',
+            template: "<h1>Options</h1>\n"
+        }),
+        __metadata("design:paramtypes", [])
+    ], PageOptions);
     return PageOptions;
 }());
-PageOptions = __decorate([
-    core_1.Component({
-        selector: 'page-options',
-        template: "<h1>Options</h1>\n"
-    }),
-    __metadata("design:paramtypes", [])
-], PageOptions);
 exports.PageOptions = PageOptions;
 //# sourceMappingURL=pageoptions.js.map

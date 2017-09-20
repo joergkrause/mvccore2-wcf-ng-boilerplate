@@ -15,16 +15,16 @@ var TooltipComponent = (function () {
     }
     TooltipComponent.prototype.ngOnInit = function () {
     };
+    TooltipComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-tooltip',
+            templateUrl: './tooltip.component.html',
+            styleUrls: ['./tooltip.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], TooltipComponent);
     return TooltipComponent;
 }());
-TooltipComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-tooltip',
-        templateUrl: './tooltip.component.html',
-        styleUrls: ['./tooltip.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], TooltipComponent);
 exports.TooltipComponent = TooltipComponent;
 //# sourceMappingURL=tooltip.component.js.map

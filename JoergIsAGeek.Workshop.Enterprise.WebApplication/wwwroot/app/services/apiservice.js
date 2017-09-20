@@ -49,17 +49,17 @@ require("rxjs/add/operator/map");
 require("rxjs/add/operator/delay");
 require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
+var configservice_1 = require("../services/configservice");
 var ApiService = (function () {
-    function ApiService(http) {
+    function ApiService(http, config) {
         this.http = http;
-        this.dataUrl = 'api/data';
-        this.machineUrl = 'api/data';
+        this.config = config;
     }
     ApiService.prototype.getChartData = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.http.get(this.dataUrl)
+                    case 0: return [4 /*yield*/, this.http.get(this.config.dataURI)
                             .map(function (res) { return res.json(); })
                             .toPromise()];
                     case 1: return [2 /*return*/, _a.sent()];
@@ -71,7 +71,7 @@ var ApiService = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.http.get(this.machineUrl)
+                    case 0: return [4 /*yield*/, this.http.get(this.config.dataURI)
                             .map(function (res) { return res.json(); })
                             .toPromise()];
                     case 1: return [2 /*return*/, _a.sent()];
@@ -79,11 +79,11 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http, configservice_1.ConfigService])
+    ], ApiService);
     return ApiService;
 }());
-ApiService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], ApiService);
 exports.ApiService = ApiService;
 //# sourceMappingURL=apiservice.js.map

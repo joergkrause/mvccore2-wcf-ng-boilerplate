@@ -15,16 +15,16 @@ var ProgressbarComponent = (function () {
     }
     ProgressbarComponent.prototype.ngOnInit = function () {
     };
+    ProgressbarComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-progressbar',
+            templateUrl: './progressbar.component.html',
+            styleUrls: ['./progressbar.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProgressbarComponent);
     return ProgressbarComponent;
 }());
-ProgressbarComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-progressbar',
-        templateUrl: './progressbar.component.html',
-        styleUrls: ['./progressbar.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], ProgressbarComponent);
 exports.ProgressbarComponent = ProgressbarComponent;
 //# sourceMappingURL=progressbar.component.js.map

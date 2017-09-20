@@ -1,4 +1,5 @@
-﻿using JoergIsAGeek.Workshop.Enterprise.DomainModels;
+﻿using AutoMapper;
+using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 using JoergIsAGeek.Workshop.Enterprise.Repository;
 
 namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
@@ -8,6 +9,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
     private IGenericRepository<Machine, int>   repMachine;
     private IGenericRepository<Device, int>    repDevice;
     private IGenericRepository<DataValue, int> repDataValue;
+    protected IMapper mapper;
 
     public Manager() {
     }

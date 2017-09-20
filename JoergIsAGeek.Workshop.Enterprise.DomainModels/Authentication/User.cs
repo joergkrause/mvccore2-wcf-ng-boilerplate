@@ -23,5 +23,9 @@ namespace JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication
     public string LastName { get; set; }
     [StringLength(80)]
     public string Location { get; set; }
+
+    [StringLength(100)]
+    [Required]
+    public string UserName { get; set; }
   }
 }

@@ -101,53 +101,53 @@ var AppChart = (function () {
         }
         return { r: 0, g: 0, b: 255, a: 255 };
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AppChart.prototype, "chartData", void 0);
+    __decorate([
+        core_1.ViewChild('plotarea'),
+        __metadata("design:type", core_1.ElementRef)
+    ], AppChart.prototype, "plotarea", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Number)
+    ], AppChart.prototype, "currentValue", void 0);
+    __decorate([
+        core_1.HostListener('mousemove', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [MouseEvent]),
+        __metadata("design:returntype", void 0)
+    ], AppChart.prototype, "onMousemove", null);
+    __decorate([
+        core_1.HostListener('mouseup'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], AppChart.prototype, "onMouseup", null);
+    __decorate([
+        core_1.HostListener('mousedown', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], AppChart.prototype, "onMousedown", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AppChart.prototype, "valueAt", void 0);
+    AppChart = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-chart',
+            styles: [
+                '.plotarea { border: 2px solid black; }',
+                '.someborder { border: 1px dashed blue; }'
+            ],
+            templateUrl: './appchart.html'
+        }),
+        __metadata("design:paramtypes", [apiservice_1.ApiService])
+    ], AppChart);
     return AppChart;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], AppChart.prototype, "chartData", void 0);
-__decorate([
-    core_1.ViewChild('plotarea'),
-    __metadata("design:type", core_1.ElementRef)
-], AppChart.prototype, "plotarea", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Number)
-], AppChart.prototype, "currentValue", void 0);
-__decorate([
-    core_1.HostListener('mousemove', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [MouseEvent]),
-    __metadata("design:returntype", void 0)
-], AppChart.prototype, "onMousemove", null);
-__decorate([
-    core_1.HostListener('mouseup'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppChart.prototype, "onMouseup", null);
-__decorate([
-    core_1.HostListener('mousedown', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AppChart.prototype, "onMousedown", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AppChart.prototype, "valueAt", void 0);
-AppChart = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-chart',
-        styles: [
-            '.plotarea { border: 2px solid black; }',
-            '.someborder { border: 1px dashed blue; }'
-        ],
-        templateUrl: './appchart.html'
-    }),
-    __metadata("design:paramtypes", [apiservice_1.ApiService])
-], AppChart);
 exports.AppChart = AppChart;
 //# sourceMappingURL=appchart.js.map

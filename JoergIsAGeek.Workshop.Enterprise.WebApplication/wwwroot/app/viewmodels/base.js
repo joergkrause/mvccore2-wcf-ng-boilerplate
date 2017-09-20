@@ -14,11 +14,11 @@ var Base = (function () {
     function Base() {
         this.id = 0;
     }
+    __decorate([
+        svogv_1.Hidden(),
+        __metadata("design:type", Number)
+    ], Base.prototype, "id", void 0);
     return Base;
 }());
-__decorate([
-    svogv_1.Hidden(),
-    __metadata("design:type", Number)
-], Base.prototype, "id", void 0);
 exports.Base = Base;
 //# sourceMappingURL=base.js.map

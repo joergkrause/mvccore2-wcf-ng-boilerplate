@@ -26,22 +26,33 @@ var SiteHeader = (function () {
         var dom = document.querySelector('body');
         dom.classList.toggle('push-right');
     };
-    SiteHeader.prototype.onLoggedout = function () {
-        localStorage.removeItem('isLoggedin');
-    };
+    Object.defineProperty(SiteHeader.prototype, "loggedIn", {
+        get: function () {
+            return !!localStorage.getItem('isLoggedin');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SiteHeader.prototype, "userName", {
+        get: function () {
+            return !!localStorage.getItem('userName');
+        },
+        enumerable: true,
+        configurable: true
+    });
     SiteHeader.prototype.changeLang = function (language) {
         // TODO
     };
+    SiteHeader = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'site-header',
+            templateUrl: './siteheader.html',
+            styleUrls: ['./siteheader.css']
+        }),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], SiteHeader);
     return SiteHeader;
 }());
-SiteHeader = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'site-header',
-        templateUrl: './siteheader.html',
-        styleUrls: ['./siteheader.css']
-    }),
-    __metadata("design:paramtypes", [router_1.Router])
-], SiteHeader);
 exports.SiteHeader = SiteHeader;
 //# sourceMappingURL=siteheader.js.map

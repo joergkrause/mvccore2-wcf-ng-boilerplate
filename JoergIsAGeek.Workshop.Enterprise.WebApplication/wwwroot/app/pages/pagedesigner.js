@@ -38,20 +38,20 @@ var PageDesigner = (function () {
         for (var i = 0; i < this.container.length; i++) {
         }
     };
+    __decorate([
+        core_1.ViewChild('dynamicComponentContainer', { read: core_1.ViewContainerRef }),
+        __metadata("design:type", core_1.ViewContainerRef)
+    ], PageDesigner.prototype, "dynamicComponentContainer", void 0);
+    PageDesigner = __decorate([
+        core_1.Component({
+            selector: 'page-designer',
+            entryComponents: [appchart_1.AppChart],
+            template: "\n        <h1>Designer\n        <small>We have {{ numElements }} components</small>\n        </h1>\n        <button (click)=\"addComponent()\" type=\"button\" class=\"btn btn-sm btn-primary\">Add AppChart</button> \n        <button (click)=\"clearComponents()\" type=\"button\" class=\"btn btn-danger\">Remove All</button> \n        <button (click)=\"saveComponents()\" type=\"button\" class=\"btn btn-lg btn-info\">Save</button> \n        <hr />\n        <div >\n          <ng-container #dynamicComponentContainer></ng-container>\n        </div>\n        <hr />\n        <div *ngIf=\"this.currentComponent\">\n        Properties: {{ this.currentComponent.currentValue }} \n        </div>\n        "
+        }),
+        __metadata("design:paramtypes", [core_1.ComponentFactoryResolver,
+            core_1.ViewContainerRef])
+    ], PageDesigner);
     return PageDesigner;
 }());
-__decorate([
-    core_1.ViewChild('dynamicComponentContainer', { read: core_1.ViewContainerRef }),
-    __metadata("design:type", core_1.ViewContainerRef)
-], PageDesigner.prototype, "dynamicComponentContainer", void 0);
-PageDesigner = __decorate([
-    core_1.Component({
-        selector: 'page-designer',
-        entryComponents: [appchart_1.AppChart],
-        template: "\n        <h1>Designer\n        <small>We have {{ numElements }} components</small>\n        </h1>\n        <button (click)=\"addComponent()\" type=\"button\" class=\"btn btn-sm btn-primary\">Add AppChart</button> \n        <button (click)=\"clearComponents()\" type=\"button\" class=\"btn btn-danger\">Remove All</button> \n        <button (click)=\"saveComponents()\" type=\"button\" class=\"btn btn-lg btn-info\">Save</button> \n        <hr />\n        <div >\n          <ng-container #dynamicComponentContainer></ng-container>\n        </div>\n        <hr />\n        <div *ngIf=\"this.currentComponent\">\n        Properties: {{ this.currentComponent.currentValue }} \n        </div>\n        "
-    }),
-    __metadata("design:paramtypes", [core_1.ComponentFactoryResolver,
-        core_1.ViewContainerRef])
-], PageDesigner);
 exports.PageDesigner = PageDesigner;
 //# sourceMappingURL=pagedesigner.js.map

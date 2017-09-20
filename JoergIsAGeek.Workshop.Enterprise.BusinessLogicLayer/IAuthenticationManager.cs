@@ -16,8 +16,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
     string GetNormalizedUserName(UserDto user);
     string GeUserDtoId(UserDto user);
     string GeUserDtoName(UserDto user);
-    Task SetNormalizedUserName(UserDto user, string normalizedName);
-    Task SeUserDtoName(UserDto user, string userName);
+    void SetNormalizedUserName(UserDto user, string normalizedName);
+    void SeUserDtoName(UserDto user, string userName);
     IdentityResult UpdateUser(UserDto user);
     IdentityResult CreateRole(IdentityRoleDto role);
 
@@ -33,9 +33,9 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
 
     string GeIdentityRoleDtoName(IdentityRoleDto role);
 
-    Task SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
+    void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
 
-    Task SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
+    void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
 
     IdentityResult UpdateRole(IdentityRoleDto role);
   }

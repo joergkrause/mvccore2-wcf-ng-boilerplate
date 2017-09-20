@@ -15,16 +15,16 @@ var PopOverComponent = (function () {
     }
     PopOverComponent.prototype.ngOnInit = function () {
     };
+    PopOverComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-pop-over',
+            templateUrl: './pop-over.component.html',
+            styleUrls: ['./pop-over.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], PopOverComponent);
     return PopOverComponent;
 }());
-PopOverComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-pop-over',
-        templateUrl: './pop-over.component.html',
-        styleUrls: ['./pop-over.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], PopOverComponent);
 exports.PopOverComponent = PopOverComponent;
 //# sourceMappingURL=pop-over.component.js.map

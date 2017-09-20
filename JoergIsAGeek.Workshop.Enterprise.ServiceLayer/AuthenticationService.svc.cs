@@ -19,9 +19,9 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
   public class AuthenticationService : IAuthenticationService
   {
 
-    private AuthenticationManager _authenticationManager;
+    private IAuthenticationManager _authenticationManager;
 
-    public AuthenticationService(AuthenticationManager authenticationManager)
+    public AuthenticationService(IAuthenticationManager authenticationManager)
     {
       _authenticationManager = authenticationManager;
     }
@@ -49,77 +49,77 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
 
     public IdentityRoleDto FindRoleByName(string normalizedRoleName)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.FindRoleByName(normalizedRoleName);
     }
 
     public UserDto FindUserById(string userId)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.FindUserById(userId);
     }
 
     public UserDto FindUserByName(string normalizedUserName)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.FindUserByName(normalizedUserName);
     }
 
     public string GeIdentityRoleDtoId(IdentityRoleDto role)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.GeIdentityRoleDtoName(role);
     }
 
     public string GeIdentityRoleDtoName(IdentityRoleDto role)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.GeIdentityRoleDtoName(role);
     }
 
     public string GetNormalizedRoleName(IdentityRoleDto role)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.GetNormalizedRoleName(role);
     }
 
     public string GetNormalizedUserName(UserDto user)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.GetNormalizedUserName(user);
     }
 
     public string GeUserDtoId(UserDto user)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.GeUserDtoId(user);
     }
 
     public string GeUserDtoName(UserDto user)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.GeUserDtoName(user);
     }
 
     public void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName)
     {
-      throw new NotImplementedException();
+      _authenticationManager.SeIdentityRoleDtoName(role, roleName);
     }
 
     public void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName)
     {
-      throw new NotImplementedException();
+      _authenticationManager.SetNormalizedRoleName(role, normalizedName);
     }
 
     public void SetNormalizedUserName(UserDto user, string normalizedName)
     {
-      throw new NotImplementedException();
+      _authenticationManager.SetNormalizedUserName(user, normalizedName);
     }
 
     public void SeUserDtoName(UserDto user, string userName)
     {
-      throw new NotImplementedException();
+      _authenticationManager.SeUserDtoName(user, userName);
     }
 
     public IdentityResult UpdateRole(IdentityRoleDto role)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.UpdateRole(role);
     }
 
     public IdentityResult UpdateUser(UserDto user)
     {
-      throw new NotImplementedException();
+      return _authenticationManager.UpdateUser(user);
     }
   }
 }

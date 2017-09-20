@@ -11,15 +11,15 @@ var CollapseComponent = (function () {
     function CollapseComponent() {
         this.isCollapsed = false;
     }
+    CollapseComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-collapse',
+            templateUrl: './collapse.component.html',
+            styleUrls: ['./collapse.component.css']
+        })
+    ], CollapseComponent);
     return CollapseComponent;
 }());
-CollapseComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-collapse',
-        templateUrl: './collapse.component.html',
-        styleUrls: ['./collapse.component.css']
-    })
-], CollapseComponent);
 exports.CollapseComponent = CollapseComponent;
 //# sourceMappingURL=collapse.component.js.map

@@ -36,16 +36,16 @@ var AlertComponent = (function () {
         var index = this.alerts.indexOf(alert);
         this.alerts.splice(index, 1);
     };
+    AlertComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-alert',
+            templateUrl: './alert.component.html',
+            styleUrls: ['./alert.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], AlertComponent);
     return AlertComponent;
 }());
-AlertComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-alert',
-        templateUrl: './alert.component.html',
-        styleUrls: ['./alert.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], AlertComponent);
 exports.AlertComponent = AlertComponent;
 //# sourceMappingURL=alert.component.js.map

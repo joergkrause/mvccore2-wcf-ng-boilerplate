@@ -2,55 +2,78 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { HttpModule } from '@angular/http';
+import { HttpModule, XHRBackend } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-
-import * as Pages from './pages/index';
-import * as Directives from './directives/removehost';
-import * as Component from './components/index';
+// forms handling and validation
 import * as Svogv from 'svogv';
-
+// components
+import * as pages from './pages/index';
+import * as directives from './directives/removehost';
+import * as components from './components/index';
+// bootstrap 
 import * as Ng from '@ng-bootstrap/ng-bootstrap';
-import { ApiService } from './services/apiservice';
-import { EmitterService } from './services/emitterservice';
+// services
+import * as services from './services/index';
+// router
 import currentRoutesConfig from './configurations/routes';
 
 @NgModule({
   declarations: [
-    Pages.SiteRoot,
-    Pages.PageDashboard,
-    Pages.PageDesigner,
-    Pages.PageViewer,
-    Pages.PageDatamanager,
-    Pages.PageOptions,   
-    Component.SiteHeader,       
-    Component.SiteSidebar,       
-    Component.SitePageHeader,
-    Component.SiteStat,
-    Component.GridComponent,        
-    Component.ModalComponent,        
-    Component.PaginationComponent,        
-    Component.PopOverComponent,        
-    Component.ProgressbarComponent,        
-    Component.AlertComponent,
-    Component.ButtonsComponent,
-    Component.CollapseComponent,
-    Component.DropdownComponent,
-    Component.TablesComponent,
-    Component.TabsComponent,
-    Component.TimepickerComponent,
-    Component.TooltipComponent,
-    Component.AppChart,
-    Svogv.AcDataGridPagination, Svogv.AcAutoForm, Svogv.AcAnalogClock, Svogv.AcEditor, Svogv.AcInfoBox,
-    Directives.RemoveHost,
-    Ng.NgbAccordion, Ng.NgbAlert, Ng.NgbCarousel, Ng.NgbCheckBox, Ng.NgbCollapse, Ng.NgbPanelContent, Ng.NgbTooltip, Ng.NgbTab, Ng.NgbRating, Ng.NgbPagination, Ng.NgbProgressbar, Ng.NgbTabset, Ng.NgbTimepicker
+    pages.SiteRoot,
+    pages.PageDashboard,
+    pages.PageDesigner,
+    pages.PageViewer,
+    pages.PageDatamanager,
+    pages.PageOptions,   
+    pages.PageRegistration,
+    pages.PageLogin,
+    components.SiteHeader,       
+    components.SiteSidebar,       
+    components.SitePageHeader,
+    components.SiteStat,
+    components.ModalComponent,        
+    components.PaginationComponent,        
+    components.PopOverComponent,        
+    components.ProgressbarComponent,        
+    components.AlertComponent,
+    components.ButtonsComponent,
+    components.CollapseComponent,
+    components.DropdownComponent,
+    components.TablesComponent,
+    components.TabsComponent,
+    components.TimepickerComponent,
+    components.TooltipComponent,
+    components.AppChart,
+    Svogv.AcDataGridPagination, 
+    Svogv.AcAutoForm, 
+    Svogv.AcAnalogClock, 
+    Svogv.AcEditor, 
+    Svogv.AcInfoBox,
+    directives.RemoveHost,
+    Ng.NgbAccordion, 
+    Ng.NgbAlert, 
+    Ng.NgbCarousel, 
+    Ng.NgbCheckBox, 
+    Ng.NgbCollapse, 
+    Ng.NgbPanelContent, 
+    Ng.NgbTooltip, 
+    Ng.NgbTab, 
+    Ng.NgbRating, 
+    Ng.NgbPagination, 
+    Ng.NgbProgressbar, 
+    Ng.NgbTabset, 
+    Ng.NgbTimepicker
   ],
   providers: [
-    ApiService, 
-    EmitterService,
+    services.ApiService, 
+    services.EmitterService,
+    services.AccountService,
+    services.UserService,
+    services.ConfigService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: XHRBackend, useClass: services.AuthenticateXHRBackend },
     Svogv.FormValidatorService,
     Ng.NgbCarouselConfig, Ng.NgbAlertConfig
   ],
@@ -62,7 +85,7 @@ import currentRoutesConfig from './configurations/routes';
     RouterModule.forRoot(currentRoutesConfig),
     NgbDropdownModule.forRoot()
   ],
-  bootstrap: [Pages.SiteRoot]
+  bootstrap: [pages.SiteRoot]
 }) // {} == new object()
 class AppRoot {
 

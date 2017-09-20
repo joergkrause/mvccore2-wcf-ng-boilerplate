@@ -13,14 +13,14 @@ var core_1 = require("@angular/core");
 var PageDatamanager = (function () {
     function PageDatamanager() {
     }
+    PageDatamanager = __decorate([
+        core_1.Component({
+            selector: 'page-datamanager',
+            template: "<h1>Data Manager</h1>\n"
+        }),
+        __metadata("design:paramtypes", [])
+    ], PageDatamanager);
     return PageDatamanager;
 }());
-PageDatamanager = __decorate([
-    core_1.Component({
-        selector: 'page-datamanager',
-        template: "<h1>Data Manager</h1>\n"
-    }),
-    __metadata("design:paramtypes", [])
-], PageDatamanager);
 exports.PageDatamanager = PageDatamanager;
 //# sourceMappingURL=pagedatamanager.js.map

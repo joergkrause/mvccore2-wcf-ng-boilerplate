@@ -15,16 +15,16 @@ var DropdownComponent = (function () {
     }
     DropdownComponent.prototype.ngOnInit = function () {
     };
+    DropdownComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-dropdown',
+            templateUrl: './dropdown.component.html',
+            styleUrls: ['./dropdown.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], DropdownComponent);
     return DropdownComponent;
 }());
-DropdownComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'app-dropdown',
-        templateUrl: './dropdown.component.html',
-        styleUrls: ['./dropdown.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], DropdownComponent);
 exports.DropdownComponent = DropdownComponent;
 //# sourceMappingURL=dropdown.component.js.map

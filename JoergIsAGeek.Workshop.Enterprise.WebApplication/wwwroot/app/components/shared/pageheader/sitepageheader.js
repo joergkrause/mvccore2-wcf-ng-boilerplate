@@ -13,23 +13,23 @@ var core_1 = require("@angular/core");
 var SitePageHeader = (function () {
     function SitePageHeader() {
     }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SitePageHeader.prototype, "heading", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SitePageHeader.prototype, "icon", void 0);
+    SitePageHeader = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'site-pageheader',
+            templateUrl: './sitepageheader.html',
+            styleUrls: ['./sitepageheader.css']
+        })
+    ], SitePageHeader);
     return SitePageHeader;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SitePageHeader.prototype, "heading", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SitePageHeader.prototype, "icon", void 0);
-SitePageHeader = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'site-pageheader',
-        templateUrl: './sitepageheader.html',
-        styleUrls: ['./sitepageheader.css']
-    })
-], SitePageHeader);
 exports.SitePageHeader = SitePageHeader;
 //# sourceMappingURL=sitepageheader.js.map

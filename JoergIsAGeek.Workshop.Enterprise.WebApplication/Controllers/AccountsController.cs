@@ -17,13 +17,13 @@ using AutoMapper;
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers
 {
   [Route("api/[controller]")]
-  public class AccountController : Controller
+  public class AccountsController : Controller
   {
 
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IMapper _mapper;
 
-    public AccountController(UserManager<ApplicationUser> userManager, IMapper mapper)
+    public AccountsController(UserManager<ApplicationUser> userManager, IMapper mapper)
     {
       _userManager = userManager;
       _mapper = mapper;
