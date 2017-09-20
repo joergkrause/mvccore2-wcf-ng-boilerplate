@@ -2,7 +2,7 @@
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
 
-  public class DataValue : EntityBase<int> {
+  public class DataValue : EntityBase {
 
     [Range(0, 100000)]
     public double Value { get; set; }

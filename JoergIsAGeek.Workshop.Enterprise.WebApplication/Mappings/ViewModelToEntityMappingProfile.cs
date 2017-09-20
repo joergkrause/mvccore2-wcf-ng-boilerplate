@@ -1,5 +1,5 @@
 using AutoMapper;
-using ServiceReference1;
+using ServiceReference2;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Mappings

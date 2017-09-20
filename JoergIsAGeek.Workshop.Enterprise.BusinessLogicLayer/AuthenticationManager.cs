@@ -14,8 +14,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
   public class AuthenticationManager : Manager, IAuthenticationManager
   {
 
-    private IGenericRepository<User, string> repUsers;
-    private IGenericRepository<IdentityRole, string> repRoles;
+    private IGenericRepository<User, int> repUsers;
+    private IGenericRepository<IdentityRole, int> repRoles;
 
     public AuthenticationManager()
     {
@@ -29,7 +29,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       mapper = mapperConfiguration.CreateMapper();
     }
 
-    public IGenericRepository<User, string> RepUsers {
+    public IGenericRepository<User, int> RepUsers {
       protected get {
         return repUsers;
       }
@@ -37,7 +37,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
         repUsers = value;
       }
     }
-    public IGenericRepository<IdentityRole, string> RepRoles{
+    public IGenericRepository<IdentityRole, int> RepRoles{
       protected get {
         return repRoles;
       }
@@ -81,7 +81,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       }
     }
 
-    public IdentityRoleDto FindRoleById(string roleId)
+    public IdentityRoleDto FindRoleById(int roleId)
     {
       return mapper.Map<IdentityRoleDto>(RepRoles.Find(roleId));
     }
@@ -92,7 +92,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       return role == null ? null : mapper.Map<IdentityRoleDto>(role);
     }
 
-    public UserDto FindUserById(string userId)
+    public UserDto FindUserById(int userId)
     {
       return mapper.Map<UserDto>(RepUsers.Find(userId));
     }
@@ -103,13 +103,13 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       return user == null ? null : mapper.Map<UserDto>(user);
     }
 
-    public string GeIdentityRoleDtoId(IdentityRoleDto roleDto)
+    public int GetIdentityRoleDtoId(IdentityRoleDto roleDto)
     {
       var role = repRoles.Read(r => r.Id == roleDto.Id || r.Name == roleDto.Name).FirstOrDefault();
-      return role == null ? null : role.Id;
+      return role == null ? 0 : role.Id;
     }
 
-    public string GeIdentityRoleDtoName(IdentityRoleDto roleDto)
+    public string GetIdentityRoleDtoName(IdentityRoleDto roleDto)
     {
       var role = repRoles.Read(r => r.Id == roleDto.Id || r.Name == roleDto.Name).FirstOrDefault();
       return role == null ? null : role.Name;
@@ -127,12 +127,12 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       return user == null ? null : user.UserName.Trim();
     }
 
-    public string GeUserDtoId(UserDto user)
+    public int GetUserDtoId(UserDto user)
     {
       return user.Id;
     }
 
-    public string GeUserDtoName(UserDto user)
+    public string GetUserDtoName(UserDto user)
     {
       return user.UserName;
     }
@@ -181,58 +181,69 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       }
     }
 
-    public string GetPasswordHashAsync(UserDto userDto)
+    public string GetPasswordHash(UserDto userDto)
     {
       return RepUsers.Find(userDto.Id)?.Password;
     }
 
-    public bool HasPasswordAsync(UserDto userDto)
+    public bool HasPassword(UserDto userDto)
     {
       return !String.IsNullOrEmpty(RepUsers.Find(userDto.Id)?.Password);
     }
 
-    public void SetPasswordHashAsync(UserDto userDto, string passwordHash)
+    public void SetPasswordHash(UserDto userDto, string passwordHash)
     {
       var user = FindUserById(userDto.Id);
-      user.Password = passwordHash;
-      RepUsers.InsertOrUpdate(mapper.Map<User>(user));
+      if (user == null)
+      {
+        if (RepUsers.InsertOrUpdate(mapper.Map<User>(userDto)))
+        {
+          userDto = mapper.Map<UserDto>(RepUsers.Read(u => u.Email == userDto.Email).FirstOrDefault());
+        }
+      }
+      if (user == null)
+      {
+        throw new ArgumentOutOfRangeException("User not found and not created");
+      }
+      userDto.Password = passwordHash;
+      RepUsers.InsertOrUpdate(mapper.Map<User>(userDto));
     }
 
-    public UserDto FindByEmailAsync(string normalizedEmail)
+    public UserDto FindByEmail(string normalizedEmail)
     {
       var user = RepUsers.Read(r => r.Email == normalizedEmail).SingleOrDefault();
       return user == null ? null : mapper.Map<UserDto>(user);
     }
 
-    public string GetEmailAsync(UserDto user)
+    public string GetEmail(UserDto user)
     {
       return FindUserById(user.Id).Email;
     }
 
-    public bool GetEmailConfirmedAsync(UserDto user)
+    public bool GetEmailConfirmed(UserDto user)
     {
       // TODO: Implement
       return true;
     }
 
-    public string GetNormalizedEmailAsync(UserDto user)
+    public string GetNormalizedEmail(UserDto user)
     {
       return FindUserById(user.Id).Email;
     }
 
-    public void SetEmailAsync(UserDto userDto, string email)
+    public void SetEmail(UserDto userDto, string email)
     {
       var user = FindUserById(userDto.Id);
       user.Email = email;
       RepUsers.InsertOrUpdate(mapper.Map<User>(user));
     }
 
-    public void SetEmailConfirmedAsync(UserDto user, bool confirmed)
+    public void SetEmailConfirmed(UserDto user, bool confirmed)
     {
       // TODO
     }
 
-    public void SetNormalizedEmailAsync(UserDto userDto, string normalizedEmail)
+    public void SetNormalizedEmail(UserDto userDto, string normalizedEmail)
     {
       var user = FindUserById(userDto.Id);
       user.Email = normalizedEmail;

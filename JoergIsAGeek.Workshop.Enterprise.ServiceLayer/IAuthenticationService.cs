@@ -15,15 +15,15 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     [OperationContract]
     IdentityResult CreateUser(UserDto user);
     [OperationContract]
-    UserDto FindUserById(string userId);
+    UserDto FindUserById(int userId);
     [OperationContract]
     UserDto FindUserByName(string normalizedUserName);
     [OperationContract]
     string GetNormalizedUserName(UserDto user);
     [OperationContract]
-    string GeUserDtoId(UserDto user);
+    int GetUserDtoId(UserDto user);
     [OperationContract]
-    string GeUserDtoName(UserDto user);
+    string GetUserDtoName(UserDto user);
     [OperationContract]
     void SetNormalizedUserName(UserDto user, string normalizedName);
     [OperationContract]
@@ -37,7 +37,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     IdentityResult DeleteRole(IdentityRoleDto role);
 
     [OperationContract]
-    IdentityRoleDto FindRoleById(string roleId);
+    IdentityRoleDto FindRoleById(int roleId);
 
     [OperationContract]
     IdentityRoleDto FindRoleByName(string normalizedRoleName);
@@ -46,10 +46,10 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     string GetNormalizedRoleName(IdentityRoleDto role);
 
     [OperationContract]
-    string GeIdentityRoleDtoId(IdentityRoleDto role);
+    int GetIdentityRoleDtoId(IdentityRoleDto role);
 
     [OperationContract]
-    string GeIdentityRoleDtoName(IdentityRoleDto role);
+    string GetIdentityRoleDtoName(IdentityRoleDto role);
 
     [OperationContract]
     void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
@@ -61,33 +61,33 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     IdentityResult UpdateRole(IdentityRoleDto role);
 
     [OperationContract]
-    string GetPasswordHashAsync(UserDto userDto);
+    string GetPasswordHash(UserDto userDto);
 
     [OperationContract]
-    bool HasPasswordAsync(UserDto userDto);
+    bool HasPassword(UserDto userDto);
 
     [OperationContract]
-    void SetPasswordHashAsync(UserDto userDto, string passwordHash);
+    void SetPasswordHash(UserDto userDto, string passwordHash);
 
     [OperationContract]
-    UserDto FindByEmailAsync(string normalizedEmail);
+    UserDto FindByEmail(string normalizedEmail);
 
     [OperationContract]
-    string GetEmailAsync(UserDto user);
+    string GetEmail(UserDto user);
 
     [OperationContract]
-    bool GetEmailConfirmedAsync(UserDto user);
+    bool GetEmailConfirmed(UserDto user);
 
     [OperationContract]
-    string GetNormalizedEmailAsync(UserDto user);
+    string GetNormalizedEmail(UserDto user);
 
     [OperationContract]
-    void SetEmailAsync(UserDto user, string email);
+    void SetEmail(UserDto user, string email);
 
     [OperationContract]
-    void SetEmailConfirmedAsync(UserDto user, bool confirmed);
+    void SetEmailConfirmed(UserDto user, bool confirmed);
 
     [OperationContract]
-    void SetNormalizedEmailAsync(UserDto user, string normalizedEmail);
+    void SetNormalizedEmail(UserDto user, string normalizedEmail);
   }
 }

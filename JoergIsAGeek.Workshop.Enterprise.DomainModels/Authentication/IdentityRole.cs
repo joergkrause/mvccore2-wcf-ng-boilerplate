@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication
 {
-  public class IdentityRole : EntityBase<string>
+  public class IdentityRole : EntityBase
   {
     public string Name { get; set; }
   }

@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
-  public abstract class EntityBase<T> : IEntityBase<T> {
+  public abstract class EntityBase : IEntityBase {
 
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public T Id { get; set; }
+    public int Id { get; set; }
   }
 }

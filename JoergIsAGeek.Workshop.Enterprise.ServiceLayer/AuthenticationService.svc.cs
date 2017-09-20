@@ -42,7 +42,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       return _authenticationManager.DeleteRole(role);
     }
 
-    public IdentityRoleDto FindRoleById(string roleId)
+    public IdentityRoleDto FindRoleById(int roleId)
     {
       return _authenticationManager.FindRoleById(roleId);
     }
@@ -52,7 +52,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       return _authenticationManager.FindRoleByName(normalizedRoleName);
     }
 
-    public UserDto FindUserById(string userId)
+    public UserDto FindUserById(int userId)
     {
       return _authenticationManager.FindUserById(userId);
     }
@@ -62,14 +62,14 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       return _authenticationManager.FindUserByName(normalizedUserName);
     }
 
-    public string GeIdentityRoleDtoId(IdentityRoleDto role)
+    public int GetIdentityRoleDtoId(IdentityRoleDto role)
     {
-      return _authenticationManager.GeIdentityRoleDtoName(role);
+      return _authenticationManager.GetIdentityRoleDtoId(role);
     }
 
-    public string GeIdentityRoleDtoName(IdentityRoleDto role)
+    public string GetIdentityRoleDtoName(IdentityRoleDto role)
     {
-      return _authenticationManager.GeIdentityRoleDtoName(role);
+      return _authenticationManager.GetIdentityRoleDtoName(role);
     }
 
     public string GetNormalizedRoleName(IdentityRoleDto role)
@@ -82,14 +82,14 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       return _authenticationManager.GetNormalizedUserName(user);
     }
 
-    public string GeUserDtoId(UserDto user)
+    public int GetUserDtoId(UserDto user)
     {
-      return _authenticationManager.GeUserDtoId(user);
+      return _authenticationManager.GetUserDtoId(user);
     }
 
-    public string GeUserDtoName(UserDto user)
+    public string GetUserDtoName(UserDto user)
     {
-      return _authenticationManager.GeUserDtoName(user);
+      return _authenticationManager.GetUserDtoName(user);
     }
 
     public void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName)
@@ -122,54 +122,54 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       return _authenticationManager.UpdateUser(user);
     }
 
-    public string GetPasswordHashAsync(UserDto userDto)
+    public string GetPasswordHash(UserDto userDto)
     {
-      return _authenticationManager.GetPasswordHashAsync(userDto);
+      return _authenticationManager.GetPasswordHash(userDto);
     }
 
-    public bool HasPasswordAsync(UserDto userDto)
+    public bool HasPassword(UserDto userDto)
     {
-      return _authenticationManager.HasPasswordAsync(userDto);
+      return _authenticationManager.HasPassword(userDto);
     }
 
-    public void SetPasswordHashAsync(UserDto userDto, string passwordHash)
+    public void SetPasswordHash(UserDto userDto, string passwordHash)
     {
-      _authenticationManager.SetPasswordHashAsync(userDto, passwordHash);
+      _authenticationManager.SetPasswordHash(userDto, passwordHash);
     }
 
-    public UserDto FindByEmailAsync(string normalizedEmail)
+    public UserDto FindByEmail(string normalizedEmail)
     {
-      return _authenticationManager.FindByEmailAsync(normalizedEmail);
+      return _authenticationManager.FindByEmail(normalizedEmail);
     }
 
-    public string GetEmailAsync(UserDto user)
+    public string GetEmail(UserDto user)
     {
-      return _authenticationManager.GetEmailAsync(user);
+      return _authenticationManager.GetEmail(user);
     }
 
-    public bool GetEmailConfirmedAsync(UserDto user)
+    public bool GetEmailConfirmed(UserDto user)
     {
-      return _authenticationManager.GetEmailConfirmedAsync(user);
+      return _authenticationManager.GetEmailConfirmed(user);
     }
 
-    public string GetNormalizedEmailAsync(UserDto user)
+    public string GetNormalizedEmail(UserDto user)
     {
-      return _authenticationManager.GetNormalizedEmailAsync(user);
+      return _authenticationManager.GetNormalizedEmail(user);
     }
 
-    public void SetEmailAsync(UserDto user, string email)
+    public void SetEmail(UserDto user, string email)
     {
-      _authenticationManager.SetEmailAsync(user, email);
+      _authenticationManager.SetEmail(user, email);
     }
 
-    public void SetEmailConfirmedAsync(UserDto user, bool confirmed)
+    public void SetEmailConfirmed(UserDto user, bool confirmed)
     {
-      _authenticationManager.SetEmailConfirmedAsync(user, confirmed);
+      _authenticationManager.SetEmailConfirmed(user, confirmed);
     }
 
-    public void SetNormalizedEmailAsync(UserDto user, string normalizedEmail)
+    public void SetNormalizedEmail(UserDto user, string normalizedEmail)
     {
-      _authenticationManager.SetNormalizedEmailAsync(user, normalizedEmail);
+      _authenticationManager.SetNormalizedEmail(user, normalizedEmail);
     }
   }
 }

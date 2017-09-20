@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication
 {
-  public class User : EntityBase<string>
+  public class User : EntityBase
   {
     [Required]
     [StringLength(120)]

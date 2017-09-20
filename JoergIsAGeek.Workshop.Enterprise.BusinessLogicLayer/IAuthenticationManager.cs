@@ -11,11 +11,11 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
   public interface IAuthenticationManager
   {
     IdentityResult CreateUser(UserDto user);
-    UserDto FindUserById(string userId);
+    UserDto FindUserById(int userId);
     UserDto FindUserByName(string normalizedUserName);
     string GetNormalizedUserName(UserDto user);
-    string GeUserDtoId(UserDto user);
-    string GeUserDtoName(UserDto user);
+    int GetUserDtoId(UserDto user);
+    string GetUserDtoName(UserDto user);
     void SetNormalizedUserName(UserDto user, string normalizedName);
     void SeUserDtoName(UserDto user, string userName);
     IdentityResult UpdateUser(UserDto user);
@@ -23,40 +23,40 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
 
     IdentityResult DeleteRole(IdentityRoleDto role);
 
-    IdentityRoleDto FindRoleById(string roleId);
+    IdentityRoleDto FindRoleById(int roleId);
 
     IdentityRoleDto FindRoleByName(string normalizedRoleName);
 
     string GetNormalizedRoleName(IdentityRoleDto role);
 
-    string GeIdentityRoleDtoId(IdentityRoleDto role);
+    int GetIdentityRoleDtoId(IdentityRoleDto role);
 
-    string GeIdentityRoleDtoName(IdentityRoleDto role);
+    string GetIdentityRoleDtoName(IdentityRoleDto role);
 
     void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
 
     void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
 
     IdentityResult UpdateRole(IdentityRoleDto role);
-    string GetPasswordHashAsync(UserDto userDto);
+    string GetPasswordHash(UserDto userDto);
 
-    bool HasPasswordAsync(UserDto userDto);
+    bool HasPassword(UserDto userDto);
 
-    void SetPasswordHashAsync(UserDto userDto, string passwordHash);
+    void SetPasswordHash(UserDto userDto, string passwordHash);
 
-    UserDto FindByEmailAsync(string normalizedEmail);
+    UserDto FindByEmail(string normalizedEmail);
    
-    string GetEmailAsync(UserDto user);
+    string GetEmail(UserDto user);
     
-    bool GetEmailConfirmedAsync(UserDto user);
+    bool GetEmailConfirmed(UserDto user);
 
-    string GetNormalizedEmailAsync(UserDto user);
+    string GetNormalizedEmail(UserDto user);
     
-    void SetEmailAsync(UserDto user, string email);
+    void SetEmail(UserDto user, string email);
 
-    void SetEmailConfirmedAsync(UserDto user, bool confirmed);
+    void SetEmailConfirmed(UserDto user, bool confirmed);
 
-    void SetNormalizedEmailAsync(UserDto user, string normalizedEmail);
+    void SetNormalizedEmail(UserDto user, string normalizedEmail);
 
   }
 }
