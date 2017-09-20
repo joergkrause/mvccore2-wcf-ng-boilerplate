@@ -24,8 +24,9 @@ var components = require("./components/index");
 var Ng = require("@ng-bootstrap/ng-bootstrap");
 // services
 var services = require("./services/index");
-// router
+// routers and guards
 var routes_1 = require("./configurations/routes");
+var authguard_1 = require("./guards/authguard");
 var AppRoot = (function () {
     function AppRoot() {
     }
@@ -86,7 +87,9 @@ var AppRoot = (function () {
                 { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy },
                 { provide: http_1.XHRBackend, useClass: services.AuthenticateXHRBackend },
                 Svogv.FormValidatorService,
-                Ng.NgbCarouselConfig, Ng.NgbAlertConfig
+                Ng.NgbCarouselConfig,
+                Ng.NgbAlertConfig,
+                authguard_1.AuthGuard
             ],
             imports: [
                 platform_browser_1.BrowserModule,

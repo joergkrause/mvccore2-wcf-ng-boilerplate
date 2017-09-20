@@ -68,5 +68,26 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
 
     [OperationContract]
     void SetPasswordHashAsync(UserDto userDto, string passwordHash);
+
+    [OperationContract]
+    UserDto FindByEmailAsync(string normalizedEmail);
+
+    [OperationContract]
+    string GetEmailAsync(UserDto user);
+
+    [OperationContract]
+    bool GetEmailConfirmedAsync(UserDto user);
+
+    [OperationContract]
+    string GetNormalizedEmailAsync(UserDto user);
+
+    [OperationContract]
+    void SetEmailAsync(UserDto user, string email);
+
+    [OperationContract]
+    void SetEmailConfirmedAsync(UserDto user, bool confirmed);
+
+    [OperationContract]
+    void SetNormalizedEmailAsync(UserDto user, string normalizedEmail);
   }
 }

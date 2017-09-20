@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using VM = JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using ID = Microsoft.AspNetCore.Identity;
-using JoergIsAGeek.Workshop.Enterprise.Services;
+using ServiceReference1;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {

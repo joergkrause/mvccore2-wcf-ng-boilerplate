@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JoergIsAGeek.Workshop.Enterprise.Services
+namespace ServiceReference1
 {
     using System.Runtime.Serialization;
     
@@ -172,85 +172,106 @@ namespace JoergIsAGeek.Workshop.Enterprise.Services
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.joergkrause.de/srv", ConfigurationName="JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.joergkrause.de/srv", ConfigurationName="ServiceReference1.AuthSrv")]
     public interface AuthSrv
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/CreateUser", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/CreateUserResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityResult> CreateUserAsync(ServiceReference1.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindUserById", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindUserByIdResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByIdAsync(string userId);
+        System.Threading.Tasks.Task<ServiceReference1.UserDto> FindUserByIdAsync(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindUserByName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindUserByNameResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByNameAsync(string normalizedUserName);
+        System.Threading.Tasks.Task<ServiceReference1.UserDto> FindUserByNameAsync(string normalizedUserName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedUserName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedUserNameResponse")]
-        System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
+        System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(ServiceReference1.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoId", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoIdResponse")]
-        System.Threading.Tasks.Task<string> GeUserDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
+        System.Threading.Tasks.Task<string> GeUserDtoIdAsync(ServiceReference1.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeUserDtoNameResponse")]
-        System.Threading.Tasks.Task<string> GeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
+        System.Threading.Tasks.Task<string> GeUserDtoNameAsync(ServiceReference1.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedUserName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedUserNameResponse")]
-        System.Threading.Tasks.Task SetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string normalizedName);
+        System.Threading.Tasks.Task SetNormalizedUserNameAsync(ServiceReference1.UserDto user, string normalizedName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SeUserDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SeUserDtoNameResponse")]
-        System.Threading.Tasks.Task SeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string userName);
+        System.Threading.Tasks.Task SeUserDtoNameAsync(ServiceReference1.UserDto user, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/UpdateUser", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/UpdateUserResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityResult> UpdateUserAsync(ServiceReference1.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/CreateRole", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/CreateRoleResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityResult> CreateRoleAsync(ServiceReference1.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/DeleteRole", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/DeleteRoleResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> DeleteRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityResult> DeleteRoleAsync(ServiceReference1.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindRoleById", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindRoleByIdResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByIdAsync(string roleId);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityRoleDto> FindRoleByIdAsync(string roleId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindRoleByName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindRoleByNameResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedRoleName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedRoleNameResponse")]
-        System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(ServiceReference1.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoId", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoIdResponse")]
-        System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(ServiceReference1.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GeIdentityRoleDtoNameResponse")]
-        System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(ServiceReference1.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedRoleName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedRoleNameResponse")]
-        System.Threading.Tasks.Task SetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string normalizedName);
+        System.Threading.Tasks.Task SetNormalizedRoleNameAsync(ServiceReference1.IdentityRoleDto role, string normalizedName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SeIdentityRoleDtoName", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SeIdentityRoleDtoNameResponse")]
-        System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string roleName);
+        System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(ServiceReference1.IdentityRoleDto role, string roleName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/UpdateRole", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/UpdateRoleResponse")]
-        System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role);
+        System.Threading.Tasks.Task<ServiceReference1.IdentityResult> UpdateRoleAsync(ServiceReference1.IdentityRoleDto role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetPasswordHashAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetPasswordHashAsyncResponse")]
-        System.Threading.Tasks.Task<string> GetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto);
+        System.Threading.Tasks.Task<string> GetPasswordHashAsyncAsync(ServiceReference1.UserDto userDto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/HasPasswordAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/HasPasswordAsyncResponse")]
-        System.Threading.Tasks.Task<bool> HasPasswordAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto);
+        System.Threading.Tasks.Task<bool> HasPasswordAsyncAsync(ServiceReference1.UserDto userDto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetPasswordHashAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetPasswordHashAsyncResponse")]
-        System.Threading.Tasks.Task SetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto, string passwordHash);
+        System.Threading.Tasks.Task SetPasswordHashAsyncAsync(ServiceReference1.UserDto userDto, string passwordHash);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/FindByEmailAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/FindByEmailAsyncResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.UserDto> FindByEmailAsyncAsync(string normalizedEmail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetEmailAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetEmailAsyncResponse")]
+        System.Threading.Tasks.Task<string> GetEmailAsyncAsync(ServiceReference1.UserDto user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetEmailConfirmedAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetEmailConfirmedAsyncResponse")]
+        System.Threading.Tasks.Task<bool> GetEmailConfirmedAsyncAsync(ServiceReference1.UserDto user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedEmailAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/GetNormalizedEmailAsyncResponse")]
+        System.Threading.Tasks.Task<string> GetNormalizedEmailAsyncAsync(ServiceReference1.UserDto user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetEmailAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetEmailAsyncResponse")]
+        System.Threading.Tasks.Task SetEmailAsyncAsync(ServiceReference1.UserDto user, string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetEmailConfirmedAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetEmailConfirmedAsyncResponse")]
+        System.Threading.Tasks.Task SetEmailConfirmedAsyncAsync(ServiceReference1.UserDto user, bool confirmed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedEmailAsync", ReplyAction="http://www.joergkrause.de/srv/AuthSrv/SetNormalizedEmailAsyncResponse")]
+        System.Threading.Tasks.Task SetNormalizedEmailAsyncAsync(ServiceReference1.UserDto user, string normalizedEmail);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    public interface AuthSrvChannel : JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv, System.ServiceModel.IClientChannel
+    public interface AuthSrvChannel : ServiceReference1.AuthSrv, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    public partial class AuthSrvClient : System.ServiceModel.ClientBase<JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv>, JoergIsAGeek.Workshop.Enterprise.Services.AuthSrv
+    public partial class AuthSrvClient : System.ServiceModel.ClientBase<ServiceReference1.AuthSrv>, ServiceReference1.AuthSrv
     {
         
     /// <summary>
@@ -293,114 +314,149 @@ namespace JoergIsAGeek.Workshop.Enterprise.Services
         {
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityResult> CreateUserAsync(ServiceReference1.UserDto user)
         {
             return base.Channel.CreateUserAsync(user);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByIdAsync(string userId)
+        public System.Threading.Tasks.Task<ServiceReference1.UserDto> FindUserByIdAsync(string userId)
         {
             return base.Channel.FindUserByIdAsync(userId);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.UserDto> FindUserByNameAsync(string normalizedUserName)
+        public System.Threading.Tasks.Task<ServiceReference1.UserDto> FindUserByNameAsync(string normalizedUserName)
         {
             return base.Channel.FindUserByNameAsync(normalizedUserName);
         }
         
-        public System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
+        public System.Threading.Tasks.Task<string> GetNormalizedUserNameAsync(ServiceReference1.UserDto user)
         {
             return base.Channel.GetNormalizedUserNameAsync(user);
         }
         
-        public System.Threading.Tasks.Task<string> GeUserDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
+        public System.Threading.Tasks.Task<string> GeUserDtoIdAsync(ServiceReference1.UserDto user)
         {
             return base.Channel.GeUserDtoIdAsync(user);
         }
         
-        public System.Threading.Tasks.Task<string> GeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
+        public System.Threading.Tasks.Task<string> GeUserDtoNameAsync(ServiceReference1.UserDto user)
         {
             return base.Channel.GeUserDtoNameAsync(user);
         }
         
-        public System.Threading.Tasks.Task SetNormalizedUserNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string normalizedName)
+        public System.Threading.Tasks.Task SetNormalizedUserNameAsync(ServiceReference1.UserDto user, string normalizedName)
         {
             return base.Channel.SetNormalizedUserNameAsync(user, normalizedName);
         }
         
-        public System.Threading.Tasks.Task SeUserDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user, string userName)
+        public System.Threading.Tasks.Task SeUserDtoNameAsync(ServiceReference1.UserDto user, string userName)
         {
             return base.Channel.SeUserDtoNameAsync(user, userName);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateUserAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto user)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityResult> UpdateUserAsync(ServiceReference1.UserDto user)
         {
             return base.Channel.UpdateUserAsync(user);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> CreateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityResult> CreateRoleAsync(ServiceReference1.IdentityRoleDto role)
         {
             return base.Channel.CreateRoleAsync(role);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> DeleteRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityResult> DeleteRoleAsync(ServiceReference1.IdentityRoleDto role)
         {
             return base.Channel.DeleteRoleAsync(role);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByIdAsync(string roleId)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityRoleDto> FindRoleByIdAsync(string roleId)
         {
             return base.Channel.FindRoleByIdAsync(roleId);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityRoleDto> FindRoleByNameAsync(string normalizedRoleName)
         {
             return base.Channel.FindRoleByNameAsync(normalizedRoleName);
         }
         
-        public System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<string> GetNormalizedRoleNameAsync(ServiceReference1.IdentityRoleDto role)
         {
             return base.Channel.GetNormalizedRoleNameAsync(role);
         }
         
-        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoIdAsync(ServiceReference1.IdentityRoleDto role)
         {
             return base.Channel.GeIdentityRoleDtoIdAsync(role);
         }
         
-        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<string> GeIdentityRoleDtoNameAsync(ServiceReference1.IdentityRoleDto role)
         {
             return base.Channel.GeIdentityRoleDtoNameAsync(role);
         }
         
-        public System.Threading.Tasks.Task SetNormalizedRoleNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string normalizedName)
+        public System.Threading.Tasks.Task SetNormalizedRoleNameAsync(ServiceReference1.IdentityRoleDto role, string normalizedName)
         {
             return base.Channel.SetNormalizedRoleNameAsync(role, normalizedName);
         }
         
-        public System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role, string roleName)
+        public System.Threading.Tasks.Task SeIdentityRoleDtoNameAsync(ServiceReference1.IdentityRoleDto role, string roleName)
         {
             return base.Channel.SeIdentityRoleDtoNameAsync(role, roleName);
         }
         
-        public System.Threading.Tasks.Task<JoergIsAGeek.Workshop.Enterprise.Services.IdentityResult> UpdateRoleAsync(JoergIsAGeek.Workshop.Enterprise.Services.IdentityRoleDto role)
+        public System.Threading.Tasks.Task<ServiceReference1.IdentityResult> UpdateRoleAsync(ServiceReference1.IdentityRoleDto role)
         {
             return base.Channel.UpdateRoleAsync(role);
         }
         
-        public System.Threading.Tasks.Task<string> GetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto)
+        public System.Threading.Tasks.Task<string> GetPasswordHashAsyncAsync(ServiceReference1.UserDto userDto)
         {
             return base.Channel.GetPasswordHashAsyncAsync(userDto);
         }
         
-        public System.Threading.Tasks.Task<bool> HasPasswordAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto)
+        public System.Threading.Tasks.Task<bool> HasPasswordAsyncAsync(ServiceReference1.UserDto userDto)
         {
             return base.Channel.HasPasswordAsyncAsync(userDto);
         }
         
-        public System.Threading.Tasks.Task SetPasswordHashAsyncAsync(JoergIsAGeek.Workshop.Enterprise.Services.UserDto userDto, string passwordHash)
+        public System.Threading.Tasks.Task SetPasswordHashAsyncAsync(ServiceReference1.UserDto userDto, string passwordHash)
         {
             return base.Channel.SetPasswordHashAsyncAsync(userDto, passwordHash);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.UserDto> FindByEmailAsyncAsync(string normalizedEmail)
+        {
+            return base.Channel.FindByEmailAsyncAsync(normalizedEmail);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetEmailAsyncAsync(ServiceReference1.UserDto user)
+        {
+            return base.Channel.GetEmailAsyncAsync(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> GetEmailConfirmedAsyncAsync(ServiceReference1.UserDto user)
+        {
+            return base.Channel.GetEmailConfirmedAsyncAsync(user);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetNormalizedEmailAsyncAsync(ServiceReference1.UserDto user)
+        {
+            return base.Channel.GetNormalizedEmailAsyncAsync(user);
+        }
+        
+        public System.Threading.Tasks.Task SetEmailAsyncAsync(ServiceReference1.UserDto user, string email)
+        {
+            return base.Channel.SetEmailAsyncAsync(user, email);
+        }
+        
+        public System.Threading.Tasks.Task SetEmailConfirmedAsyncAsync(ServiceReference1.UserDto user, bool confirmed)
+        {
+            return base.Channel.SetEmailConfirmedAsyncAsync(user, confirmed);
+        }
+        
+        public System.Threading.Tasks.Task SetNormalizedEmailAsyncAsync(ServiceReference1.UserDto user, string normalizedEmail)
+        {
+            return base.Channel.SetNormalizedEmailAsyncAsync(user, normalizedEmail);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

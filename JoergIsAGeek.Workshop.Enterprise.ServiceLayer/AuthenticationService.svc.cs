@@ -136,5 +136,40 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     {
       _authenticationManager.SetPasswordHashAsync(userDto, passwordHash);
     }
+
+    public UserDto FindByEmailAsync(string normalizedEmail)
+    {
+      return _authenticationManager.FindByEmailAsync(normalizedEmail);
+    }
+
+    public string GetEmailAsync(UserDto user)
+    {
+      return _authenticationManager.GetEmailAsync(user);
+    }
+
+    public bool GetEmailConfirmedAsync(UserDto user)
+    {
+      return _authenticationManager.GetEmailConfirmedAsync(user);
+    }
+
+    public string GetNormalizedEmailAsync(UserDto user)
+    {
+      return _authenticationManager.GetNormalizedEmailAsync(user);
+    }
+
+    public void SetEmailAsync(UserDto user, string email)
+    {
+      _authenticationManager.SetEmailAsync(user, email);
+    }
+
+    public void SetEmailConfirmedAsync(UserDto user, bool confirmed)
+    {
+      _authenticationManager.SetEmailConfirmedAsync(user, confirmed);
+    }
+
+    public void SetNormalizedEmailAsync(UserDto user, string normalizedEmail)
+    {
+      _authenticationManager.SetNormalizedEmailAsync(user, normalizedEmail);
+    }
   }
 }

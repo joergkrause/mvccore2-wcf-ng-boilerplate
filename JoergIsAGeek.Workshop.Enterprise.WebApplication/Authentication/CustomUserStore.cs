@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
-using JoergIsAGeek.Workshop.Enterprise.Services;
+using ServiceReference1;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -12,7 +12,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
   /// <summary>
   /// More on interfaces. https://docs.microsoft.com/de-de/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
   /// </summary>
-  internal class CustomUserStore : IUserStore<ApplicationUser>, IUserPasswordStore<ApplicationUser>
+  internal class CustomUserStore : IUserStore<ApplicationUser>, IUserPasswordStore<ApplicationUser>, IUserEmailStore<ApplicationUser>
   {
 
     AuthSrvClient _authclient;
@@ -41,6 +41,12 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       //
     }
 
+    public async Task<ApplicationUser> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
+    {
+      var user = await _authclient.FindByEmailAsyncAsync(normalizedEmail);
+      return _mapper.Map<ApplicationUser>(user);
+    }
+
     public async Task<ApplicationUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
     {
       var result = await _authclient.FindUserByIdAsync(userId);
@@ -53,6 +59,21 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       return _mapper.Map<ApplicationUser>(result);
     }
 
+    public async Task<string> GetEmailAsync(ApplicationUser user, CancellationToken cancellationToken)
+    {
+      return await _authclient.GetEmailAsyncAsync(_mapper.Map<UserDto>(user));
+    }
+
+    public async Task<bool> GetEmailConfirmedAsync(ApplicationUser user, CancellationToken cancellationToken)
+    {
+      return await _authclient.GetEmailConfirmedAsyncAsync(_mapper.Map<UserDto>(user));
+    }
+
+    public async Task<string> GetNormalizedEmailAsync(ApplicationUser user, CancellationToken cancellationToken)
+    {
+      return await _authclient.GetNormalizedEmailAsyncAsync(_mapper.Map<UserDto>(user));
+    }
+
     public async Task<string> GetNormalizedUserNameAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
       var userDto = _mapper.Map<UserDto>(user);
@@ -60,9 +81,9 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       return result;
     }
 
-    public Task<string> GetPasswordHashAsync(ApplicationUser user, CancellationToken cancellationToken)
+    public async Task<string> GetPasswordHashAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      throw new NotImplementedException();
+      return await _authclient.GetPasswordHashAsyncAsync(_mapper.Map<UserDto>(user));
     }
 
     public async Task<string> GetUserIdAsync(ApplicationUser user, CancellationToken cancellationToken)
@@ -77,9 +98,24 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       return await _authclient.GeUserDtoNameAsync(userDto);
     }
 
-    public Task<bool> HasPasswordAsync(ApplicationUser user, CancellationToken cancellationToken)
+    public async Task<bool> HasPasswordAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      throw new NotImplementedException();
+      return await _authclient.HasPasswordAsyncAsync(_mapper.Map<UserDto>(user));
+    }
+
+    public async Task SetEmailAsync(ApplicationUser user, string email, CancellationToken cancellationToken)
+    {
+      await _authclient.SetEmailAsyncAsync(_mapper.Map<UserDto>(user), email);
+    }
+
+    public async Task SetEmailConfirmedAsync(ApplicationUser user, bool confirmed, CancellationToken cancellationToken)
+    {
+      await _authclient.SetEmailConfirmedAsyncAsync(_mapper.Map<UserDto>(user), confirmed);
+    }
+
+    public async Task SetNormalizedEmailAsync(ApplicationUser user, string normalizedEmail, CancellationToken cancellationToken)
+    {
+      await _authclient.SetNormalizedEmailAsyncAsync(_mapper.Map<UserDto>(user), normalizedEmail);
     }
 
     public async Task SetNormalizedUserNameAsync(ApplicationUser user, string normalizedName, CancellationToken cancellationToken)
@@ -90,8 +126,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 
     public async Task SetPasswordHashAsync(ApplicationUser user, string passwordHash, CancellationToken cancellationToken)
     {
-      // TODO: Call Service
-
+      await _authclient.SetPasswordHashAsyncAsync(_mapper.Map<UserDto>(user), passwordHash);
     }
 
     public async Task SetUserNameAsync(ApplicationUser user, string userName, CancellationToken cancellationToken)
@@ -106,5 +141,6 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       var result = await _authclient.UpdateUserAsync(userDto);
       return _mapper.Map<Microsoft.AspNetCore.Identity.IdentityResult>(result);
     }
+
   }
 }

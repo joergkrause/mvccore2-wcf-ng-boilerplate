@@ -43,5 +43,20 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
     bool HasPasswordAsync(UserDto userDto);
 
     void SetPasswordHashAsync(UserDto userDto, string passwordHash);
+
+    UserDto FindByEmailAsync(string normalizedEmail);
+   
+    string GetEmailAsync(UserDto user);
+    
+    bool GetEmailConfirmedAsync(UserDto user);
+
+    string GetNormalizedEmailAsync(UserDto user);
+    
+    void SetEmailAsync(UserDto user, string email);
+
+    void SetEmailConfirmedAsync(UserDto user, bool confirmed);
+
+    void SetNormalizedEmailAsync(UserDto user, string normalizedEmail);
+
   }
 }

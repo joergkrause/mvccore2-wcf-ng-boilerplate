@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.Http;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
-using JoergIsAGeek.Workshop.Enterprise.Services;
+using ServiceReference1;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {

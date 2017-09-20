@@ -1,5 +1,6 @@
 ﻿import { Routes } from '@angular/router';
 import * as Pages from '../pages/index';
+import { AuthGuard } from '../guards/authguard';
 
 const routes: Routes = [
   {
@@ -20,28 +21,32 @@ const routes: Routes = [
     component: Pages.PageDesigner,
     data: {
       title: 'Designer'
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'viewer',
     component: Pages.PageViewer,
     data: {
       title: 'Viewer'
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'options',
     component: Pages.PageOptions,
     data: {
       title: 'Options'
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'datamanager',
     component: Pages.PageDatamanager,
     data: {
       title: 'Data Manager'
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',

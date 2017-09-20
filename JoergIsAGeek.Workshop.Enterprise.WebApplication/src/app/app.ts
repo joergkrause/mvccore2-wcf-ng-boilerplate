@@ -16,8 +16,9 @@ import * as components from './components/index';
 import * as Ng from '@ng-bootstrap/ng-bootstrap';
 // services
 import * as services from './services/index';
-// router
+// routers and guards
 import currentRoutesConfig from './configurations/routes';
+import { AuthGuard } from './guards/authguard';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,9 @@ import currentRoutesConfig from './configurations/routes';
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: XHRBackend, useClass: services.AuthenticateXHRBackend },
     Svogv.FormValidatorService,
-    Ng.NgbCarouselConfig, Ng.NgbAlertConfig
+    Ng.NgbCarouselConfig,
+    Ng.NgbAlertConfig,
+    AuthGuard
   ],
   imports: [
     BrowserModule,

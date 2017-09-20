@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Pages = require("../pages/index");
+var authguard_1 = require("../guards/authguard");
 var routes = [
     {
         path: '',
@@ -20,28 +21,32 @@ var routes = [
         component: Pages.PageDesigner,
         data: {
             title: 'Designer'
-        }
+        },
+        canActivate: [authguard_1.AuthGuard]
     },
     {
         path: 'viewer',
         component: Pages.PageViewer,
         data: {
             title: 'Viewer'
-        }
+        },
+        canActivate: [authguard_1.AuthGuard]
     },
     {
         path: 'options',
         component: Pages.PageOptions,
         data: {
             title: 'Options'
-        }
+        },
+        canActivate: [authguard_1.AuthGuard]
     },
     {
         path: 'datamanager',
         component: Pages.PageDatamanager,
         data: {
             title: 'Data Manager'
-        }
+        },
+        canActivate: [authguard_1.AuthGuard]
     },
     {
         path: 'register',

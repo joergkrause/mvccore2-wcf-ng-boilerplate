@@ -198,5 +198,45 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
       RepUsers.InsertOrUpdate(mapper.Map<User>(user));
     }
 
+    public UserDto FindByEmailAsync(string normalizedEmail)
+    {
+      var user = RepUsers.Read(r => r.Email == normalizedEmail).SingleOrDefault();
+      return user == null ? null : mapper.Map<UserDto>(user);
+    }
+
+    public string GetEmailAsync(UserDto user)
+    {
+      return FindUserById(user.Id).Email;
+    }
+
+    public bool GetEmailConfirmedAsync(UserDto user)
+    {
+      // TODO: Implement
+      return true;
+    }
+
+    public string GetNormalizedEmailAsync(UserDto user)
+    {
+      return FindUserById(user.Id).Email;
+    }
+
+    public void SetEmailAsync(UserDto userDto, string email)
+    {
+      var user = FindUserById(userDto.Id);
+      user.Email = email;
+      RepUsers.InsertOrUpdate(mapper.Map<User>(user));
+    }
+
+    public void SetEmailConfirmedAsync(UserDto user, bool confirmed)
+    {
+      // TODO
+    }
+
+    public void SetNormalizedEmailAsync(UserDto userDto, string normalizedEmail)
+    {
+      var user = FindUserById(userDto.Id);
+      user.Email = normalizedEmail;
+      RepUsers.InsertOrUpdate(mapper.Map<User>(user));
+    }
   }
 }
