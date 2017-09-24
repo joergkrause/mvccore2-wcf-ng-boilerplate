@@ -62,6 +62,7 @@ var UserService = (function (_super) {
             .post(this.baseUrl + 'auth/login', JSON.stringify({ userName: userName, password: password }), { headers: headers })
             .map(function (res) { return res.json(); })
             .map(function (res) {
+            // receive the token and store for all upcoming requests
             localStorage.setItem('auth_token', res.auth_token);
             _this.loggedIn = true;
             _this._authNavStatusSource.next(true);

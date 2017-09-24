@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data.Entity;
 using JoergIsAGeek.Workshop.Enterprise.DataAccessLayer;
 using System.Linq;
 
@@ -11,7 +10,13 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
 
     [TestInitialize]
     public void TestInitialize() {
-      Database.SetInitializer(new DatabaseInitializer());
+      var init = new DatabaseInitializer();
+      using (var context = new MachineDataContext())
+      {
+        context.Database.EnsureDeleted();
+        context.Database.EnsureCreated();
+        init.Seed(context);
+      } // Dispose
     }
 
     [TestMethod]

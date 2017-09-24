@@ -13,81 +13,81 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
   public interface IAuthenticationService
   {
     [OperationContract]
-    IdentityResult CreateUser(UserDto user);
+    IdentityResult CreateUser(ApplicationUserDto user);
     [OperationContract]
-    UserDto FindUserById(int userId);
+    ApplicationUserDto FindUserById(string userId);
     [OperationContract]
-    UserDto FindUserByName(string normalizedUserName);
+    ApplicationUserDto FindUserByName(string normalizedUserName);
     [OperationContract]
-    string GetNormalizedUserName(UserDto user);
+    string GetNormalizedUserName(ApplicationUserDto user);
     [OperationContract]
-    int GetUserDtoId(UserDto user);
+    string GetUserDtoId(ApplicationUserDto user);
     [OperationContract]
-    string GetUserDtoName(UserDto user);
+    string GetUserDtoName(ApplicationUserDto user);
     [OperationContract]
-    void SetNormalizedUserName(UserDto user, string normalizedName);
+    void SetNormalizedUserName(ApplicationUserDto user, string normalizedName);
     [OperationContract]
-    void SeUserDtoName(UserDto user, string userName);
+    void SeUserDtoName(ApplicationUserDto user, string userName);
     [OperationContract]
-    IdentityResult UpdateUser(UserDto user);
+    IdentityResult UpdateUser(ApplicationUserDto user);
     [OperationContract]
-    IdentityResult CreateRole(IdentityRoleDto role);
+    IdentityResult CreateRole(ApplicationIdentityRoleDto role);
 
     [OperationContract]
-    IdentityResult DeleteRole(IdentityRoleDto role);
+    IdentityResult DeleteRole(ApplicationIdentityRoleDto role);
 
     [OperationContract]
-    IdentityRoleDto FindRoleById(int roleId);
+    ApplicationIdentityRoleDto FindRoleById(string roleId);
 
     [OperationContract]
-    IdentityRoleDto FindRoleByName(string normalizedRoleName);
+    ApplicationIdentityRoleDto FindRoleByName(string normalizedRoleName);
 
     [OperationContract]
-    string GetNormalizedRoleName(IdentityRoleDto role);
+    string GetNormalizedRoleName(ApplicationIdentityRoleDto role);
 
     [OperationContract]
-    int GetIdentityRoleDtoId(IdentityRoleDto role);
+    string GetIdentityRoleDtoId(ApplicationIdentityRoleDto role);
 
     [OperationContract]
-    string GetIdentityRoleDtoName(IdentityRoleDto role);
+    string GetIdentityRoleDtoName(ApplicationIdentityRoleDto role);
 
     [OperationContract]
-    void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
+    void SetNormalizedRoleName(ApplicationIdentityRoleDto role, string normalizedName);
 
     [OperationContract]
-    void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
+    void SeIdentityRoleDtoName(ApplicationIdentityRoleDto role, string roleName);
 
     [OperationContract]
-    IdentityResult UpdateRole(IdentityRoleDto role);
+    IdentityResult UpdateRole(ApplicationIdentityRoleDto role);
 
     [OperationContract]
-    string GetPasswordHash(UserDto userDto);
+    string GetPasswordHash(ApplicationUserDto userDto);
 
     [OperationContract]
-    bool HasPassword(UserDto userDto);
+    bool HasPassword(ApplicationUserDto userDto);
 
     [OperationContract]
-    void SetPasswordHash(UserDto userDto, string passwordHash);
+    void SetPasswordHash(ApplicationUserDto userDto, string passwordHash);
 
     [OperationContract]
-    UserDto FindByEmail(string normalizedEmail);
+    ApplicationUserDto FindByEmail(string normalizedEmail);
 
     [OperationContract]
-    string GetEmail(UserDto user);
+    string GetEmail(ApplicationUserDto user);
 
     [OperationContract]
-    bool GetEmailConfirmed(UserDto user);
+    bool GetEmailConfirmed(ApplicationUserDto user);
 
     [OperationContract]
-    string GetNormalizedEmail(UserDto user);
+    string GetNormalizedEmail(ApplicationUserDto user);
 
     [OperationContract]
-    void SetEmail(UserDto user, string email);
+    void SetEmail(ApplicationUserDto user, string email);
 
     [OperationContract]
-    void SetEmailConfirmed(UserDto user, bool confirmed);
+    void SetEmailConfirmed(ApplicationUserDto user, bool confirmed);
 
     [OperationContract]
-    void SetNormalizedEmail(UserDto user, string normalizedEmail);
+    void SetNormalizedEmail(ApplicationUserDto user, string normalizedEmail);
   }
 }

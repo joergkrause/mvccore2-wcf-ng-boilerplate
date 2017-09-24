@@ -55,6 +55,7 @@ export class UserService extends BaseService {
       )
       .map(res => res.json())
       .map(res => {
+        // receive the token and store for all upcoming requests
         localStorage.setItem('auth_token', res.auth_token);
         this.loggedIn = true;
         this._authNavStatusSource.next(true);

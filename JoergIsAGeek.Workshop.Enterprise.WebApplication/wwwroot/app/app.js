@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
 var http_1 = require("@angular/http");
+var http_2 = require("@angular/common/http");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
@@ -86,6 +87,7 @@ var AppRoot = (function () {
                 services.ConfigService,
                 { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy },
                 { provide: http_1.XHRBackend, useClass: services.AuthenticateXHRBackend },
+                { provide: http_2.HTTP_INTERCEPTORS, useClass: services.TokenInterceptorService, multi: true },
                 Svogv.FormValidatorService,
                 Ng.NgbCarouselConfig,
                 Ng.NgbAlertConfig,

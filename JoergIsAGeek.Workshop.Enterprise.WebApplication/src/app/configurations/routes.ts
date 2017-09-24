@@ -21,7 +21,7 @@ const routes: Routes = [
     component: Pages.PageDesigner,
     data: {
       title: 'Designer'
-    },
+    },    
     canActivate: [AuthGuard]
   },
   {

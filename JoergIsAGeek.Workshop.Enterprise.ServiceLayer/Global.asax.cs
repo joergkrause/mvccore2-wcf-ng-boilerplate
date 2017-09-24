@@ -23,8 +23,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer {
       builder.RegisterType<GenericDbRepository<Machine, int>>().AsImplementedInterfaces();
       builder.RegisterType<GenericDbRepository<Device, int>>().AsImplementedInterfaces();
       builder.RegisterType<GenericDbRepository<DataValue, int>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<User, int>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<IdentityRole, int>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<ApplicationUser, string>>().AsImplementedInterfaces();
+      builder.RegisterType<GenericDbRepository<ApplicationRole, string>>().AsImplementedInterfaces();
 
       builder.RegisterType<MachineManager>().As<IMachineManager>().SingleInstance().PropertiesAutowired();
       builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().SingleInstance().PropertiesAutowired();

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpModule, XHRBackend } from '@angular/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -75,6 +76,7 @@ import { AuthGuard } from './guards/authguard';
     services.ConfigService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: XHRBackend, useClass: services.AuthenticateXHRBackend },
+    { provide: HTTP_INTERCEPTORS, useClass: services.TokenInterceptorService, multi: true },
     Svogv.FormValidatorService,
     Ng.NgbCarouselConfig,
     Ng.NgbAlertConfig,

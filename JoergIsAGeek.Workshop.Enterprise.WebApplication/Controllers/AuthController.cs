@@ -15,6 +15,10 @@ using System.Security.Claims;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers
 {
+
+  /// <summary>
+  /// Login Management. Extensible support for one or multiple logons.
+  /// </summary>
   [Route("api/[controller]")]
   public class AuthController : Controller
   {

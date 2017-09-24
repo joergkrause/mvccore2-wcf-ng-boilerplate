@@ -27,147 +27,147 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     }
 
 
-    public IdentityResult CreateRole(IdentityRoleDto role)
+    public IdentityResult CreateRole(ApplicationIdentityRoleDto role)
     {
       return _authenticationManager.CreateRole(role);
     }
 
-    public IdentityResult CreateUser(UserDto user)
+    public IdentityResult CreateUser(ApplicationUserDto user)
     {
       return _authenticationManager.CreateUser(user);
     }
 
-    public IdentityResult DeleteRole(IdentityRoleDto role)
+    public IdentityResult DeleteRole(ApplicationIdentityRoleDto role)
     {
       return _authenticationManager.DeleteRole(role);
     }
 
-    public IdentityRoleDto FindRoleById(int roleId)
+    public ApplicationIdentityRoleDto FindRoleById(string roleId)
     {
       return _authenticationManager.FindRoleById(roleId);
     }
 
-    public IdentityRoleDto FindRoleByName(string normalizedRoleName)
+    public ApplicationIdentityRoleDto FindRoleByName(string normalizedRoleName)
     {
       return _authenticationManager.FindRoleByName(normalizedRoleName);
     }
 
-    public UserDto FindUserById(int userId)
+    public ApplicationUserDto FindUserById(string userId)
     {
       return _authenticationManager.FindUserById(userId);
     }
 
-    public UserDto FindUserByName(string normalizedUserName)
+    public ApplicationUserDto FindUserByName(string normalizedUserName)
     {
       return _authenticationManager.FindUserByName(normalizedUserName);
     }
 
-    public int GetIdentityRoleDtoId(IdentityRoleDto role)
+    public string GetIdentityRoleDtoId(ApplicationIdentityRoleDto role)
     {
       return _authenticationManager.GetIdentityRoleDtoId(role);
     }
 
-    public string GetIdentityRoleDtoName(IdentityRoleDto role)
+    public string GetIdentityRoleDtoName(ApplicationIdentityRoleDto role)
     {
       return _authenticationManager.GetIdentityRoleDtoName(role);
     }
 
-    public string GetNormalizedRoleName(IdentityRoleDto role)
+    public string GetNormalizedRoleName(ApplicationIdentityRoleDto role)
     {
       return _authenticationManager.GetNormalizedRoleName(role);
     }
 
-    public string GetNormalizedUserName(UserDto user)
+    public string GetNormalizedUserName(ApplicationUserDto user)
     {
       return _authenticationManager.GetNormalizedUserName(user);
     }
 
-    public int GetUserDtoId(UserDto user)
+    public string GetUserDtoId(ApplicationUserDto user)
     {
       return _authenticationManager.GetUserDtoId(user);
     }
 
-    public string GetUserDtoName(UserDto user)
+    public string GetUserDtoName(ApplicationUserDto user)
     {
       return _authenticationManager.GetUserDtoName(user);
     }
 
-    public void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName)
+    public void SeIdentityRoleDtoName(ApplicationIdentityRoleDto role, string roleName)
     {
       _authenticationManager.SeIdentityRoleDtoName(role, roleName);
     }
 
-    public void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName)
+    public void SetNormalizedRoleName(ApplicationIdentityRoleDto role, string normalizedName)
     {
       _authenticationManager.SetNormalizedRoleName(role, normalizedName);
     }
 
-    public void SetNormalizedUserName(UserDto user, string normalizedName)
+    public void SetNormalizedUserName(ApplicationUserDto user, string normalizedName)
     {
       _authenticationManager.SetNormalizedUserName(user, normalizedName);
     }
 
-    public void SeUserDtoName(UserDto user, string userName)
+    public void SeUserDtoName(ApplicationUserDto user, string userName)
     {
       _authenticationManager.SeUserDtoName(user, userName);
     }
 
-    public IdentityResult UpdateRole(IdentityRoleDto role)
+    public IdentityResult UpdateRole(ApplicationIdentityRoleDto role)
     {
       return _authenticationManager.UpdateRole(role);
     }
 
-    public IdentityResult UpdateUser(UserDto user)
+    public IdentityResult UpdateUser(ApplicationUserDto user)
     {
       return _authenticationManager.UpdateUser(user);
     }
 
-    public string GetPasswordHash(UserDto userDto)
+    public string GetPasswordHash(ApplicationUserDto userDto)
     {
       return _authenticationManager.GetPasswordHash(userDto);
     }
 
-    public bool HasPassword(UserDto userDto)
+    public bool HasPassword(ApplicationUserDto userDto)
     {
       return _authenticationManager.HasPassword(userDto);
     }
 
-    public void SetPasswordHash(UserDto userDto, string passwordHash)
+    public void SetPasswordHash(ApplicationUserDto userDto, string passwordHash)
     {
       _authenticationManager.SetPasswordHash(userDto, passwordHash);
     }
 
-    public UserDto FindByEmail(string normalizedEmail)
+    public ApplicationUserDto FindByEmail(string normalizedEmail)
     {
       return _authenticationManager.FindByEmail(normalizedEmail);
     }
 
-    public string GetEmail(UserDto user)
+    public string GetEmail(ApplicationUserDto user)
     {
       return _authenticationManager.GetEmail(user);
     }
 
-    public bool GetEmailConfirmed(UserDto user)
+    public bool GetEmailConfirmed(ApplicationUserDto user)
     {
       return _authenticationManager.GetEmailConfirmed(user);
     }
 
-    public string GetNormalizedEmail(UserDto user)
+    public string GetNormalizedEmail(ApplicationUserDto user)
     {
       return _authenticationManager.GetNormalizedEmail(user);
     }
 
-    public void SetEmail(UserDto user, string email)
+    public void SetEmail(ApplicationUserDto user, string email)
     {
       _authenticationManager.SetEmail(user, email);
     }
 
-    public void SetEmailConfirmed(UserDto user, bool confirmed)
+    public void SetEmailConfirmed(ApplicationUserDto user, bool confirmed)
     {
       _authenticationManager.SetEmailConfirmed(user, confirmed);
     }
 
-    public void SetNormalizedEmail(UserDto user, string normalizedEmail)
+    public void SetNormalizedEmail(ApplicationUserDto user, string normalizedEmail)
     {
       _authenticationManager.SetNormalizedEmail(user, normalizedEmail);
     }

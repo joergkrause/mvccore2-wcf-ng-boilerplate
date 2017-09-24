@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
   public class Machine : EntityBase {
 
+
     //[ForCsv(CsvType.AsValue)]
-    [Required]
-    [StringLength(30)]
+    [Required, StringLength(30), Display(Name="Maschinenname")]
     public string Name { get; set; }
 
     [StringLength(5)]

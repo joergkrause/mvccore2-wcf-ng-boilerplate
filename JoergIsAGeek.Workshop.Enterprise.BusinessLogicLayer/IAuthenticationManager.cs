@@ -10,53 +10,53 @@ namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer
 {
   public interface IAuthenticationManager
   {
-    IdentityResult CreateUser(UserDto user);
-    UserDto FindUserById(int userId);
-    UserDto FindUserByName(string normalizedUserName);
-    string GetNormalizedUserName(UserDto user);
-    int GetUserDtoId(UserDto user);
-    string GetUserDtoName(UserDto user);
-    void SetNormalizedUserName(UserDto user, string normalizedName);
-    void SeUserDtoName(UserDto user, string userName);
-    IdentityResult UpdateUser(UserDto user);
-    IdentityResult CreateRole(IdentityRoleDto role);
+    IdentityResult CreateUser(ApplicationUserDto user);
+    ApplicationUserDto FindUserById(string userId);
+    ApplicationUserDto FindUserByName(string normalizedUserName);
+    string GetNormalizedUserName(ApplicationUserDto user);
+    string GetUserDtoId(ApplicationUserDto user);
+    string GetUserDtoName(ApplicationUserDto user);
+    void SetNormalizedUserName(ApplicationUserDto user, string normalizedName);
+    void SeUserDtoName(ApplicationUserDto user, string userName);
+    IdentityResult UpdateUser(ApplicationUserDto user);
+    IdentityResult CreateRole(ApplicationIdentityRoleDto role);
 
-    IdentityResult DeleteRole(IdentityRoleDto role);
+    IdentityResult DeleteRole(ApplicationIdentityRoleDto role);
 
-    IdentityRoleDto FindRoleById(int roleId);
+    ApplicationIdentityRoleDto FindRoleById(string roleId);
 
-    IdentityRoleDto FindRoleByName(string normalizedRoleName);
+    ApplicationIdentityRoleDto FindRoleByName(string normalizedRoleName);
 
-    string GetNormalizedRoleName(IdentityRoleDto role);
+    string GetNormalizedRoleName(ApplicationIdentityRoleDto role);
 
-    int GetIdentityRoleDtoId(IdentityRoleDto role);
+    string GetIdentityRoleDtoId(ApplicationIdentityRoleDto role);
 
-    string GetIdentityRoleDtoName(IdentityRoleDto role);
+    string GetIdentityRoleDtoName(ApplicationIdentityRoleDto role);
 
-    void SetNormalizedRoleName(IdentityRoleDto role, string normalizedName);
+    void SetNormalizedRoleName(ApplicationIdentityRoleDto role, string normalizedName);
 
-    void SeIdentityRoleDtoName(IdentityRoleDto role, string roleName);
+    void SeIdentityRoleDtoName(ApplicationIdentityRoleDto role, string roleName);
 
-    IdentityResult UpdateRole(IdentityRoleDto role);
-    string GetPasswordHash(UserDto userDto);
+    IdentityResult UpdateRole(ApplicationIdentityRoleDto role);
+    string GetPasswordHash(ApplicationUserDto userDto);
 
-    bool HasPassword(UserDto userDto);
+    bool HasPassword(ApplicationUserDto userDto);
 
-    void SetPasswordHash(UserDto userDto, string passwordHash);
+    void SetPasswordHash(ApplicationUserDto userDto, string passwordHash);
 
-    UserDto FindByEmail(string normalizedEmail);
+    ApplicationUserDto FindByEmail(string normalizedEmail);
    
-    string GetEmail(UserDto user);
+    string GetEmail(ApplicationUserDto user);
     
-    bool GetEmailConfirmed(UserDto user);
+    bool GetEmailConfirmed(ApplicationUserDto user);
 
-    string GetNormalizedEmail(UserDto user);
+    string GetNormalizedEmail(ApplicationUserDto user);
     
-    void SetEmail(UserDto user, string email);
+    void SetEmail(ApplicationUserDto user, string email);
 
-    void SetEmailConfirmed(UserDto user, bool confirmed);
+    void SetEmailConfirmed(ApplicationUserDto user, bool confirmed);
 
-    void SetNormalizedEmail(UserDto user, string normalizedEmail);
+    void SetNormalizedEmail(ApplicationUserDto user, string normalizedEmail);
 
   }
 }

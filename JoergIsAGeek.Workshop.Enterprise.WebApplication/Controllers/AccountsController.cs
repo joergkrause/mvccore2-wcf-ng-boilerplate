@@ -15,6 +15,10 @@ using AutoMapper;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers
 {
+
+  /// <summary>
+  /// Self management for users. Register, change password, reset password and so on.
+  /// </summary>
   [Route("api/[controller]")]
   public class AccountsController : Controller
   {

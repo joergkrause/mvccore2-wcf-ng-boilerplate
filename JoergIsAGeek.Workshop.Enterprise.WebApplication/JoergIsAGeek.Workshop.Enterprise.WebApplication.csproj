@@ -20,6 +20,7 @@
     <None Remove="src\app\guards\index.ts" />
     <None Remove="src\app\services\accountservice.ts" />
     <None Remove="src\app\services\index.ts" />
+    <None Remove="src\app\services\tokeninterceptorservice.ts" />
     <None Remove="src\app\viewmodels\accountinfo.ts" />
   </ItemGroup>
 
@@ -67,6 +68,7 @@
     <TypeScriptCompile Include="src\app\guards\index.ts" />
     <TypeScriptCompile Include="src\app\services\accountservice.ts" />
     <TypeScriptCompile Include="src\app\services\index.ts" />
+    <TypeScriptCompile Include="src\app\services\tokeninterceptorservice.ts" />
     <TypeScriptCompile Include="src\app\viewmodels\accountinfo.ts" />
   </ItemGroup>
 

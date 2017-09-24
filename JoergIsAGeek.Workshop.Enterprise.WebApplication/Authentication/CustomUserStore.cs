@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
-using ServiceReference2;
+using ServiceReference3;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -49,7 +49,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 
     public async Task<ApplicationUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
     {
-      var result = await _authclient.FindUserByIdAsync(Int32.Parse(userId));
+      var result = await _authclient.FindUserByIdAsync(userId);
       return _mapper.Map<ApplicationUser>(result);
     }
 

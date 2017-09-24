@@ -26,7 +26,7 @@ export class AccountService extends BaseService {
       headers.append('Content-Type', 'application/json');
       let authToken = localStorage.getItem('auth_token');
       headers.append('Authorization', `Bearer ${authToken}`);
-  
+
     return this.http.get(this.baseUrl + "/account/user",{headers})
       .map(response => response.json() as AccountInfo)
       .catch(this.handleError);

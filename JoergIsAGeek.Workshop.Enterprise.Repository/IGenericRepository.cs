@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 
 namespace JoergIsAGeek.Workshop.Enterprise.Repository {
-  public interface IGenericRepository<T, U> where T : EntityBase {
+  public interface IGenericRepository<T, U> where T : IEntityBase<U> {
     int Count();
     bool Delete(T model);
     T Find(U id);

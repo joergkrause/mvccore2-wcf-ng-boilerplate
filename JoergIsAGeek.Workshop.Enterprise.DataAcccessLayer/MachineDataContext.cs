@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 using JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer {
-  public class MachineDataContext : DbContext {
+
+  /// <summary>
+  /// The main context for working data and authentication.
+  /// </summary>
+  public class MachineDataContext : IdentityDbContext {
 
     public DbSet<Machine> Machines { get; set; }
 
@@ -16,18 +21,21 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer {
 
     public DbSet<DataValue> DataValues { get; set; }
 
-    public DbSet<User> Users { get; set; }
-
-    public DbSet<IdentityRole> IdentityRoles { get; set; }
-
     public override int SaveChanges() {
       return base.SaveChanges();
     }
 
-    protected override void OnModelCreating(DbModelBuilder modelBuilder) {
-      base.OnModelCreating(modelBuilder);
-      //modelBuilder.Configurations.Add()
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+      base.OnModelCreating(builder);
+      builder.Entity<ApplicationUser>()
+        .Property(u => u.Id).IsUnicode(false);
+      builder.Entity<ApplicationUser>()
+        .Property(u => u.Email).IsUnicode(false);
+      builder.Entity<ApplicationRole>()
+        .Property(u => u.Id).IsUnicode(false);
     }
+
 
   }
 }

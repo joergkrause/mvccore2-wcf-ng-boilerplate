@@ -1,22 +1,23 @@
 ﻿using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using JoergIsAGeek.Workshop.Enterprise.DataAccessLayer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace JoergIsAGeek.Workshop.Enterprise.Repository {
-  public class GenericDbRepository<T, U> : IGenericRepository<T, U> where T : EntityBase {
+  public class GenericDbRepository<T, U> : IGenericRepository<T, U> where T : class, IEntityBase<U> {
 
 
     public GenericDbRepository() {
     }
 
-    private DbContext Context {
+    private IdentityDbContext Context {
       get {
         var _http = HttpContext.Current;
         MachineDataContext context = null;
@@ -67,7 +68,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
     }
 
     public bool InsertOrUpdate(T model) {
-      Context.Entry(model).State = model.Id == default(int) ? EntityState.Added : EntityState.Modified;
+      // the comparer is for both key types, string and int
+      Context.Entry(model).State = EqualityComparer<U>.Default.Equals(model.Id, default(U)) ? EntityState.Added : EntityState.Modified;
       return Context.SaveChanges() == 1;
     }
 

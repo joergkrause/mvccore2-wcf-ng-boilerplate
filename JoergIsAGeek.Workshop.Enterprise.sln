@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoergIsAGeek.Workshop.Enter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels", "JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels\JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.csproj", "{BCA30391-1AC1-4FFA-942F-5DC2418E364A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationAuth", "WebApplicationAuth\WebApplicationAuth.csproj", "{8BFBB8D0-89B7-4494-94A2-1050BD415FFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{BCA30391-1AC1-4FFA-942F-5DC2418E364A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA30391-1AC1-4FFA-942F-5DC2418E364A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA30391-1AC1-4FFA-942F-5DC2418E364A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFBB8D0-89B7-4494-94A2-1050BD415FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFBB8D0-89B7-4494-94A2-1050BD415FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFBB8D0-89B7-4494-94A2-1050BD415FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFBB8D0-89B7-4494-94A2-1050BD415FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{9251CB79-CDB0-468C-80F1-E1392601824C} = {581DA9F7-3C4B-4329-8AD2-4358C4188038}
 		{F2D9969E-10BC-4521-89B7-7651EA677ECB} = {344C7732-A990-4455-85DE-CFCC732EDE2E}
 		{BCA30391-1AC1-4FFA-942F-5DC2418E364A} = {344C7732-A990-4455-85DE-CFCC732EDE2E}
+		{8BFBB8D0-89B7-4494-94A2-1050BD415FFB} = {344C7732-A990-4455-85DE-CFCC732EDE2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A436E6D-866B-4938-ADF9-3BEDD52C8C87}
