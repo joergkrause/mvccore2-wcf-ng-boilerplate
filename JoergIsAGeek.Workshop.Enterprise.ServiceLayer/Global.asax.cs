@@ -28,7 +28,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       builder.RegisterType<AuthenticationService>();
       // The configuration bridge between WCF and EF Core
       var optionBuilder = new DbContextOptionsBuilder();
-      optionBuilder.UseSqlServer(WebConfigurationManager.ConnectionStrings[nameof(MachineDataContext)].ConnectionString);
+      optionBuilder.UseSqlServer("");
       builder.RegisterInstance(optionBuilder.Options).As<DbContextOptions<MachineDataContext>>();
       // Per request to assure context per user
       builder.RegisterType<MachineDataContext>().InstancePerRequest();

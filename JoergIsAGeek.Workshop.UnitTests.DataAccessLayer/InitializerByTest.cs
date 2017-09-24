@@ -10,12 +10,17 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
   [TestClass]
   public class InitializerByTest {
 
-    private DbContextOptions GetOptions()
+    private string GetCs()
     {
-      var optionBuilder = new DbContextOptionsBuilder();
-      optionBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings[nameof(MachineDataContext)].ConnectionString);
-      var options = optionBuilder.Options;
-      return options;
+      var cs = @"Data Source=(localdb)\JoergIsAGeek;Initial Catalog=MachineDataDatabase;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30";
+      return cs;
+    }
+
+    private DbContextOptions<MachineDataContext> GetOptions()
+    {
+      var optionBuilder = new DbContextOptionsBuilder<MachineDataContext>();
+      optionBuilder.UseSqlServer(GetCs());
+      return optionBuilder.Options;
     }
 
     [TestInitialize]
