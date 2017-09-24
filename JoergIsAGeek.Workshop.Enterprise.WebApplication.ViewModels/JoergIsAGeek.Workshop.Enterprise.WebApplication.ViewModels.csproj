@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Authentication\ApplicationUser.cs" />
     <Compile Include="Authentication\CredentialsViewModel.cs" />
-    <Compile Include="Authentication\IdentityRole.cs" />
+    <Compile Include="Authentication\ApplicationIdentityRole.cs" />
     <Compile Include="Authentication\RegistrationViewModel.cs" />
     <Compile Include="Authentication\RequiredAttribute.cs" />
     <Compile Include="BaseViewModel.cs" />

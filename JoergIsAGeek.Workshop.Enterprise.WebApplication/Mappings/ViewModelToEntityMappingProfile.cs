@@ -1,5 +1,5 @@
 using AutoMapper;
-using ServiceReference3;
+using ServiceReference4;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Mappings
@@ -12,7 +12,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Mappings
       CreateMap<RegistrationViewModel, ApplicationUser>()
         .ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
       // Map the store models to the backend DTOs
-      CreateMap<ApplicationUser, UserDto>();
+      CreateMap<ApplicationUser, User>();
       CreateMap<Microsoft.AspNetCore.Identity.IdentityResult, IdentityResult>();
     }
   }

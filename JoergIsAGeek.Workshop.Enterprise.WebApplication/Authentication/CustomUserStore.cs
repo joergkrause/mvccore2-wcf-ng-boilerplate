@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
-using ServiceReference3;
+using ServiceReference4;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -26,8 +26,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 
     public async Task<Microsoft.AspNetCore.Identity.IdentityResult> CreateAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      var result = await _authclient.CreateUserAsync(userDto);
+      var User = _mapper.Map<User>(user);
+      var result = await _authclient.CreateUserAsync(User);
       return _mapper.Map<Microsoft.AspNetCore.Identity.IdentityResult>(result);
     }
 
@@ -61,84 +61,84 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 
     public async Task<string> GetEmailAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      return await _authclient.GetEmailAsync(_mapper.Map<UserDto>(user));
+      return await _authclient.GetEmailAsync(_mapper.Map<User>(user));
     }
 
     public async Task<bool> GetEmailConfirmedAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      return await _authclient.GetEmailConfirmedAsync(_mapper.Map<UserDto>(user));
+      return await _authclient.GetEmailConfirmedAsync(_mapper.Map<User>(user));
     }
 
     public async Task<string> GetNormalizedEmailAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      return await _authclient.GetNormalizedEmailAsync(_mapper.Map<UserDto>(user));
+      return await _authclient.GetNormalizedEmailAsync(_mapper.Map<User>(user));
     }
 
     public async Task<string> GetNormalizedUserNameAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      var result = await _authclient.GetNormalizedUserNameAsync(userDto);
+      var User = _mapper.Map<User>(user);
+      var result = await _authclient.GetNormalizedUserNameAsync(User);
       return result;
     }
 
     public async Task<string> GetPasswordHashAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      return await _authclient.GetPasswordHashAsync(_mapper.Map<UserDto>(user));
+      return await _authclient.GetPasswordHashAsync(_mapper.Map<User>(user));
     }
 
     public async Task<string> GetUserIdAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      return (await _authclient.GetUserDtoIdAsync(userDto)).ToString();
+      var User = _mapper.Map<User>(user);
+      return (await _authclient.GetUserDtoIdAsync(User)).ToString();
     }
 
     public async Task<string> GetUserNameAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      return await _authclient.GetUserDtoNameAsync(userDto);
+      var User = _mapper.Map<User>(user);
+      return await _authclient.GetUserDtoNameAsync(User);
     }
 
     public async Task<bool> HasPasswordAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      return await _authclient.HasPasswordAsync(_mapper.Map<UserDto>(user));
+      return await _authclient.HasPasswordAsync(_mapper.Map<User>(user));
     }
 
     public async Task SetEmailAsync(ApplicationUser user, string email, CancellationToken cancellationToken)
     {
-      await _authclient.SetEmailAsync(_mapper.Map<UserDto>(user), email);
+      await _authclient.SetEmailAsync(_mapper.Map<User>(user), email);
     }
 
     public async Task SetEmailConfirmedAsync(ApplicationUser user, bool confirmed, CancellationToken cancellationToken)
     {
-      await _authclient.SetEmailConfirmedAsync(_mapper.Map<UserDto>(user), confirmed);
+      await _authclient.SetEmailConfirmedAsync(_mapper.Map<User>(user), confirmed);
     }
 
     public async Task SetNormalizedEmailAsync(ApplicationUser user, string normalizedEmail, CancellationToken cancellationToken)
     {
-      await _authclient.SetNormalizedEmailAsync(_mapper.Map<UserDto>(user), normalizedEmail);
+      await _authclient.SetNormalizedEmailAsync(_mapper.Map<User>(user), normalizedEmail);
     }
 
     public async Task SetNormalizedUserNameAsync(ApplicationUser user, string normalizedName, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      await _authclient.SetNormalizedUserNameAsync(userDto, normalizedName);
+      var User = _mapper.Map<User>(user);
+      await _authclient.SetNormalizedUserNameAsync(User, normalizedName);
     }
 
     public async Task SetPasswordHashAsync(ApplicationUser user, string passwordHash, CancellationToken cancellationToken)
     {
-      await _authclient.SetPasswordHashAsync(_mapper.Map<UserDto>(user), passwordHash);
+      await _authclient.SetPasswordHashAsync(_mapper.Map<User>(user), passwordHash);
     }
 
     public async Task SetUserNameAsync(ApplicationUser user, string userName, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      await _authclient.SeUserDtoNameAsync(userDto, userName);
+      var User = _mapper.Map<User>(user);
+      await _authclient.SeUserDtoNameAsync(User, userName);
     }
 
     public async Task<Microsoft.AspNetCore.Identity.IdentityResult> UpdateAsync(ApplicationUser user, CancellationToken cancellationToken)
     {
-      var userDto = _mapper.Map<UserDto>(user);
-      var result = await _authclient.UpdateUserAsync(userDto);
+      var User = _mapper.Map<User>(user);
+      var result = await _authclient.UpdateUserAsync(User);
       return _mapper.Map<Microsoft.AspNetCore.Identity.IdentityResult>(result);
     }
 

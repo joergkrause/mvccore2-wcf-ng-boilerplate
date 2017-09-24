@@ -13,26 +13,15 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace JoergIsAGeek.Workshop.Enterprise.Repository {
   public class GenericDbRepository<T, U> : IGenericRepository<T, U> where T : class, IEntityBase<U> {
 
+    private MachineDataContext _context;
 
-    public GenericDbRepository() {
+    public GenericDbRepository(MachineDataContext context) {
+      _context = context;
     }
 
-    private IdentityDbContext Context {
+    protected MachineDataContext Context {
       get {
-        var _http = HttpContext.Current;
-        MachineDataContext context = null;
-        if (_http == null) {
-          context = new MachineDataContext();
-        } else {
-          var key = _http.GetHashCode().ToString("x");
-          if (_http.Items.Contains(key)) {
-            context = _http.Items[key] as MachineDataContext;
-          } else {
-            context = new MachineDataContext();
-            _http.Items.Add(key, context);
-          }
-        }
-        return context;
+        return _context;
       }
     }
 

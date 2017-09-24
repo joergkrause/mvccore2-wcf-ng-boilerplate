@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using VM = JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using ID = Microsoft.AspNetCore.Identity;
-using ServiceReference3;
+using ServiceReference4;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
-  internal class CustomRoleStore : ID.IRoleStore<VM.IdentityRole>
+  internal class CustomRoleStore : ID.IRoleStore<VM.ApplicationIdentityRole>
   {
 
     private AuthSrvClient _authSrvClient;
@@ -16,12 +16,12 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       _authSrvClient = client;
     }
 
-    public Task<ID.IdentityResult> CreateAsync(VM.IdentityRole role, CancellationToken cancellationToken)
+    public Task<ID.IdentityResult> CreateAsync(VM.ApplicationIdentityRole role, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task<ID.IdentityResult> DeleteAsync(VM.IdentityRole role, CancellationToken cancellationToken)
+    public Task<ID.IdentityResult> DeleteAsync(VM.ApplicationIdentityRole role, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
@@ -31,42 +31,42 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       throw new System.NotImplementedException();
     }
 
-    public Task<VM.IdentityRole> FindByIdAsync(string roleId, CancellationToken cancellationToken)
+    public Task<VM.ApplicationIdentityRole> FindByIdAsync(string roleId, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task<VM.IdentityRole> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken)
+    public Task<VM.ApplicationIdentityRole> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task<string> GetNormalizedRoleNameAsync(VM.IdentityRole role, CancellationToken cancellationToken)
+    public Task<string> GetNormalizedRoleNameAsync(VM.ApplicationIdentityRole role, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task<string> GetRoleIdAsync(VM.IdentityRole role, CancellationToken cancellationToken)
+    public Task<string> GetRoleIdAsync(VM.ApplicationIdentityRole role, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task<string> GetRoleNameAsync(VM.IdentityRole role, CancellationToken cancellationToken)
+    public Task<string> GetRoleNameAsync(VM.ApplicationIdentityRole role, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task SetNormalizedRoleNameAsync(VM.IdentityRole role, string normalizedName, CancellationToken cancellationToken)
+    public Task SetNormalizedRoleNameAsync(VM.ApplicationIdentityRole role, string normalizedName, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task SetRoleNameAsync(VM.IdentityRole role, string roleName, CancellationToken cancellationToken)
+    public Task SetRoleNameAsync(VM.ApplicationIdentityRole role, string roleName, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }
 
-    public Task<ID.IdentityResult> UpdateAsync(VM.IdentityRole role, CancellationToken cancellationToken)
+    public Task<ID.IdentityResult> UpdateAsync(VM.ApplicationIdentityRole role, CancellationToken cancellationToken)
     {
       throw new System.NotImplementedException();
     }

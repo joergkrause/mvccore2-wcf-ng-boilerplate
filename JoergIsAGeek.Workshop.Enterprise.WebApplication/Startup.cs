@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.Http;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
-using ServiceReference3;
+using ServiceReference4;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -50,10 +50,10 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       services.AddMvc();
       services.AddSingleton<IJwtFactory, JwtFactory>();
       // Security using custom backend
-      services.AddIdentity<ApplicationUser, IdentityRole>().AddDefaultTokenProviders();
+      services.AddIdentity<ApplicationUser, ApplicationIdentityRole>().AddDefaultTokenProviders();
       services.AddSingleton<UserManager<ApplicationUser>, CustomUserManager>();
       services.AddTransient<IUserStore<ApplicationUser>, CustomUserStore>();
-      services.AddTransient<IRoleStore<IdentityRole>, CustomRoleStore>();
+      services.AddTransient<IRoleStore<ApplicationIdentityRole>, CustomRoleStore>();
 
       services.Configure<IdentityOptions>(options =>
       {

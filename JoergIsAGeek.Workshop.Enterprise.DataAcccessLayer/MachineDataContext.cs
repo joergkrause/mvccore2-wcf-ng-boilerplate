@@ -12,8 +12,22 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer {
 
   /// <summary>
   /// The main context for working data and authentication.
+  /// The Autfac cotainer shall deliver the options for config.
   /// </summary>
   public class MachineDataContext : IdentityDbContext {
+
+    public MachineDataContext(DbContextOptions<MachineDataContext> options) : base(options)
+    {
+    }
+
+    public MachineDataContext(DbContextOptions options) : base(options)
+    {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+      base.OnConfiguring(optionsBuilder);
+    }
 
     public DbSet<Machine> Machines { get; set; }
 
