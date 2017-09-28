@@ -16,9 +16,9 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
       return cs;
     }
 
-    private DbContextOptions<MachineDataContext> GetOptions()
+    private DbContextOptions<DbContext> GetOptions()
     {
-      var optionBuilder = new DbContextOptionsBuilder<MachineDataContext>();
+      var optionBuilder = new DbContextOptionsBuilder<DbContext>();
       optionBuilder.UseSqlServer(GetCs());
       return optionBuilder.Options;
     }

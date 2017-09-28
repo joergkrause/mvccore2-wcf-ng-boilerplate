@@ -238,13 +238,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DataAcccessLayer\JoergIsAGeek.Workshop.Enterprise.DataAccessLayer.csproj">
+    <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DataAccessLayer\JoergIsAGeek.Workshop.Enterprise.DataAccessLayer.csproj">
       <Project>{9251CB79-CDB0-468C-80F1-E1392601824C}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DataAccessLayer</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\JoergIsAGeek.Workshop.Enterprise.DomainModels\JoergIsAGeek.Workshop.Enterprise.DomainModels.csproj">
       <Project>{F7012709-60FD-4A4E-9ACF-1C636776E43F}</Project>
-      <Name>Zumtobel.Workshop.Enterprise.DomainModels</Name>
+      <Name>JoergIsAGeek.Workshop.Enterprise.DomainModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
