@@ -1,16 +1,16 @@
 ﻿import { Component } from '@angular/core';
 
 @Component({
-  selector: 'site-root',
+  selector: 'site-root', // CSS Syntax!
   template: `
             <site-header></site-header>
             <site-sidebar></site-sidebar>
             <section class="main-container">
                 <router-outlet></router-outlet>
             </section>
-            `,
+            `, 
   styles: [`
-            .main-container{
+            .main-container {
                 margin-top: 60px;
                 margin-left: 235px;
                 padding: 15px;
@@ -30,7 +30,5 @@
   ]
 })
 export class SiteRoot {
-
-
 
 }

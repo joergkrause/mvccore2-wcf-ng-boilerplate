@@ -9,6 +9,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 // forms handling and validation
 import * as Svogv from 'svogv';
+
 // components
 import * as pages from './pages/index';
 import * as directives from './directives/removehost';

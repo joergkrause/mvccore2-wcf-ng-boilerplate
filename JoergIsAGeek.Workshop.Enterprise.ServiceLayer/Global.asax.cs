@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Security;
@@ -23,6 +24,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
     protected void Application_Start(object sender, EventArgs e)
     {
       var builder = new ContainerBuilder();
+      // User manager that puts through the identity conveniently
+      builder.RegisterType<UserContextProvider>().AsImplementedInterfaces();
       // Globally the services itself
       builder.RegisterType<MachineService>();
       builder.RegisterType<AuthenticationService>();

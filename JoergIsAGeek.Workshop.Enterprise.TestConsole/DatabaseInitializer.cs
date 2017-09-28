@@ -12,42 +12,43 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
   internal class DatabaseInitializer {
 
     internal void Seed(MachineDataContext context) {
-      context.Database.EnsureDeleted();
-      context.Database.EnsureCreated();
       // Demo user and admin for frontend administration
       var guestRole = new ApplicationRole { Name = "Guest", Id = Guid.NewGuid().ToString("N") };
       var userRole = new ApplicationRole { Name = "User", Id = Guid.NewGuid().ToString("N") };
       var adminRole = new ApplicationRole { Name = "Admin", Id = Guid.NewGuid().ToString("N") };
+      // Add roles
       context.Roles.AddRange(new [] { guestRole, userRole, adminRole });
-      var hasher = new Microsoft.AspNet.Identity.PasswordHasher();
+      var hasher = new Microsoft.AspNetCore.Identity.PasswordHasher<ApplicationUser>();
       var guest = new ApplicationUser
       {
         UserName = "weirdguest",
         Id = Guid.NewGuid().ToString("N"),
-        Email = "weird@guest.com",
-        PasswordHash = hasher.HashPassword("p@ssw0rd")
+        Email = "weird@guest.com"
       };
+      guest.PasswordHash = hasher.HashPassword(guest, "p@ssw0rd");
       var user = new ApplicationUser
       {
         UserName = "dorisdemo",
         Id = Guid.NewGuid().ToString("N"),
-        Email = "doris@demo.com",
-        PasswordHash = hasher.HashPassword("p@ssw0rd")
+        Email = "doris@demo.com"
       };
+      user.PasswordHash = hasher.HashPassword(user, "p@ssw0rd");
       var admin = new ApplicationUser
       {
         UserName = "andyadmin",
         Id = Guid.NewGuid().ToString("N"),
-        Email = "andy@admin.com",
-        PasswordHash = hasher.HashPassword("p@ssw0rd")
+        Email = "andy@admin.com"
       };
+      admin.PasswordHash = hasher.HashPassword(admin, "p@ssw0rd");
+      // Add users
       context.Users.Add(user);
       context.Users.Add(admin);
       // Assign users to roles
       var guestUserRole = new IdentityUserRole<string> { UserId = guest.Id, RoleId = guestRole.Id };
       var userUserRole = new IdentityUserRole<string> { UserId = user.Id, RoleId = userRole.Id };
       var adminUserRole = new IdentityUserRole<string> { UserId = admin.Id, RoleId = adminRole.Id };
-      context.UserRoles.AddRange(new[] { guestUserRole, userUserRole, adminUserRole });
+      //context.UserRoles.AddRange(new[] { guestUserRole, userUserRole, adminUserRole });
+      context.SaveChanges();
 
       // Demo data
       var machine = new Machine {

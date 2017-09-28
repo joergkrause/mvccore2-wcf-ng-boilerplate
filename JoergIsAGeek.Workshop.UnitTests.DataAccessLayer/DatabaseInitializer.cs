@@ -48,7 +48,7 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
       var userUserRole = new IdentityUserRole<string> { UserId = user.Id, RoleId = userRole.Id };
       var adminUserRole = new IdentityUserRole<string> { UserId = admin.Id, RoleId = adminRole.Id };
       context.UserRoles.AddRange(new[] { guestUserRole, userUserRole, adminUserRole });
-
+      context.SaveChanges();
       // Demo data
       var machine = new Machine {
         Name = "M1",

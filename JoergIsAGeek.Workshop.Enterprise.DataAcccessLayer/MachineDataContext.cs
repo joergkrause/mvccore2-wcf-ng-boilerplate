@@ -8,16 +8,22 @@ using JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer {
+namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
+{
 
   /// <summary>
   /// The main context for working data and authentication.
   /// The Autfac cotainer shall deliver the options for config.
   /// </summary>
-  public class MachineDataContext : IdentityDbContext {
+  public class MachineDataContext : IdentityDbContext
+  {
 
-    public MachineDataContext(DbContextOptions<MachineDataContext> options) : base(options)
+    private IUserContextProvider contextProvider;
+
+    public MachineDataContext(DbContextOptions<MachineDataContext> options, IUserContextProvider contextProvider) : base(options)
     {
+      // forward of the user identity
+      this.contextProvider = contextProvider;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,8 +37,30 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer {
 
     public DbSet<DataValue> DataValues { get; set; }
 
-    public override int SaveChanges() {
+    public override int SaveChanges()
+    {
+      this.SaveInterceptor(this.contextProvider.UserIdentity.Name);
       return base.SaveChanges();
+    }
+
+    private void SaveInterceptor(string contextUser)
+    {
+      var timeStamp = DateTime.Now.ToUniversalTime();
+      var trackedItems = ChangeTracker.Entries<IAuditableEntityBase>();
+      foreach (var item in trackedItems)
+      {
+        switch (item.State)
+        {
+          case EntityState.Added:
+            item.Entity.CreatedAt = timeStamp;
+            item.Entity.CreatedBy = contextUser ?? "TestUser";
+            goto case EntityState.Modified;
+          case EntityState.Modified:
+            item.Entity.ModifiedAt = timeStamp;
+            item.Entity.ModifiedBy = contextUser ?? "TestUser";
+            break;
+        }
+      }
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

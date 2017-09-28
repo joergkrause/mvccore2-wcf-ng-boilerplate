@@ -11,29 +11,30 @@ using Microsoft.EntityFrameworkCore;
 namespace JoergIsAGeek.Workshop.Enterprise.TestConsole {
   class Program {
     static void Main(string[] args) {
-
-      var machineManager = new MachineManager();
-      var result = machineManager.GetMachineForDataValue(1000);
-      foreach (var item in result) {
-        Console.WriteLine($"{item.Name} ({item.Id})");
-      }
+      TestInitialize();
+      TestToCreateDatebase();
       Console.ReadLine();
     }
 
-    public void TestInitialize()
+    static void TestInitialize()
     {
       var init = new DatabaseInitializer();
-      using (var context = new MachineDataContext(GetOptions()))
+      IUserContextProvider contextProvider = null;
+      using (var context = new MachineDataContext(GetOptions(), contextProvider))
       {
+        Console.WriteLine("Deleting...");
         context.Database.EnsureDeleted();
+        Console.WriteLine("Creating...");
         context.Database.EnsureCreated();
+        Console.WriteLine("Seeding...");
         init.Seed(context);
       } // Dispose
     }
 
-    public void TestToCreateDatebase()
+    static void TestToCreateDatebase()
     {
-      using (var context = new MachineDataContext(GetOptions()))
+      IUserContextProvider contextProvider = null;
+      using (var context = new MachineDataContext(GetOptions(), contextProvider))
       {
         var machines = context.Machines.ToList();
         var count = context.Machines.Count();
@@ -41,13 +42,13 @@ namespace JoergIsAGeek.Workshop.Enterprise.TestConsole {
       } // Dispose
     }
 
-    private string GetCs()
+    private static string GetCs()
     {
       var cs = @"Data Source=(localdb)\JoergIsAGeek;Initial Catalog=MachineDataDatabase;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30";
       return cs;
     }
 
-    private DbContextOptions<MachineDataContext> GetOptions()
+    private static DbContextOptions<MachineDataContext> GetOptions()
     {
       var optionBuilder = new DbContextOptionsBuilder<MachineDataContext>();
       optionBuilder.UseSqlServer(GetCs());

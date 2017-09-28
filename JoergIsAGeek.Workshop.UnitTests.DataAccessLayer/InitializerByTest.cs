@@ -26,7 +26,7 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
     [TestInitialize]
     public void TestInitialize() {
       var init = new DatabaseInitializer();
-      using (var context = new MachineDataContext(GetOptions()))
+      using (var context = new MachineDataContext(GetOptions(), null))
       {
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
@@ -36,7 +36,7 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
 
     [TestMethod]
     public void TestToCreateDatebase() {
-      using (var context = new MachineDataContext(GetOptions()))
+      using (var context = new MachineDataContext(GetOptions(), null))
       {
         var machines = context.Machines.ToList();
         Assert.IsNotNull(machines);

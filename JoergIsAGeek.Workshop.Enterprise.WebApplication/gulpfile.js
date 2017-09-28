@@ -58,6 +58,7 @@ gulp.task('copy:js', function () {
     paths.npm + '@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
     '!/**/*.min.js' // we minify everything by ourselves
   ])
+    //.pipe(concat("vendor.js"))
     //.pipe(uglify())
     .pipe(gulp.dest(paths.assets + 'js/lib'));
 });
