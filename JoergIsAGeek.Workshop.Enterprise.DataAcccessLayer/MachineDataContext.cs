@@ -7,6 +7,7 @@ using JoergIsAGeek.Workshop.Enterprise.DomainModels;
 using JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
 {
@@ -39,7 +40,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
 
     public override int SaveChanges()
     {
-      this.SaveInterceptor(this.contextProvider.UserIdentity.Name);
+      this.SaveInterceptor(this.contextProvider?.UserIdentity?.Name);
       return base.SaveChanges();
     }
 
@@ -72,6 +73,41 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
         .Property(u => u.Email).IsUnicode(false);
       builder.Entity<ApplicationRole>()
         .Property(u => u.Id).IsUnicode(false);
+
+      builder.Entity<IdentityUser<string>>()
+        .ToTable("AspNetUsers")
+        .Property(ur => ur.Id).HasColumnType("char(32)");
+
+      builder.Entity<IdentityRole<string>>()
+        .ToTable("AspNetRoles")
+        .Property(ur => ur.Id).HasColumnType("char(32)");
+
+      builder.Entity<IdentityUserLogin<string>>()
+        .Property(ur => ur.UserId).HasColumnType("char(32)");
+
+      builder.Entity<IdentityUserRole<string>>()
+        .HasKey(r => new { UserId = r.UserId, RoleId = r.RoleId });
+
+      builder.Entity<IdentityUserRole<string>>()
+        .Property(ur => ur.RoleId).HasColumnType("char(32)");
+
+      builder.Entity<IdentityUserRole<string>>()
+        .Property(ur => ur.UserId).HasColumnType("char(32)");
+
+      builder.Entity<ApplicationUser>()
+          .HasMany(e => e.Claims)
+          .WithOne()
+          .HasForeignKey(e => e.UserId)
+          .IsRequired()
+          .OnDelete(DeleteBehavior.Cascade);
+
+      builder.Entity<ApplicationUser>()
+          .HasMany(e => e.Logins)
+          .WithOne()
+          .HasForeignKey(e => e.UserId)
+          .IsRequired()
+          .OnDelete(DeleteBehavior.Cascade);
+      
     }
 
 

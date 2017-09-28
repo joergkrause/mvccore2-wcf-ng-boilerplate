@@ -18,14 +18,16 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
       var adminRole = new ApplicationRole { Name = "Admin", Id = Guid.NewGuid().ToString("N") };
       // Add roles
       context.Roles.AddRange(new [] { guestRole, userRole, adminRole });
-      var hasher = new Microsoft.AspNetCore.Identity.PasswordHasher<ApplicationUser>();
+      var hasher = new PasswordHasher<ApplicationUser>();
       var guest = new ApplicationUser
       {
         UserName = "weirdguest",
         Id = Guid.NewGuid().ToString("N"),
-        Email = "weird@guest.com"
+        Email = "weird@guest.com",
       };
       guest.PasswordHash = hasher.HashPassword(guest, "p@ssw0rd");
+      // Assign users to roles
+
       var user = new ApplicationUser
       {
         UserName = "dorisdemo",
@@ -33,6 +35,7 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
         Email = "doris@demo.com"
       };
       user.PasswordHash = hasher.HashPassword(user, "p@ssw0rd");
+
       var admin = new ApplicationUser
       {
         UserName = "andyadmin",
@@ -40,14 +43,19 @@ namespace JoergIsAGeek.Workshop.UnitTests.DataAccessLayer {
         Email = "andy@admin.com"
       };
       admin.PasswordHash = hasher.HashPassword(admin, "p@ssw0rd");
+
       // Add users
+      context.Users.Add(guest);
       context.Users.Add(user);
       context.Users.Add(admin);
-      // Assign users to roles
+      context.SaveChanges();
+
       var guestUserRole = new IdentityUserRole<string> { UserId = guest.Id, RoleId = guestRole.Id };
+      context.UserRoles.Add(guestUserRole);
       var userUserRole = new IdentityUserRole<string> { UserId = user.Id, RoleId = userRole.Id };
+      context.UserRoles.Add(userUserRole);
       var adminUserRole = new IdentityUserRole<string> { UserId = admin.Id, RoleId = adminRole.Id };
-      //context.UserRoles.AddRange(new[] { guestUserRole, userUserRole, adminUserRole });
+      context.UserRoles.Add(adminUserRole);
       context.SaveChanges();
 
       // Demo data

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication
 {
-  public class ApplicationRole : Microsoft.AspNetCore.Identity.IdentityRole, IEntityBase<string>
+  public class ApplicationRole : IdentityRole, IEntityBase<string>
   {
     [Column(TypeName = "datetime2")]
     public DateTime CreatedAt { get; set; }
@@ -21,5 +22,6 @@ namespace JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication
 
     [StringLength(100)]
     public string ModifiedBy { get; set; }
+
   }
 }
