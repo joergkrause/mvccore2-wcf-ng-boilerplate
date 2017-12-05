@@ -92,12 +92,16 @@ gulp.task('bundle:create', function () {
     map: {
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+      '@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',
       '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
       '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      'svogv': 'npm:svogv/bundles/svogv.umd.js',
+      '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/index.js',
+      'tslib': 'npm:tslib/tslib.js', // required by common-http
       'rxjs': 'npm:rxjs'
     },
     packages: {
@@ -108,7 +112,7 @@ gulp.task('bundle:create', function () {
   //builder.reset();
   builder.loader.defaultJSExtensions = true;
   return builder
-    .buildStatic('./wwwroot/main.js', './wwwroot/main.bundle.js', {
+    .buildStatic('./wwwroot/app/main.js', './wwwroot/app/main.bundle.js', {
       sourceMaps: false,
       minify: false,
       mangle: false,
@@ -129,7 +133,7 @@ gulp.task('sass', function () {
   return gulp.src('./src/**/*.scss')
     .pipe(gulpSass({
       includePaths: [
-        './node_modules/@angular/material'
+        './node_modules/@ng-bootstrap/ng-bootstrap'
       ]
     }).on('error', gulpSass.logError))
     .pipe(cssClean())
@@ -137,7 +141,15 @@ gulp.task('sass', function () {
 });
 
 gulp.task('tidyup', function () {
-  return del(['./wwwroot/app/**'])
+  return del([
+    './wwwroot/app/components/**',
+    './wwwroot/app/configurations/**',
+    './wwwroot/app/directives/**',
+    './wwwroot/app/guards/**',
+    './wwwroot/app/pages/**',
+    './wwwroot/app/services/**',
+    './wwwroot/app/viewmodels/**'
+  ])
 });
 
 gulp.task('make:debug', function () {

@@ -3,7 +3,7 @@
 @Component({
   moduleId: module.id,
   selector: 'site-stat',
-  templateUrl: './sitestat.html'
+  templateUrl: './site-stat.component.html'
 })
 export class SiteStatComponent implements OnInit {
   @Input() bgClass: string;

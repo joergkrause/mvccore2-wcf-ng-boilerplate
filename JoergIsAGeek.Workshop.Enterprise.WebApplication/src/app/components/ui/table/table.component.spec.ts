@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { PageHeaderModule } from './../../shared';
-import { TablesComponent } from './tables.component';
+import { TableComponent } from './tables.component';
 
-describe('TablesComponent', () => {
-  let component: TablesComponent;
+describe('TableComponent', () => {
+  let component: TableComponent;
   let fixture: ComponentFixture<TablesComponent>;
 
   beforeEach(async(() => {
@@ -14,13 +14,13 @@ describe('TablesComponent', () => {
       RouterTestingModule,
       PageHeaderModule,
     ],
-      declarations: [ TablesComponent ]
+      declarations: [ TableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TablesComponent);
+    fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

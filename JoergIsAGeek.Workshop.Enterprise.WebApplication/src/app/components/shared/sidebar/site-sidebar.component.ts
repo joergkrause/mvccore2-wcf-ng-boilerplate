@@ -12,8 +12,8 @@ class NavItem {
 @Component({
   moduleId: module.id,
   selector: 'site-sidebar',
-  templateUrl: './sidebar.html',
-  styleUrls: ['./sidebar.css']
+  templateUrl: './site-sidebar.component.html',
+  styleUrls: ['./site-sidebar.component.scss']
 })
 export class SiteSidebarComponent implements OnInit {
 

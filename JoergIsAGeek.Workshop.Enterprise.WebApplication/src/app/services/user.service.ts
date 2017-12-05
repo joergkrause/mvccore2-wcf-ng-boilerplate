@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { IUserRegistrationViewModel } from '../viewmodels/index';
+import { UserRegistrationViewModel } from '../viewmodels/index';
 import { ConfigService } from './config.service';
 
 import { BaseService } from "./base.service";
@@ -33,7 +33,7 @@ export class UserService extends BaseService {
     this.baseUrl = configService.apiURI;
   }
 
-  public register(email: string, password: string, firstName: string, lastName: string, location: string): Promise<IUserRegistrationViewModel> {
+  public register(email: string, password: string, firstName: string, lastName: string, location: string): Promise<UserRegistrationViewModel> {
     let body = JSON.stringify({ email, password, firstName, lastName, location });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

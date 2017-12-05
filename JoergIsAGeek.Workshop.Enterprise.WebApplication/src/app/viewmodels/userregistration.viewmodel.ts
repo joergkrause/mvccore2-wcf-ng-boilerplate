@@ -1,4 +1,4 @@
-export interface IUserRegistrationViewModel {
+export interface UserRegistrationViewModel {
     email: string;  
     password: string;
     firstName: string;

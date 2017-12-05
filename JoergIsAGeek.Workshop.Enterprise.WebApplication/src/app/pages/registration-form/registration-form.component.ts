@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserRegistration } from '../../viewmodels/userregistration';
-import { UserService } from '../../services/userservice';
+import { UserRegistrationViewModel } from '../../viewmodels/userregistration.viewmodel';
+import { UserService } from '../../services/user.service';
 
 @Component({
   moduleId: module.id,
@@ -23,7 +23,7 @@ export class PageRegistrationComponent implements OnInit {
           
   }
 
-  registerUser({ value, valid }: { value: UserRegistration, valid: boolean }) {
+  registerUser({ value, valid }: { value: UserRegistrationViewModel, valid: boolean }) {
      this.submitted = true;
      this.isRequesting = true;
      this.errors='';
@@ -33,7 +33,7 @@ export class PageRegistrationComponent implements OnInit {
                    .then(() => this.isRequesting = false)
                    .then(
                      result  => {if(result){
-                         this.router.navigate(['/login'],{queryParams: {brandNew: true,email:value.email}});                         
+                         this.router.navigate(['/login'],{queryParams: {brandNew: true,email:value.email}});   
                      }},
                      errors =>  this.errors = errors);
      }      

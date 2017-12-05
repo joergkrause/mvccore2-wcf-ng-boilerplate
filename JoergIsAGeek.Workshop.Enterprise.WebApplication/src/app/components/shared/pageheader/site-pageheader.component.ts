@@ -3,8 +3,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'site-pageheader',
-  templateUrl: './sitepageheader.html',
-  styleUrls: ['./sitepageheader.css']
+  templateUrl: './site-pageheader.component.html',
+  styleUrls: ['./site-pageheader.component.scss']
 })
 export class SitePageHeaderComponent {
   @Input() heading: string;
