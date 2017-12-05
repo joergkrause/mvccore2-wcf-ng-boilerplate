@@ -12,7 +12,7 @@ import * as Svogv from 'svogv';
 
 // components
 import * as pages from './pages/index';
-import * as directives from './directives/removehost';
+import * as directives from './directives/index';
 import * as components from './components/index';
 // bootstrap 
 import * as Ng from '@ng-bootstrap/ng-bootstrap';
@@ -20,22 +20,19 @@ import * as Ng from '@ng-bootstrap/ng-bootstrap';
 import * as services from './services/index';
 // routers and guards
 import currentRoutesConfig from './configurations/routes';
-import { AuthGuard } from './guards/authguard';
+import { AuthGuard } from './guards/index';
 
 @NgModule({
   declarations: [
-    pages.SiteRoot,
-    pages.PageDashboard,
-    pages.PageDesigner,
-    pages.PageViewer,
-    pages.PageDatamanager,
-    pages.PageOptions,   
-    pages.PageRegistration,
-    pages.PageLogin,
-    components.SiteHeader,       
-    components.SiteSidebar,       
-    components.SitePageHeader,
-    components.SiteStat,
+    pages.SiteRootComponent,
+    pages.PageDashboardComponent,
+    pages.PageOptionsComponent,   
+    pages.PageRegistrationComponent,
+    pages.PageLoginComponent,
+    components.SiteHeaderComponent,       
+    components.SiteSidebarComponent,       
+    components.SitePageHeaderComponent,
+    components.SiteStatComponent,
     components.ModalComponent,        
     components.PaginationComponent,        
     components.PopOverComponent,        
@@ -48,13 +45,13 @@ import { AuthGuard } from './guards/authguard';
     components.TabsComponent,
     components.TimepickerComponent,
     components.TooltipComponent,
-    components.AppChart,
+    components.SiteChartComponent,
     Svogv.AcDataGridPagination, 
     Svogv.AcAutoForm, 
     Svogv.AcAnalogClock, 
     Svogv.AcEditor, 
     Svogv.AcInfoBox,
-    directives.RemoveHost,
+    directives.RemoveHostDirective,
     Ng.NgbAccordion, 
     Ng.NgbAlert, 
     Ng.NgbCarousel, 
@@ -91,7 +88,7 @@ import { AuthGuard } from './guards/authguard';
     RouterModule.forRoot(currentRoutesConfig),
     NgbDropdownModule.forRoot()
   ],
-  bootstrap: [pages.SiteRoot]
+  bootstrap: [pages.SiteRootComponent]
 }) // {} == new object()
 class AppRoot {
 

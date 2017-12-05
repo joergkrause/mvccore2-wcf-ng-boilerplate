@@ -1,3 +1,2 @@
 ﻿export * from './shared/index';
-export * from './controls/index';
-export * from './charts/appchart';
+export * from './ui/index';

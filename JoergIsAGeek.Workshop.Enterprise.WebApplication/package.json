@@ -4,11 +4,12 @@
   "description": "This is a demoapp",
   "main": "index.js",
   "scripts": {
-    "debug": "tsc && gulp copy && gulp debug",
-    "build": "tsc && gulp copy",
+    "debug": "tsc && gulp debug",
+    "build": "tsc && gulp default",
     "start": "http-server ./dist -p 3000 -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/joergkrause/mvccore2ng-boilerplate",
   "author": "Joerg Krause - www.joergkrauee.de",
   "license": "ISC",
   "dependencies": {
@@ -45,6 +46,7 @@
     "gulp-typescript": "^3.0.2",
     "gulp-uglify": "^2.0.0",
     "gulp-uglifycss": "^1.0.6",
+    "gulp-zip": "^4.0.0",
     "http-server": "^0.10.0",
     "node-sass": "^4.5.3",
     "systemjs-builder": "^0.16.4",

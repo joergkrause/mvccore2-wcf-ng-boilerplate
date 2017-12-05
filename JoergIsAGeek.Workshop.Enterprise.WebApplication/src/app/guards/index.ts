@@ -1,2 +1,2 @@
-﻿export * from './authgard';
-export * from './storageguard';
+﻿export * from './auth.guard';
+export * from './storage.guard';

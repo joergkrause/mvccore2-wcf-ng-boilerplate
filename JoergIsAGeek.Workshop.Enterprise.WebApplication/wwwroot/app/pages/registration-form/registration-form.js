@@ -42,9 +42,10 @@ var PageRegistration = (function () {
             selector: 'site-registration',
             templateUrl: './registration-form.html'
         }),
-        __metadata("design:paramtypes", [userservice_1.UserService, router_1.Router])
+        __metadata("design:paramtypes", [typeof (_a = typeof userservice_1.UserService !== "undefined" && userservice_1.UserService) === "function" && _a || Object, router_1.Router])
     ], PageRegistration);
     return PageRegistration;
+    var _a;
 }());
 exports.PageRegistration = PageRegistration;
 //# sourceMappingURL=registration-form.js.map

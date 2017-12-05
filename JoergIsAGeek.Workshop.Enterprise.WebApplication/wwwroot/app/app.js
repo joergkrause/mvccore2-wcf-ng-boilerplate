@@ -19,7 +19,7 @@ var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var Svogv = require("svogv");
 // components
 var pages = require("./pages/index");
-var directives = require("./directives/removehost");
+var directives = require("./directives/index");
 var components = require("./components/index");
 // bootstrap 
 var Ng = require("@ng-bootstrap/ng-bootstrap");
@@ -27,25 +27,22 @@ var Ng = require("@ng-bootstrap/ng-bootstrap");
 var services = require("./services/index");
 // routers and guards
 var routes_1 = require("./configurations/routes");
-var authguard_1 = require("./guards/authguard");
+var index_1 = require("./guards/index");
 var AppRoot = (function () {
     function AppRoot() {
     }
     AppRoot = __decorate([
         core_1.NgModule({
             declarations: [
-                pages.SiteRoot,
-                pages.PageDashboard,
-                pages.PageDesigner,
-                pages.PageViewer,
-                pages.PageDatamanager,
-                pages.PageOptions,
-                pages.PageRegistration,
-                pages.PageLogin,
-                components.SiteHeader,
-                components.SiteSidebar,
-                components.SitePageHeader,
-                components.SiteStat,
+                pages.SiteRootComponent,
+                pages.PageDashboardComponent,
+                pages.PageOptionsComponent,
+                pages.PageRegistrationComponent,
+                pages.PageLoginComponent,
+                components.SiteHeaderComponent,
+                components.SiteSidebarComponent,
+                components.SitePageHeaderComponent,
+                components.SiteStatComponent,
                 components.ModalComponent,
                 components.PaginationComponent,
                 components.PopOverComponent,
@@ -58,13 +55,13 @@ var AppRoot = (function () {
                 components.TabsComponent,
                 components.TimepickerComponent,
                 components.TooltipComponent,
-                components.AppChart,
+                components.SiteChartComponent,
                 Svogv.AcDataGridPagination,
                 Svogv.AcAutoForm,
                 Svogv.AcAnalogClock,
                 Svogv.AcEditor,
                 Svogv.AcInfoBox,
-                directives.RemoveHost,
+                directives.RemoveHostDirective,
                 Ng.NgbAccordion,
                 Ng.NgbAlert,
                 Ng.NgbCarousel,
@@ -91,7 +88,7 @@ var AppRoot = (function () {
                 Svogv.FormValidatorService,
                 Ng.NgbCarouselConfig,
                 Ng.NgbAlertConfig,
-                authguard_1.AuthGuard
+                index_1.AuthGuard
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -101,7 +98,7 @@ var AppRoot = (function () {
                 router_1.RouterModule.forRoot(routes_1.default),
                 ng_bootstrap_1.NgbDropdownModule.forRoot()
             ],
-            bootstrap: [pages.SiteRoot]
+            bootstrap: [pages.SiteRootComponent]
         }) // {} == new object()
     ], AppRoot);
     return AppRoot;

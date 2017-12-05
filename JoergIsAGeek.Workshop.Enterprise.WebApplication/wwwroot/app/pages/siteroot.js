@@ -14,7 +14,7 @@ var SiteRoot = (function () {
         core_1.Component({
             selector: 'site-root',
             template: "\n            <site-header></site-header>\n            <site-sidebar></site-sidebar>\n            <section class=\"main-container\">\n                <router-outlet></router-outlet>\n            </section>\n            ",
-            styles: ["\n            .main-container{\n                margin-top: 60px;\n                margin-left: 235px;\n                padding: 15px;\n                -ms-overflow-x: hidden;\n                overflow-x: hidden;\n                overflow-y: scroll;\n                position: relative;\n                overflow: hidden;\n\n            }",
+            styles: ["\n            .main-container {\n                margin-top: 60px;\n                margin-left: 235px;\n                padding: 15px;\n                -ms-overflow-x: hidden;\n                overflow-x: hidden;\n                overflow-y: scroll;\n                position: relative;\n                overflow: hidden;\n\n            }",
                 "\n            @media screen and (max-width: 992px) {\n                .main-container {\n                    margin-left: 0px !important;\n                }\n            }"
             ]
         })
