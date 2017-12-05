@@ -36,3 +36,35 @@ Make the App Server scalable independently of the Web Front End.
 * NgBootstrap
 * Svogv
 
+## Setup
+
+Make a local clone of the repo. You need a local installation of .NET 4.7 and NodeJS 6 or newer.
+
+Build the project. This will restore the dependencies.
+
+Execute the unit test to create a local database and setup EntityFramework.
+
+The client app makes use of Gulp to build the frontend. Install gulp:
+
+~~~
+npm i gulp -g
+~~~
+
+Then build the project *JoergIsAGeek.Workshop.Enterprise.WebApplication* again. This will execute the default task of Gulp.
+
+Point a webserver to *wwwroot* or start the integrated one. Install the http-server first:
+
+~~~
+npm i http-server -g
+~~~
+
+Start you project:
+
+~~~
+npm start
+~~~
+
+
+
+
+
