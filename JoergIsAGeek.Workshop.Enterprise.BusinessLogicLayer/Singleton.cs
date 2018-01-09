@@ -1,4 +1,7 @@
-﻿namespace IZumtobelWorkshop.Enterprise.BusinessLogicLayer {
+﻿namespace JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer {
+
+
+  // Not in use, we make it a Singleton by using the DI container
   public class Singleton {
 
     static readonly volatile Manager instance;
