@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JoergIsAGeek.Workshop.Enterprise.TestConsole {
   class Program {
     static void Main(string[] args) {
-      TestInitialize();
+      //TestInitialize();
       TestToCreateDatebase();
       Console.ReadLine();
     }

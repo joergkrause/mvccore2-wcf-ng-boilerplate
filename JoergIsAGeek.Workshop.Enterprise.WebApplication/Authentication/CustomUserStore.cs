@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
-using ServiceReference4;
+using AuthServiceReference;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
