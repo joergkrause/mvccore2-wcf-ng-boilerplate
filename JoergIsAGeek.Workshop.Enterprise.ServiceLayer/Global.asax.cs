@@ -36,14 +36,13 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       // Per request to assure context per user
       builder.RegisterType<MachineDataContext>().InstancePerRequest();
       // as usually
-      builder.RegisterType<GenericDbRepository<Machine, int>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<Device, int>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<DataValue, int>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<ApplicationUser, string>>().AsImplementedInterfaces();
-      builder.RegisterType<GenericDbRepository<ApplicationRole, string>>().AsImplementedInterfaces();
-      // the business logic is non deterministic hence singleton is fine
-      builder.RegisterType<MachineManager>().As<IMachineManager>().SingleInstance().PropertiesAutowired();
-      builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().SingleInstance().PropertiesAutowired();
+      builder.RegisterType<GenericDbRepository<Machine, int>>().AsImplementedInterfaces().InstancePerRequest();
+      builder.RegisterType<GenericDbRepository<Device, int>>().AsImplementedInterfaces().InstancePerRequest();
+      builder.RegisterType<GenericDbRepository<DataValue, int>>().AsImplementedInterfaces().InstancePerRequest();
+      builder.RegisterType<GenericDbRepository<ApplicationUser, string>>().AsImplementedInterfaces().InstancePerRequest();
+      builder.RegisterType<GenericDbRepository<ApplicationRole, string>>().AsImplementedInterfaces().InstancePerRequest();
+      builder.RegisterType<MachineManager>().As<IMachineManager>().InstancePerRequest().PropertiesAutowired();
+      builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().InstancePerRequest().PropertiesAutowired();
 
       var container = builder.Build();
       AutofacHostFactory.Container = container;
