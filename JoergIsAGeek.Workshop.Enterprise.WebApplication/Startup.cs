@@ -105,7 +105,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       {
         app.UseDeveloperExceptionPage();
       }
-
+      app.UseAuthentication();  // [Authorize]
       app.UseExceptionHandler(
       builder =>
       {

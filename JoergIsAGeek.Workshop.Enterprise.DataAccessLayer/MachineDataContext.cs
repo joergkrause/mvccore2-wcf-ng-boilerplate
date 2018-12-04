@@ -8,6 +8,7 @@ using JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using JoergIsAGeek.Workshop.Enterprise.DataAccessLayer.Configs;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
 {
@@ -31,6 +32,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
     {
       base.OnConfiguring(optionsBuilder);
     }
+
 
     public DbSet<Machine> Machines { get; set; }
 
@@ -67,8 +69,13 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
     protected override void OnModelCreating(ModelBuilder builder)
     {
       base.OnModelCreating(builder);
+
+
+      builder.ApplyConfiguration<ApplicationUser>(new UserConfig());
+      
+
       builder.Entity<ApplicationUser>()
-        .Property(u => u.Id).IsUnicode(false);
+        .Property(u => u.Id).IsUnicode(false); // NVARCHAR --> VARCHAR
       builder.Entity<ApplicationUser>()
         .Property(u => u.Email).IsUnicode(false);
       builder.Entity<ApplicationRole>()

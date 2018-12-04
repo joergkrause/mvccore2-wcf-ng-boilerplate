@@ -13,5 +13,9 @@ namespace JoergIsAGeek.Workshop.Enterprise.DomainModels {
 
     public ICollection<DataValue> DataValues { get; set; } = new HashSet<DataValue>();
 
+    public Properties Bag { get; set; }
+
   }
+
+
 }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers {
 
-  [Authorize(Policy = "ApiUser")]
+  [Authorize(Policy = "ApiUser", Roles = "Admin,User")]
   [Route("api/[controller]")]
   public class MachinesController : Controller {
 
@@ -20,8 +20,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers {
 
     // GET api/machines
     [HttpGet]
-    public async Task<IEnumerable<MachineDto>> Get() {
-      return await client.GetAllMachinesAsync();
+    public async Task<IEnumerable<MachineDto>> Get() {      
+      return await client.GetAllMachinesAsync(); // 200 OK -- 204 NoContent
     }
 
     // GET api/machines/5
@@ -33,11 +33,12 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication.Controllers {
     // POST api/values
     [HttpPost]
     public void Post([FromBody]string value) {
+      
     }
 
     // PUT api/values/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody]string value) {
+    public void Put(int id, [FromBody]MachineDto value) {
     }
 
     // DELETE api/values/5

@@ -219,6 +219,7 @@
     <Compile Include="IAuditableEntityBase.cs" />
     <Compile Include="IEntityBase.cs" />
     <Compile Include="Machine.cs" />
+    <Compile Include="Properties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

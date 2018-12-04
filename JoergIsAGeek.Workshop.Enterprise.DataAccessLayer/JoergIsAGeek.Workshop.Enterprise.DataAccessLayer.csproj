@@ -179,6 +179,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configs\UserConfig.cs" />
     <Compile Include="FileDataContext.cs" />
     <Compile Include="IUserContextProvider.cs" />
     <Compile Include="MachineDataContext.cs" />

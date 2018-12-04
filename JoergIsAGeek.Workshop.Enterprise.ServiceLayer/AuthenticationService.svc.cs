@@ -11,11 +11,13 @@ using JoergIsAGeek.Workshop.Enterprise.DataTransferObjects;
 using JoergIsAGeek.Workshop.Enterprise.BusinessLogicLayer.Authentication;
 using JoergIsAGeek.Workshop.Enterprise.DataTransferObjects.Authentication;
 using System.Threading.Tasks;
+using System.Security.Permissions;
 
 namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
 {
 
   [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+  //[Permission]
   public class AuthenticationService : IAuthenticationService
   {
 
