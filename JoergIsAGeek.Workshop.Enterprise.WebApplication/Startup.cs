@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication;
+using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication.Extensions;
+using JoergIsAGeek.Workshop.Enterprise.WebApplication.Helpers;
+using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
+using MachineServiceReference;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MachineServiceReference;
-using Microsoft.AspNetCore.Identity;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.ViewModels.Authentication;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Text;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.Helpers;
+using AuthServiceReference;
+using System;
 using System.Net;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using JoergIsAGeek.Workshop.Enterprise.WebApplication.Authentication.Extensions;
-using Microsoft.AspNetCore.Authorization;
-using AutoMapper;
-using ServiceReference4;
+using System.Text;
 
 namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
 {
@@ -98,7 +95,9 @@ namespace JoergIsAGeek.Workshop.Enterprise.WebApplication
       services.AddSingleton(typeof(MachineSrvClient), new MachineSrvClient());
       services.AddSingleton(typeof(AuthSrvClient), new AuthSrvClient());
       // support for object mappings
+#pragma warning disable CS0618 // Type or member is obsolete
       services.AddAutoMapper();
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

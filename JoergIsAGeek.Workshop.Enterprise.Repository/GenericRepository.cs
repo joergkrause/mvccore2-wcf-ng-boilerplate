@@ -29,7 +29,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
       return Context.Set<T>().Find(id); //.Single(u => u.Id == id);
     }
 
-    public IEnumerable<T> Read(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] paths) {
+    public IEnumerable<T> Read(Expression<Func<T, bool>> predicate, 
+      params Expression<Func<T, object>>[] paths) {
       if (Count() > 10000) {
         throw new ArgumentOutOfRangeException("to many results");
       }

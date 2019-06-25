@@ -19,6 +19,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.TestConsole {
     static void TestInitialize()
     {
       var init = new DatabaseInitializer();
+      var i = 22;
+      var n = "22";
       IUserContextProvider contextProvider = null;
       using (var context = new MachineDataContext(GetOptions(), contextProvider))
       {

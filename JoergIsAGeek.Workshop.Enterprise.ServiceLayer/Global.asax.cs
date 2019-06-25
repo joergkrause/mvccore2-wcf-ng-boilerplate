@@ -23,6 +23,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
 
     protected void Application_Start(object sender, EventArgs e)
     {
+      var cfg = WebConfigurationManager.ConnectionStrings[nameof(MachineDataContext)].ConnectionString;
       var builder = new ContainerBuilder();
       // User manager that puts through the identity conveniently
       builder.RegisterType<UserContextProvider>().AsImplementedInterfaces();
@@ -31,7 +32,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       builder.RegisterType<AuthenticationService>();
       // The configuration bridge between WCF and EF Core
       var optionBuilder = new DbContextOptionsBuilder();
-      optionBuilder.UseSqlServer(@"Data Source=(localdb)\JoergIsAGeek;Initial Catalog=MachineDataDatabase;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30");
+      optionBuilder.UseSqlServer(cfg);
       builder.RegisterInstance(optionBuilder.Options).As<DbContextOptions<DbContext>>();
       // Per request to assure context per user
       builder.RegisterType<MachineDataContext>().InstancePerRequest();
@@ -45,7 +46,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       builder.RegisterType<MachineManager>().As<IMachineManager>().SingleInstance().PropertiesAutowired();
       builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().SingleInstance().PropertiesAutowired();
 
-      var container = builder.Build();
+      var container = builder.Build();      
       AutofacHostFactory.Container = container;
     }
 
