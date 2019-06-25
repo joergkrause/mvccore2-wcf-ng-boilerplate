@@ -35,7 +35,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       optionBuilder.UseSqlServer(cfg);
       builder.RegisterInstance(optionBuilder.Options).As<DbContextOptions<DbContext>>();
       // Per request to assure context per user
-      builder.RegisterType<MachineDataContext>().InstancePerRequest();
+      builder.RegisterType<MachineDataContext>().InstancePerLifetimeScope();
       // as usually
       builder.RegisterType<GenericDbRepository<Machine, int>>().AsImplementedInterfaces();
       builder.RegisterType<GenericDbRepository<Device, int>>().AsImplementedInterfaces();
@@ -43,8 +43,8 @@ namespace JoergIsAGeek.Workshop.Enterprise.ServiceLayer
       builder.RegisterType<GenericDbRepository<ApplicationUser, string>>().AsImplementedInterfaces();
       builder.RegisterType<GenericDbRepository<ApplicationRole, string>>().AsImplementedInterfaces();
       // the business logic is non deterministic hence singleton is fine
-      builder.RegisterType<MachineManager>().As<IMachineManager>().SingleInstance().PropertiesAutowired();
-      builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().SingleInstance().PropertiesAutowired();
+      builder.RegisterType<MachineManager>().As<IMachineManager>().InstancePerLifetimeScope().PropertiesAutowired();
+      builder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().InstancePerLifetimeScope().PropertiesAutowired();
 
       var container = builder.Build();      
       AutofacHostFactory.Container = container;

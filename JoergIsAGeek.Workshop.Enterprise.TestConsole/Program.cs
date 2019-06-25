@@ -19,8 +19,6 @@ namespace JoergIsAGeek.Workshop.Enterprise.TestConsole {
     static void TestInitialize()
     {
       var init = new DatabaseInitializer();
-      var i = 22;
-      var n = "22";
       IUserContextProvider contextProvider = null;
       using (var context = new MachineDataContext(GetOptions(), contextProvider))
       {
@@ -46,7 +44,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.TestConsole {
 
     private static string GetCs()
     {
-      var cs = @"Data Source=(localdb)\JoergIsAGeek;Initial Catalog=MachineDataDatabase;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30";
+      var cs = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=MachineDataDatabase;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30";
       return cs;
     }
 

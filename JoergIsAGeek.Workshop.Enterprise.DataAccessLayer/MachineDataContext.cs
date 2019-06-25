@@ -67,26 +67,43 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
     protected override void OnModelCreating(ModelBuilder builder)
     {
       base.OnModelCreating(builder);
+
+      builder.Entity<IdentityUser>().ToTable("Users", "identity").Property(p => p.Id).HasColumnName("UserId");
+      builder.Entity<ApplicationUser>().ToTable("Users", "identity").Property(p => p.Id).HasColumnName("UserId");
+      builder.Entity<IdentityUserRole<string>>().ToTable("Users_x_Roles", "identity");
+      builder.Entity<IdentityUserLogin<string>>().ToTable("User_Logins", "identity");
+      builder.Entity<IdentityUserClaim<string>>().ToTable("User_Claims", "identity");
+      builder.Entity<IdentityRole>().ToTable("Roles", "identity");
+      builder.Entity<ApplicationRole>().ToTable("Roles", "identity");
+      builder.Entity<IdentityUserToken<string>>().ToTable("User_Token", "identity");
+      builder.Entity<IdentityRoleClaim<string>>().ToTable("Roles_x_Claims", "identity");
+
       builder.Entity<ApplicationUser>()
         .Property(u => u.Id).IsUnicode(false);
+
       builder.Entity<ApplicationUser>()
         .Property(u => u.Email).IsUnicode(false);
+
       builder.Entity<ApplicationRole>()
         .Property(u => u.Id).IsUnicode(false);
 
       builder.Entity<IdentityUser<string>>()
-        .ToTable("AspNetUsers")
         .Property(ur => ur.Id).HasColumnType("char(32)");
 
       builder.Entity<IdentityRole<string>>()
-        .ToTable("AspNetRoles")
         .Property(ur => ur.Id).HasColumnType("char(32)");
 
       builder.Entity<IdentityUserLogin<string>>()
         .Property(ur => ur.UserId).HasColumnType("char(32)");
 
       builder.Entity<IdentityUserRole<string>>()
-        .HasKey(r => new { UserId = r.UserId, RoleId = r.RoleId });
+        .HasKey(r => new { r.UserId, r.RoleId });
+
+      builder.Entity<IdentityUserClaim<string>>()
+        .HasKey(r => r.Id);
+
+      builder.Entity<IdentityRoleClaim<string>>()
+        .HasKey(r => r.Id);
 
       builder.Entity<IdentityUserRole<string>>()
         .Property(ur => ur.RoleId).HasColumnType("char(32)");
@@ -99,7 +116,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
           .WithOne()
           .HasForeignKey(e => e.UserId)
           .IsRequired()
-          .OnDelete(DeleteBehavior.Cascade);
+          .OnDelete(DeleteBehavior.Restrict);
 
       builder.Entity<ApplicationUser>()
           .HasMany(e => e.Logins)

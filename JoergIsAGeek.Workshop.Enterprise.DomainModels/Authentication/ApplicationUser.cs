@@ -26,12 +26,12 @@ namespace JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication
     /// <summary>
     /// Navigation property for the claims this user possesses.
     /// </summary>
-    public virtual ICollection<IdentityUserClaim<string>> Claims { get; } = new HashSet<IdentityUserClaim<string>>();
+    public ICollection<IdentityUserClaim<string>> Claims { get; } = new HashSet<IdentityUserClaim<string>>();
 
     /// <summary>
     /// Navigation property for this users login accounts.
     /// </summary>
-    public virtual ICollection<IdentityUserLogin<string>> Logins { get; } = new HashSet<IdentityUserLogin<string>>();
+    public ICollection<IdentityUserLogin<string>> Logins { get; } = new HashSet<IdentityUserLogin<string>>();
 
 
   }
