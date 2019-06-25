@@ -41,7 +41,9 @@ namespace JoergIsAGeek.Workshop.UnitTest.BusinessLayer {
       var mock = new Mock<IGenericRepository<Machine, int>>();
       mock.Setup(r => r.Read(m => true))
           .Returns(machines.Where(m => !m.Devices.Any()));
-      mock.Setup(r => r.Query(m => true, m => m.Devices, m => m.Devices.Select(d => d.DataValues)))
+      mock.Setup(r => r.Query(m => true, 
+        m => m.Devices, 
+        m => m.Devices.Select(d => d.DataValues)))
           .Returns(machines.Where(m => m.Devices.Any()).AsQueryable());
       var testValue = 1;
       mock.Setup(r => r.Find(testValue)).Returns(machines.Single(m => m.Id == testValue));

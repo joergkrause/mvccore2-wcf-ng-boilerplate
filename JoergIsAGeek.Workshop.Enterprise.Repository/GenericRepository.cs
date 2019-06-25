@@ -29,7 +29,12 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
       return Context.Set<T>().Find(id); //.Single(u => u.Id == id);
     }
 
+<<<<<<< HEAD
     public IEnumerable<T> Read(Expression<Func<T, bool>> predicate, 
+=======
+    public IEnumerable<T> Read(
+      Expression<Func<T, bool>> predicate, 
+>>>>>>> 2a1a27b5e5d2e80cdc3cb4bc58c16bb62c22512b
       params Expression<Func<T, object>>[] paths) {
       if (Count() > 10000) {
         throw new ArgumentOutOfRangeException("to many results");
@@ -38,10 +43,11 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
       foreach (var path in paths) {
         model = model.Include(path); // 
       }
-      return model.Where(predicate).ToList();
+      return model.Where(predicate).AsNoTracking().ToList();
     }
 
-    public IQueryable<T> Query(Expression<Func<T, bool>> predicate, 
+    public IQueryable<T> Query(
+      Expression<Func<T, bool>> predicate, 
       params Expression<Func<T, object>>[] paths) {
       if (Count() > 10000) {
         throw new ArgumentOutOfRangeException("to many results");
@@ -50,11 +56,11 @@ namespace JoergIsAGeek.Workshop.Enterprise.Repository {
       foreach (var path in paths) {
         model = model.Include(path);
       }
-      return model.Where(predicate);
+      return model.Where(predicate).AsNoTracking();
     }
 
     public int Count() {
-      return Context.Set<T>().Count();
+      return Context.Set<T>().Count(); // SELECT COUNT(*) FROM TABLE
     }
 
     public bool InsertOrUpdate(T model) {

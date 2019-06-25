@@ -8,6 +8,7 @@ using JoergIsAGeek.Workshop.Enterprise.DomainModels.Authentication;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using JoergIsAGeek.Workshop.Enterprise.DataAccessLayer.Configs;
 
 namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
 {
@@ -31,6 +32,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
     {
       base.OnConfiguring(optionsBuilder);
     }
+
 
     public DbSet<Machine> Machines { get; set; }
 
@@ -68,6 +70,7 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
     {
       base.OnModelCreating(builder);
 
+<<<<<<< HEAD
       builder.Entity<IdentityUser>().ToTable("Users", "identity").Property(p => p.Id).HasColumnName("UserId");
       builder.Entity<ApplicationUser>().ToTable("Users", "identity").Property(p => p.Id).HasColumnName("UserId");
       builder.Entity<IdentityUserRole<string>>().ToTable("Users_x_Roles", "identity");
@@ -81,6 +84,14 @@ namespace JoergIsAGeek.Workshop.Enterprise.DataAccessLayer
       builder.Entity<ApplicationUser>()
         .Property(u => u.Id).IsUnicode(false);
 
+=======
+
+      builder.ApplyConfiguration<ApplicationUser>(new UserConfig());
+      
+
+      builder.Entity<ApplicationUser>()
+        .Property(u => u.Id).IsUnicode(false); // NVARCHAR --> VARCHAR
+>>>>>>> 2a1a27b5e5d2e80cdc3cb4bc58c16bb62c22512b
       builder.Entity<ApplicationUser>()
         .Property(u => u.Email).IsUnicode(false);
 
